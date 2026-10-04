@@ -2,34 +2,44 @@ from helpers import *
 import csv
 import os
 REPLACEMENTS = {
-    "PHYSHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
-    "MENTHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
+    "GENHLTH": {7: -1, 8: -1, 9: -1, np.nan: -1},
+    "PHYSHLTH": {88: 0, 77: "median", 99: "median", np.nan: "median"},
+    "MENTHLTH": {88: 0, 77: "median", 99: "median", np.nan: "median"},
+    "POORHLTH": {88: 0, 77: "median", 99: "median", np.nan: "median"},
+    "BPHIGH4": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "BPMEDS": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "TOLDHI2": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "CVDSTRK3": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "CHCSCNCR": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "CHCCOPD1": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "HAVARTH3": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "CHCKIDNY": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "DIABETE3": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "INCOME2": {77: "median", 88: "median", 99: "median", np.nan: "median"},
+    "EXEROFT1": {777: "median", 888: "median", 999: "median", np.nan: "median"},
+    "_ASTHMS1": {9: -1},
+    "_RACE": {9: -1},
+    "_BMI5": {np.nan: "median"},
+    "_SMOKER3": {9: -1},
+    "_DRNKWEK": {99900: -1},
+    "_FRUTSUM": {np.nan: "median"},
+    "_VEGESUM": {np.nan: "median"},
+    "_AGEG5YR": {14: "median"},
+    "DIFFDRES": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "DIFFALON": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "DIFFWALK": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "EXERANY2": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "RDUCHART": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "RDUCSTRK": {7: 0, 8: 0, 9: 0, np.nan: 0},
+    "FLUSHOT6": {7: 0, 8: 0, 9: 0, np.nan: 0},
 }
 
 LIST_KEEP = [
-    # General health
-    "GENHLTH", "PHYSHLTH", "MENTHLTH", "POORHLTH",
-    # Health care access
-    "HLTHPLN1", "PERSDOC2", "MEDCOST", "CHECKUP1",
-    # Classic cardiac risk factors
-    "_RFHYPE5", "BPMEDS", "_CHOLCHK", "_RFCHOL", "DIABETE3",
-    # Other chronic conditions
-    "CVDSTRK3", "_ASTHMS1", "CHCSCNCR", "CHCOCNCR", "CHCCOPD1",
-    "_DRDXAR1", "ADDEPEV2", "CHCKIDNY",
-    # Demographics
-    "SEX", "_AGE80", "MARITAL", "_EDUCAG", "_INCOMG", "RENTHOM1",
-    "VETERAN3", "EMPLOY1", "_CHLDCNT", "INTERNET",
-    # Body mass
-    "_BMI5",
-    # Functional limitations
-    "QLACTLM2", "USEEQUIP", "BLIND", "DECIDE",
-    "DIFFWALK", "DIFFDRES", "DIFFALON",
-    # Lifestyle
-    "_SMOKER3", "USENOW3", "_DRNKWEK", "_RFBING5",
-    "_FRUTSUM", "_VEGESUM",
-    "_TOTINDA", "PA1MIN_", "_PACAT1", "_PASTRNG",
-    # Prevention
-    "FLUSHOT6", "PNEUVAC3", "HIVTST6", "_RFSEAT2",
+    "GENHLTH", "PHYSHLTH", "MENTHLTH", "POORHLTH", "BPHIGH4", "BPMEDS",
+    "TOLDHI2", "CVDSTRK3", "CHCSCNCR", "CHCCOPD1", "HAVARTH3", "CHCKIDNY",
+    "DIABETE3", "SEX", "INCOME2", "EXEROFT1", "_ASTHMS1", "_RACE", "_BMI5",
+    "_SMOKER3", "_DRNKWEK", "_FRUTSUM", "_VEGESUM", "_AGEG5YR", "DIFFDRES",
+    "DIFFALON", "DIFFWALK", "EXERANY2", "RDUCHART", "RDUCSTRK", "FLUSHOT6",
 ]
 
 def get_delete_indices(csv_path, keep_list):
@@ -90,9 +100,10 @@ def replace_values(data, header, replacements, reference_data=None):
             else:
                 mask = col == old
                 reference_mask = reference_col == old
-            if new == "median":
+            if new in ("mean", "median"):
+                statistic = np.nanmean if new == "mean" else np.nanmedian
                 new = (np.nan if np.isnan(reference_col).all()
-                       else np.nanmedian(reference_col))
+                       else statistic(reference_col))
             col[mask] = new
             reference_col[reference_mask] = new
     return data
