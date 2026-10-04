@@ -92,6 +92,24 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
     return x_train, x_test, y_train_raw, test_ids, feature_names
 
 
+def split_training_validation(x, y, fraction, seed):
+    """Split reproducibly, retaining each class in both sets (rounded per class)."""
+    if not 0 < fraction < 1:
+        raise ValueError("validation_fraction must be between 0 and 1")
+    rng = np.random.default_rng(seed)
+    training_indices, validation_indices = [], []
+    for label in np.unique(y):
+        indices = rng.permutation(np.flatnonzero(y == label))
+        if len(indices) < 2:
+            raise ValueError("Each class needs at least two rows for a stratified split")
+        count = min(len(indices) - 1, max(1, round(len(indices) * fraction)))
+        validation_indices.extend(indices[:count])
+        training_indices.extend(indices[count:])
+    training_indices = rng.permutation(training_indices)
+    validation_indices = rng.permutation(validation_indices)
+    return x[training_indices], x[validation_indices], y[training_indices], y[validation_indices]
+
+
 def create_csv_submission(ids, y_pred, name):
     """
     This function creates a csv file named 'name' in the format required for a submission in Kaggle or AIcrowd.
