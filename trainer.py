@@ -1,10 +1,8 @@
-import csv
-
 import numpy as np
 
 from pathlib import Path
 
-from helpers import create_csv_submission
+from helpers import create_csv_submission, load_cleaned_data
 from implementations import (
     mean_squared_error_gd,
     mean_squared_error_sgd,
@@ -45,34 +43,10 @@ def main():
     if regression_function in (ridge_regression, reg_logistic_regression) and lambda_ < 0:
         raise ValueError("lambda_ must be non-negative")
 
-    # Cleaned exports contain features only; labels and IDs retain their original row order.
-    for path in (cleaned_data_path, cleaned_test_path):
-        if not path.is_file():
-            raise FileNotFoundError(f"Cleaned data not found: {path}. Run dataloader.py first.")
-    x_train = np.genfromtxt(cleaned_data_path, delimiter=",", skip_header=1, ndmin=2)
-    x_test = np.genfromtxt(cleaned_test_path, delimiter=",", skip_header=1, ndmin=2)
-    y_train_raw = np.genfromtxt(
-        data_path / "y_train.csv", delimiter=",", skip_header=1, usecols=1, ndmin=1
+    x_train, x_test, y_train_raw, test_ids, feature_names = load_cleaned_data(
+        cleaned_data_path, cleaned_test_path,
+        data_path / "y_train.csv", data_path / "x_test.csv",
     )
-    test_ids = np.genfromtxt(
-        data_path / "x_test.csv", delimiter=",", skip_header=1, usecols=0, dtype=int, ndmin=1
-    )
-    with cleaned_data_path.open(newline="") as source:
-        feature_names = np.asarray(next(csv.reader(source)))
-    if not len(x_train) or x_train.shape[1] != len(feature_names):
-        raise ValueError("Cleaned feature columns must match the CSV header")
-    if y_train_raw.shape != (len(x_train),) or not np.isin(y_train_raw, (-1, 1)).all():
-        raise ValueError("Labels must contain -1/1 and match cleaned training rows")
-    if not np.isfinite(x_train).all():
-        raise ValueError("Cleaned data still contains NaN/inf; finish cleaning it first")
-    with cleaned_test_path.open(newline="") as source:
-        test_feature_names = next(csv.reader(source))
-    if test_feature_names != feature_names.tolist():
-        raise ValueError("Cleaned train/test CSVs must have identical feature headers")
-    if x_test.shape != (len(test_ids), len(feature_names)):
-        raise ValueError("Cleaned test rows/columns must match test IDs and training features")
-    if not np.isfinite(x_test).all():
-        raise ValueError("Cleaned test data still contains NaN/inf; finish cleaning it first")
 
     # The exported data is cleaned but unscaled. Fit scaling on training only.
     mean = x_train.mean(axis=0)

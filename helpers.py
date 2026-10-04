@@ -3,6 +3,7 @@
 import csv
 import numpy as np
 import os
+from pathlib import Path
 
 
 def load_csv_data(data_path, sub_sample=False):
@@ -47,6 +48,48 @@ def load_csv_data(data_path, sub_sample=False):
         train_ids = train_ids[::50]
 
     return x_train, x_test, y_train, train_ids, test_ids
+
+
+def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_ids_path):
+    """
+    Load feature-only train/test CSVs without running preprocessing.
+
+    Labels and test IDs must have the same row order as the corresponding
+    cleaned exports. Return (x_train, x_test, y_train, test_ids, feature_names).
+    Paths may be strings or Path objects.
+    """
+    cleaned_data_path, cleaned_test_path, labels_path, test_ids_path = map(
+        Path, (cleaned_data_path, cleaned_test_path, labels_path, test_ids_path)
+    )
+    # Cleaned exports contain features only; labels and IDs retain their original row order.
+    for path in (cleaned_data_path, cleaned_test_path):
+        if not path.is_file():
+            raise FileNotFoundError(f"Cleaned data not found: {path}. Run dataloader.py first.")
+    x_train = np.genfromtxt(cleaned_data_path, delimiter=",", skip_header=1, ndmin=2)
+    x_test = np.genfromtxt(cleaned_test_path, delimiter=",", skip_header=1, ndmin=2)
+    y_train_raw = np.genfromtxt(
+        labels_path, delimiter=",", skip_header=1, usecols=1, ndmin=1
+    )
+    test_ids = np.genfromtxt(
+        test_ids_path, delimiter=",", skip_header=1, usecols=0, dtype=int, ndmin=1
+    )
+    with cleaned_data_path.open(newline="") as source:
+        feature_names = np.asarray(next(csv.reader(source)))
+    if not len(x_train) or x_train.shape[1] != len(feature_names):
+        raise ValueError("Cleaned feature columns must match the CSV header")
+    if y_train_raw.shape != (len(x_train),) or not np.isin(y_train_raw, (-1, 1)).all():
+        raise ValueError("Labels must contain -1/1 and match cleaned training rows")
+    if not np.isfinite(x_train).all():
+        raise ValueError("Cleaned data still contains NaN/inf; finish cleaning it first")
+    with cleaned_test_path.open(newline="") as source:
+        test_feature_names = next(csv.reader(source))
+    if test_feature_names != feature_names.tolist():
+        raise ValueError("Cleaned train/test CSVs must have identical feature headers")
+    if x_test.shape != (len(test_ids), len(feature_names)):
+        raise ValueError("Cleaned test rows/columns must match test IDs and training features")
+    if not np.isfinite(x_test).all():
+        raise ValueError("Cleaned test data still contains NaN/inf; finish cleaning it first")
+    return x_train, x_test, y_train_raw, test_ids, feature_names
 
 
 def create_csv_submission(ids, y_pred, name):
