@@ -123,15 +123,6 @@ def save_csv_data(savedatapath, data, filename, keepList):
         np.savetxt(f, data, delimiter=',', fmt='%s')
 
 if __name__ == "__main__":
-    # Example usage of the functions in this file
-
-    # Define the replacements and the list of columns to keep
-    REPLACEMENTS = {
-    "CELLFON3": {88: 0, 77: 0, 99: 0,np.nan: "median"},
-    "MENTHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
-    }
-    LIST_KEEP = ["CELLFON3", "MENTHLTH"]
-
     # Load the data
     data_path = "dataset"
     x_train, x_test, y_train, train_ids, test_ids = load_csv_data(data_path)
