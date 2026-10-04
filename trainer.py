@@ -4,7 +4,7 @@ import numpy as np
 
 from pathlib import Path
 
-from helpers import create_csv_submission, load_csv_data
+from helpers import create_csv_submission
 from implementations import (
     mean_squared_error_gd,
     mean_squared_error_sgd,
@@ -45,7 +45,18 @@ def main():
     if regression_function in (ridge_regression, reg_logistic_regression) and lambda_ < 0:
         raise ValueError("lambda_ must be non-negative")
 
-    x_train, x_test, y_train_raw, _, test_ids = load_csv_data(data_path, cleaned=True)
+    # Cleaned exports contain features only; labels and IDs retain their original row order.
+    for path in (cleaned_data_path, cleaned_test_path):
+        if not path.is_file():
+            raise FileNotFoundError(f"Cleaned data not found: {path}. Run dataloader.py first.")
+    x_train = np.genfromtxt(cleaned_data_path, delimiter=",", skip_header=1, ndmin=2)
+    x_test = np.genfromtxt(cleaned_test_path, delimiter=",", skip_header=1, ndmin=2)
+    y_train_raw = np.genfromtxt(
+        data_path / "y_train.csv", delimiter=",", skip_header=1, usecols=1, ndmin=1
+    )
+    test_ids = np.genfromtxt(
+        data_path / "x_test.csv", delimiter=",", skip_header=1, usecols=0, dtype=int, ndmin=1
+    )
     with cleaned_data_path.open(newline="") as source:
         feature_names = np.asarray(next(csv.reader(source)))
     if not len(x_train) or x_train.shape[1] != len(feature_names):

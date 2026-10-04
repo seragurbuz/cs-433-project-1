@@ -5,7 +5,7 @@ import numpy as np
 import os
 
 
-def load_csv_data(data_path, sub_sample=False, cleaned=False):
+def load_csv_data(data_path, sub_sample=False):
     """
     This function loads the data and returns the respectinve numpy arrays.
     Remember to put the 3 files in the same folder and to not change the names of the files.
@@ -13,9 +13,6 @@ def load_csv_data(data_path, sub_sample=False, cleaned=False):
     Args:
         data_path (str): datafolder path
         sub_sample (bool, optional): If True the data will be subsempled. Default to False.
-        cleaned (bool, optional): Read feature-only exports from cleaned_data.
-            Labels and IDs come from the original files in matching row order.
-            This only loads files; it does not run cleaning.
 
     Returns:
         x_train (np.array): training data
@@ -30,34 +27,18 @@ def load_csv_data(data_path, sub_sample=False, cleaned=False):
         skip_header=1,
         dtype=int,
         usecols=1,
-        ndmin=1,
     )
-    if cleaned:
-        feature_paths = [os.path.join(data_path, "cleaned_data", filename)
-                         for filename in ("x_train_replaced.csv", "x_test_replaced.csv")]
-        for path in feature_paths:
-            if not os.path.isfile(path):
-                raise FileNotFoundError(f"Cleaned data not found: {path}. Run dataloader.py first.")
-        x_train, x_test = [
-            np.genfromtxt(path, delimiter=",", skip_header=1, ndmin=2)
-            for path in feature_paths
-        ]
-        train_ids, test_ids = [
-            np.genfromtxt(os.path.join(data_path, filename), delimiter=",",
-                          skip_header=1, usecols=0, dtype=int, ndmin=1)
-            for filename in ("y_train.csv", "x_test.csv")
-        ]
-    else:
-        x_train = np.genfromtxt(
-            os.path.join(data_path, "x_train.csv"), delimiter=",", skip_header=1, ndmin=2
-        )
-        x_test = np.genfromtxt(
-            os.path.join(data_path, "x_test.csv"), delimiter=",", skip_header=1, ndmin=2
-        )
-        train_ids = x_train[:, 0].astype(dtype=int)
-        test_ids = x_test[:, 0].astype(dtype=int)
-        x_train = x_train[:, 1:]
-        x_test = x_test[:, 1:]
+    x_train = np.genfromtxt(
+        os.path.join(data_path, "x_train.csv"), delimiter=",", skip_header=1
+    )
+    x_test = np.genfromtxt(
+        os.path.join(data_path, "x_test.csv"), delimiter=",", skip_header=1
+    )
+
+    train_ids = x_train[:, 0].astype(dtype=int)
+    test_ids = x_test[:, 0].astype(dtype=int)
+    x_train = x_train[:, 1:]
+    x_test = x_test[:, 1:]
 
     # sub-sample
     if sub_sample:
