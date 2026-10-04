@@ -97,7 +97,10 @@ def count_values(data, keeplist, dictionnary):
     for i, name in enumerate(keeplist):
         if name in dictionnary:
             for value, replacement in dictionnary[name].items():
-                count = np.sum(data[:, i] == value)
+                if np.isnan(value):
+                    count = np.sum(np.isnan(data[:, i]))
+                else:
+                    count = np.sum(data[:, i] == value)
                 print(f"{name}: {value}, count: {count}")
 
 def save_csv_data(savedatapath, data, filename, keepList):
