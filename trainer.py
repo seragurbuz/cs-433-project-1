@@ -4,7 +4,7 @@ import numpy as np
 
 from pathlib import Path
 
-from helpers import create_csv_submission
+from helpers import create_csv_submission, load_csv_data
 from implementations import (
     mean_squared_error_gd,
     mean_squared_error_sgd,
@@ -24,8 +24,6 @@ from metrics import (
 data_path = Path(__file__).parent / "dataset"
 cleaned_data_path = data_path / "cleaned_data" / "x_train_replaced.csv"
 cleaned_test_path = data_path / "cleaned_data" / "x_test_replaced.csv"
-labels_path = data_path / "y_train.csv"
-test_ids_path = data_path / "x_test.csv"  # Read only the ID column.
 model_dir = Path(__file__).parent / "models"
 # Select any of the six functions imported above.
 regression_function = logistic_regression
@@ -39,27 +37,6 @@ gamma = 0.1
 lambda_ = 0.01  
 
 
-def load_cleaned_training_data(feature_path, label_path):
-    """Read the existing feature-only export and labels in matching row order."""
-    feature_path, label_path = Path(feature_path), Path(label_path)
-    if not feature_path.is_file():
-        raise FileNotFoundError(
-            f"Cleaned data not found: {feature_path}. "
-            "Export it with dataloader.py or change cleaned_data_path."
-        )
-    with feature_path.open(newline="") as source:
-        feature_names = next(csv.reader(source))
-    x = np.genfromtxt(feature_path, delimiter=",", skip_header=1, ndmin=2)
-    y = np.genfromtxt(label_path, delimiter=",", skip_header=1, usecols=1, ndmin=1)
-    if not len(x) or x.shape[1] != len(feature_names):
-        raise ValueError("Cleaned feature columns must match the CSV header")
-    if y.shape != (len(x),) or not np.isin(y, (-1, 1)).all():
-        raise ValueError("Labels must contain -1/1 and match cleaned training rows")
-    if not np.isfinite(x).all():
-        raise ValueError("Cleaned data still contains NaN/inf; finish cleaning it first")
-    return x, y, np.asarray(feature_names)
-
-
 def main():
     closed_form = regression_function in (least_squares, ridge_regression)
     is_logistic = regression_function in (logistic_regression, reg_logistic_regression)
@@ -68,21 +45,19 @@ def main():
     if regression_function in (ridge_regression, reg_logistic_regression) and lambda_ < 0:
         raise ValueError("lambda_ must be non-negative")
 
-    x_train, y_train_raw, feature_names = load_cleaned_training_data(
-        cleaned_data_path, labels_path
-    )
-    if not cleaned_test_path.is_file():
-        raise FileNotFoundError(
-            f"Cleaned test data not found: {cleaned_test_path}. Run dataloader.py first."
-        )
+    x_train, x_test, y_train_raw, _, test_ids = load_csv_data(data_path, cleaned=True)
+    with cleaned_data_path.open(newline="") as source:
+        feature_names = np.asarray(next(csv.reader(source)))
+    if not len(x_train) or x_train.shape[1] != len(feature_names):
+        raise ValueError("Cleaned feature columns must match the CSV header")
+    if y_train_raw.shape != (len(x_train),) or not np.isin(y_train_raw, (-1, 1)).all():
+        raise ValueError("Labels must contain -1/1 and match cleaned training rows")
+    if not np.isfinite(x_train).all():
+        raise ValueError("Cleaned data still contains NaN/inf; finish cleaning it first")
     with cleaned_test_path.open(newline="") as source:
         test_feature_names = next(csv.reader(source))
     if test_feature_names != feature_names.tolist():
         raise ValueError("Cleaned train/test CSVs must have identical feature headers")
-    x_test = np.genfromtxt(cleaned_test_path, delimiter=",", skip_header=1, ndmin=2)
-    test_ids = np.genfromtxt(
-        test_ids_path, delimiter=",", skip_header=1, usecols=0, dtype=int, ndmin=1
-    )
     if x_test.shape != (len(test_ids), len(feature_names)):
         raise ValueError("Cleaned test rows/columns must match test IDs and training features")
     if not np.isfinite(x_test).all():
