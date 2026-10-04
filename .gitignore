@@ -1,4 +1,5 @@
-dataset/*.csv
+# CSV data and generated submissions (all directories)
+*.csv
 
 # Python bytecode and interpreter caches
 __pycache__/
