@@ -1,7 +1,6 @@
 from helpers import *
 import csv
 import os
-
 REPLACEMENTS = {
     "PHYSHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
     "MENTHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
@@ -60,7 +59,7 @@ def prepare_input_data(x_train, x_test, columns):
     """
     return clean_data(x_train, columns), clean_data(x_test, columns)
 
-def replace_values(data, header, replacements):
+def replace_values(data, header, replacements, reference_data=None):
     """
     This function replaces values in the data according to the 
     specified replacement rules.
@@ -71,20 +70,31 @@ def replace_values(data, header, replacements):
         }
     So if the column CELLFON3 has a value of 88 or 77, 
     it will be replaced by 0 and 1 respectively.
+
+    Pass raw cleaned training rows as reference_data when replacing test data,
+    so median rules use training statistics after preceding replacements.
     """
     data = data.copy()
     for name, rules in replacements.items():
         if name not in header:
             continue
         col = data[:, header.index(name)]
+        reference_col = (
+            col if reference_data is None
+            else reference_data[:, header.index(name)].copy()
+        )
         for old, new in rules.items():
             if np.isnan(old):
                 mask = np.isnan(col)
+                reference_mask = np.isnan(reference_col)
             else:
                 mask = col == old
+                reference_mask = reference_col == old
             if new == "median":
-                new = np.nanmedian(col)
+                new = (np.nan if np.isnan(reference_col).all()
+                       else np.nanmedian(reference_col))
             col[mask] = new
+            reference_col[reference_mask] = new
     return data
 
 
@@ -97,7 +107,10 @@ def count_values(data, keeplist, dictionnary):
     for i, name in enumerate(keeplist):
         if name in dictionnary:
             for value, replacement in dictionnary[name].items():
-                count = np.sum(data[:, i] == value)
+                if np.isnan(value):
+                    count = np.sum(np.isnan(data[:, i]))
+                else:
+                    count = np.sum(data[:, i] == value)
                 print(f"{name}: {value}, count: {count}")
 
 def save_csv_data(savedatapath, data, filename, keepList):
@@ -128,6 +141,10 @@ if __name__ == "__main__":
 
     # Get the data of interest
     x_train_clean, x_test_clean = prepare_input_data(x_train, x_test, indices_to_delete)
+    with open(os.path.join(data_path, "x_train.csv")) as source:
+        header = next(csv.reader(source))[1:]
+    # Deleting columns preserves the CSV order, not necessarily LIST_KEEP order.
+    LIST_KEEP = [name for i, name in enumerate(header) if i not in indices_to_delete]
     print("x_train_clean shape:", x_train_clean.shape)
 
     # Check for NaN values in the cleaned training data
@@ -136,6 +153,9 @@ if __name__ == "__main__":
 
     # Replace the values in the dictionnary with the specified replacements
     replaced_data = replace_values(x_train_clean, LIST_KEEP, REPLACEMENTS)
+    replaced_test_data = replace_values(
+        x_test_clean, LIST_KEEP, REPLACEMENTS, reference_data=x_train_clean
+    )
 
     count_values(x_train_clean, LIST_KEEP, REPLACEMENTS)
     count_values(replaced_data, LIST_KEEP, REPLACEMENTS)
@@ -144,5 +164,8 @@ if __name__ == "__main__":
 
     # Save the cleaned and replaced data to CSV files
     data_path = "dataset/cleaned_data"
+    os.makedirs(data_path, exist_ok=True)
     save_csv_data(data_path, x_train_clean, "x_train_clean.csv", LIST_KEEP)
     save_csv_data(data_path, replaced_data, "x_train_replaced.csv", LIST_KEEP)
+    save_csv_data(data_path, x_test_clean, "x_test_clean.csv", LIST_KEEP)
+    save_csv_data(data_path, replaced_test_data, "x_test_replaced.csv", LIST_KEEP)

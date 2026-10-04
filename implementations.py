@@ -20,7 +20,8 @@ def _logistic_loss(y, tx, w):
 
 
 def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
-    """Fit linear regression with full-batch gradient descent.
+    """
+    Fit linear regression with full-batch gradient descent.
 
     Starting from initial_w, take max_iters steps of size gamma. Return
     (w, loss), where loss is 0.5 * mean((y - tx @ w)**2) at the final w.
@@ -35,7 +36,8 @@ def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
 
 
 def mean_squared_error_sgd(y, tx, initial_w, max_iters, gamma):
-    """Fit linear regression with stochastic gradient descent, batch size 1.
+    """
+    Fit linear regression with stochastic gradient descent, batch size 1.
 
     Each of max_iters updates samples one row uniformly with replacement
     and takes a step of size gamma. Return (w, loss), evaluating the final
@@ -53,7 +55,8 @@ def mean_squared_error_sgd(y, tx, initial_w, max_iters, gamma):
 
 
 def least_squares(y, tx):
-    """Solve the least-squares normal equations and return (w, MSE).
+    """
+    Solve the least-squares normal equations and return (w, MSE).
 
     The MSE includes the course's factor of 0.5. As in the exercise,
     tx.T @ tx must be nonsingular for np.linalg.solve.
@@ -65,7 +68,8 @@ def least_squares(y, tx):
 
 
 def ridge_regression(y, tx, lambda_):
-    """Minimize MSE + lambda_ * ||w||**2 using the normal equations.
+    """
+    Minimize MSE + lambda_ * ||w||**2 using the normal equations.
 
     Regularize every coefficient, including any intercept. Return (w, MSE)
     with the penalty excluded from the reported loss.
@@ -78,7 +82,8 @@ def ridge_regression(y, tx, lambda_):
 
 
 def logistic_regression(y, tx, initial_w, max_iters, gamma):
-    """Fit logistic regression by gradient descent for labels in {0, 1}.
+    """
+    Fit logistic regression by gradient descent for labels in {0, 1}.
 
     Starting from initial_w, take max_iters steps of size gamma on the
     average negative log likelihood. Return (w, loss) at the final w.
@@ -93,7 +98,8 @@ def logistic_regression(y, tx, initial_w, max_iters, gamma):
 
 
 def reg_logistic_regression(y, tx, lambda_, initial_w, max_iters, gamma):
-    """Fit logistic regression with an L2 penalty for labels in {0, 1}.
+    """
+    Fit logistic regression with an L2 penalty for labels in {0, 1}.
 
     Take max_iters steps of size gamma from initial_w, minimizing average
     negative log likelihood + lambda_ * ||w||**2. Regularize all weights,
