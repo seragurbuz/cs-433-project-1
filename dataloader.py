@@ -3,8 +3,8 @@ import csv
 import os
 
 REPLACEMENTS = {
-    "PHYSHLTH": {88: 0, 77: 0, 99: 0},
-    "MENTHLTH": {88: 0, 77: 0, 99: 0},
+    "PHYSHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
+    "MENTHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
 }
 
 LIST_KEEP = [
@@ -43,7 +43,8 @@ def get_delete_indices(csv_path, keep_list):
 
 def clean_data(data, columns):
     """
-    This function removes certain columns from the given data, cleaning it up for use
+    This function removes certain columns from the given data, 
+    cleaning it up for use.
     """
     return np.delete(data, columns, axis=1)
 
@@ -59,26 +60,89 @@ def prepare_input_data(x_train, x_test, columns):
     """
     return clean_data(x_train, columns), clean_data(x_test, columns)
 
-def replace_values(data, replacements):
-    pass
+def replace_values(data, header, replacements):
+    """
+    This function replaces values in the data according to the 
+    specified replacement rules.
+
+    Example :
+    Dictionnary = {
+        "CELLFON3": {88: 0, 77: 1}
+        }
+    So if the column CELLFON3 has a value of 88 or 77, 
+    it will be replaced by 0 and 1 respectively.
+    """
+    data = data.copy()
+    for name, rules in replacements.items():
+        if name not in header:
+            continue
+        col = data[:, header.index(name)]
+        for old, new in rules.items():
+            if np.isnan(old):
+                mask = np.isnan(col)
+            else:
+                mask = col == old
+            if new == "median":
+                new = np.nanmedian(col)
+            col[mask] = new
+    return data
+
 
 def count_values(data, keeplist, dictionnary):
+    """
+    This fonction counts the number of occurrences of each value
+    in the specified columns of the data, according to the given 
+    dictionary of replacements.
+    """
     for i, name in enumerate(keeplist):
         if name in dictionnary:
             for value, replacement in dictionnary[name].items():
                 count = np.sum(data[:, i] == value)
-                print(f"{name}: {value} -> {replacement}, count: {count}")
+                print(f"{name}: {value}, count: {count}")
+
+def save_csv_data(savedatapath, data, filename, keepList):
+    """
+    This function saves the given data to a CSV file with the specified filename.
+    It adds a header line with the column names from the keeplist.
+    """
+    with open(os.path.join(savedatapath, filename), 'w') as f:
+        f.write(','.join(keepList) + '\n')
+        np.savetxt(f, data, delimiter=',', fmt='%s')
 
 if __name__ == "__main__":
-    data_path = "dataset"
+    # Example usage of the functions in this file
+
+    # Define the replacements and the list of columns to keep
+    REPLACEMENTS = {
+    "CELLFON3": {88: 0, 77: 0, 99: 0,np.nan: "median"},
+    "MENTHLTH": {88: 0, 77: 0, 99: 0,np.nan: "median"},
+    }
     LIST_KEEP = ["CELLFON3", "MENTHLTH"]
-    indices_to_delete = get_delete_indices(os.path.join(data_path, "x_train.csv"), LIST_KEEP)
+
+    # Load the data
+    data_path = "dataset"
     x_train, x_test, y_train, train_ids, test_ids = load_csv_data(data_path)
+
+    # Get the indices of the columns to delete based on the LIST_KEEP
+    indices_to_delete = get_delete_indices(os.path.join(data_path, "x_train.csv"), LIST_KEEP)
+
+    # Get the data of interest
     x_train_clean, x_test_clean = prepare_input_data(x_train, x_test, indices_to_delete)
     print("x_train_clean shape:", x_train_clean.shape)
-    print(x_train_clean[:10,:])
+
+    # Check for NaN values in the cleaned training data
     mask = np.isnan(x_train_clean)
-    print(mask.sum())
     print(mask.sum(axis=0))
-    rows = np.where(mask[:, 0])[0]
+
+    # Replace the values in the dictionnary with the specified replacements
+    replaced_data = replace_values(x_train_clean, LIST_KEEP, REPLACEMENTS)
+
     count_values(x_train_clean, LIST_KEEP, REPLACEMENTS)
+    count_values(replaced_data, LIST_KEEP, REPLACEMENTS)
+    print(x_train_clean[:10,:])
+    print(replaced_data[:10,:])
+
+    # Save the cleaned and replaced data to CSV files
+    data_path = "dataset/cleaned_data"
+    save_csv_data(data_path, x_train_clean, "x_train_clean.csv", LIST_KEEP)
+    save_csv_data(data_path, replaced_data, "x_train_replaced.csv", LIST_KEEP)
