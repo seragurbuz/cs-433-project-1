@@ -70,11 +70,9 @@ def prepare_input_data(x_train, x_test, columns):
     return clean_data(x_train, columns), clean_data(x_test, columns)
 
 def fit_replacements(reference_data, header, replacements):
-    """Resolve statistical rules using only the supplied fitting rows.
-
-    Apply fixed recodings first and exclude all statistical missing-value
-    codes from the statistic, so survey sentinel values cannot bias it.
-    Returned rules contain numbers only and can be reused on held-out rows.
+    """
+    Learn replacement values from training rows only.
+    Apply fixed replacements first; exclude missing codes from means/medians.
     """
     header = list(header)
     fitted = {}
@@ -100,10 +98,9 @@ def fit_replacements(reference_data, header, replacements):
 
 
 def replace_values(data, header, replacements, reference_data=None):
-    """Apply rules, fitting statistics on reference_data when supplied.
-
-    For validation, pass rules from fit_replacements(training_rows, ...).
-    Numeric fitted rules never learn statistics from the target rows.
+    """
+    Replace values using the given rules.
+    For validation, reuse rules learned from training rows.
     """
     header = list(header)
     if any(isinstance(new, str) for rules in replacements.values()

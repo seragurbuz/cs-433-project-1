@@ -57,8 +57,8 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
 
     Labels and test IDs must have the same row order as the corresponding
     cleaned exports. Return (x_train, x_test, y_train, test_ids, feature_names).
-    Paths may be strings or Path objects. Set allow_missing for feature-only
-    exports before imputation; infinities are always rejected.
+    Paths can be strings or Path objects.
+    allow_missing permits NaN values, but not infinity.
     """
     cleaned_data_path, cleaned_test_path, labels_path, test_ids_path = map(
         Path, (cleaned_data_path, cleaned_test_path, labels_path, test_ids_path)

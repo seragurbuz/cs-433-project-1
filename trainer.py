@@ -59,7 +59,7 @@ def main():
         cleaned_data_path, cleaned_test_path,
         data_path / "y_train.csv", data_path / "x_test.csv", allow_missing=True,
     )
-    # These exports only select columns; split before learning any statistics.
+    # Split before filling missing values or scaling.
     x_train, x_validation, y_train_raw, y_validation_raw = split_training_validation(
         x_all, y_all_raw, validation_fraction, split_seed
     )
@@ -126,8 +126,7 @@ def main():
                 f"validation {metric_function.__name__}: {validation_metric:.4f}"
             )
 
-    # Validation above estimates performance. Refit from scratch on all labeled
-    # rows with the same configuration for the final model and submission.
+    # Retrain on all labeled rows for the final submission.
     print(f"Refitting {regression_function.__name__} on all {len(x_all)} labeled samples...")
     rules = fit_replacements(x_all, feature_names, REPLACEMENTS)
     x_all = replace_values(x_all, feature_names, rules)
@@ -154,13 +153,12 @@ def main():
         )
     print(f"Full-data refit complete - training loss: {loss:.4f}")
 
-    # Save numeric replacement rules alongside full-data scaling and weights.
-    # JSON null represents a missing-value (NaN) matching rule.
+    # Save replacement values; null marks a NaN rule.
     replacement_records = [
         [name, None if np.isnan(old) else float(old), float(new)]
         for name, feature_rules in rules.items() for old, new in feature_rules.items()
     ]
-    # This model consumes selected features before replacement, in saved order.
+    # Model input: selected features before replacements.
     # A new run of the same method replaces its previous model file.
     model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / f"{regression_function.__name__}.npz"
