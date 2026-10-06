@@ -31,7 +31,7 @@ regression_function = logistic_regression
 metric_function = f1_score
 # Iterative methods take this many updates; SGD uses one sample per update.
 # least_squares and ridge_regression solve once and ignore num_epochs/gamma.
-num_epochs = 1000
+num_epochs = 3000
 # Print training results every this many updates and at the final step.
 training_print_interval = 10
 # Fraction held out for validation; the remaining rows are used for training.
@@ -42,7 +42,7 @@ gamma = 0.1
 # Used only by ridge_regression and reg_logistic_regression.
 lambda_ = 0.01  
 # Scores at or above this value are classified as the positive class.
-decision_threshold = -1.456105
+decision_threshold = -1.531053
 
 
 def main():
