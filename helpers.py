@@ -112,6 +112,34 @@ def split_training_validation(x, y, fraction, seed):
     return x[training_indices], x[validation_indices], y[training_indices], y[validation_indices]
 
 
+def fit_standardization(x):
+    """
+    Return per-column (mean, std) learned from x.
+
+    Constant columns get std = 1 so standardizing never divides by zero.
+    Fit on training rows only, then reuse the result for other sets.
+    """
+    mean = x.mean(axis=0)
+    std = x.std(axis=0)
+    std[std == 0] = 1
+    return mean, std
+
+
+def apply_standardization(x, mean, std):
+    """Standardize x with statistics returned by fit_standardization."""
+    return (x - mean) / std
+
+
+def add_bias(x):
+    """Prepend a column of ones for the intercept."""
+    return np.column_stack((np.ones(len(x)), x))
+
+# mean, std = fit_standardization(x_train)
+# tx_train = add_bias(apply_standardization(x_train, mean, std))
+# tx_val   = add_bias(apply_standardization(x_val,   mean, std))
+
+
+
 def create_csv_submission(ids, y_pred, name):
     """
     This function creates a csv file named 'name' in the format required for a submission in Kaggle or AIcrowd.
