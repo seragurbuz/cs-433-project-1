@@ -1,8 +1,10 @@
+import json
 import numpy as np
 
 from pathlib import Path
 
 from helpers import create_csv_submission, load_cleaned_data, split_training_validation
+from dataloader import REPLACEMENTS, fit_replacements, replace_values
 from implementations import (
     mean_squared_error_gd,
     mean_squared_error_sgd,
@@ -20,8 +22,8 @@ from metrics import (
 )
 
 data_path = Path(__file__).parent / "dataset"
-cleaned_data_path = data_path / "cleaned_data" / "x_train_replaced.csv"
-cleaned_test_path = data_path / "cleaned_data" / "x_test_replaced.csv"
+cleaned_data_path = data_path / "cleaned_data" / "x_train_clean.csv"
+cleaned_test_path = data_path / "cleaned_data" / "x_test_clean.csv"
 model_dir = Path(__file__).parent / "models"
 # Select any of the six functions imported above.
 regression_function = logistic_regression
@@ -53,28 +55,28 @@ def main():
     if regression_function in (ridge_regression, reg_logistic_regression) and lambda_ < 0:
         raise ValueError("lambda_ must be non-negative")
 
-    x_train, x_test, y_train_raw, test_ids, feature_names = load_cleaned_data(
+    x_all, x_test, y_all_raw, test_ids, feature_names = load_cleaned_data(
         cleaned_data_path, cleaned_test_path,
-        data_path / "y_train.csv", data_path / "x_test.csv",
+        data_path / "y_train.csv", data_path / "x_test.csv", allow_missing=True,
     )
-    # Existing exports were imputed before this split; their imputation statistics
-    # include validation rows. Scaling and model fitting below use training only.
+    # These exports only select columns; split before learning any statistics.
     x_train, x_validation, y_train_raw, y_validation_raw = split_training_validation(
-        x_train, y_train_raw, validation_fraction, split_seed
+        x_all, y_all_raw, validation_fraction, split_seed
     )
-
-    # The exported data is cleaned but unscaled. Fit scaling on training only.
+    rules = fit_replacements(x_train, feature_names, REPLACEMENTS)
+    x_train = replace_values(x_train, feature_names, rules)
+    x_validation = replace_values(x_validation, feature_names, rules)
+    if not np.isfinite(x_train).all() or not np.isfinite(x_validation).all():
+        raise ValueError("Replacement rules left missing/nonfinite features")
     mean = x_train.mean(axis=0)
     std = x_train.std(axis=0)
     std[std == 0] = 1
     x_train = (x_train - mean) / std
     x_validation = (x_validation - mean) / std
-    x_test = (x_test - mean) / std
 
     # Logistic methods need 0/1 labels; linear methods fit the original -1/1 labels.
     tx_train = np.column_stack((np.ones(x_train.shape[0]), x_train))
     tx_validation = np.column_stack((np.ones(x_validation.shape[0]), x_validation))
-    tx_test = np.column_stack((np.ones(x_test.shape[0]), x_test))
     y_train = (y_train_raw + 1) / 2 if is_logistic else y_train_raw
     y_validation = (y_validation_raw + 1) / 2 if is_logistic else y_validation_raw
     w = np.zeros(tx_train.shape[1])
@@ -124,7 +126,41 @@ def main():
                 f"validation {metric_function.__name__}: {validation_metric:.4f}"
             )
 
-    # This model consumes already-cleaned features in the saved header order.
+    # Validation above estimates performance. Refit from scratch on all labeled
+    # rows with the same configuration for the final model and submission.
+    print(f"Refitting {regression_function.__name__} on all {len(x_all)} labeled samples...")
+    rules = fit_replacements(x_all, feature_names, REPLACEMENTS)
+    x_all = replace_values(x_all, feature_names, rules)
+    x_test = replace_values(x_test, feature_names, rules)
+    if not np.isfinite(x_all).all() or not np.isfinite(x_test).all():
+        raise ValueError("Replacement rules left missing/nonfinite features")
+    mean = x_all.mean(axis=0)
+    std = x_all.std(axis=0)
+    std[std == 0] = 1
+    tx_all = np.column_stack((np.ones(len(x_all)), (x_all - mean) / std))
+    tx_test = np.column_stack((np.ones(len(x_test)), (x_test - mean) / std))
+    y_all = (y_all_raw + 1) / 2 if is_logistic else y_all_raw
+    if regression_function is least_squares:
+        w, loss = regression_function(y_all, tx_all)
+    elif regression_function is ridge_regression:
+        w, loss = regression_function(y_all, tx_all, lambda_)
+    elif regression_function is reg_logistic_regression:
+        w, loss = regression_function(
+            y_all, tx_all, lambda_, np.zeros(tx_all.shape[1]), num_epochs, gamma
+        )
+    else:
+        w, loss = regression_function(
+            y_all, tx_all, np.zeros(tx_all.shape[1]), num_epochs, gamma
+        )
+    print(f"Full-data refit complete - training loss: {loss:.4f}")
+
+    # Save numeric replacement rules alongside full-data scaling and weights.
+    # JSON null represents a missing-value (NaN) matching rule.
+    replacement_records = [
+        [name, None if np.isnan(old) else float(old), float(new)]
+        for name, feature_rules in rules.items() for old, new in feature_rules.items()
+    ]
+    # This model consumes selected features before replacement, in saved order.
     # A new run of the same method replaces its previous model file.
     model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / f"{regression_function.__name__}.npz"
@@ -134,7 +170,9 @@ def main():
         mean=mean,
         std=std,
         feature_names=feature_names,
-        input_stage="cleaned",
+        input_stage="selected_before_replacement",
+        replacement_rules_json=json.dumps(replacement_records, allow_nan=False),
+        training_samples=len(y_all),
         method=regression_function.__name__,
         threshold=0.0,
         fit_intercept=True,

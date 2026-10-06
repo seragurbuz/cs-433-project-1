@@ -50,13 +50,15 @@ def load_csv_data(data_path, sub_sample=False):
     return x_train, x_test, y_train, train_ids, test_ids
 
 
-def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_ids_path):
+def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_ids_path,
+                      allow_missing=False):
     """
     Load feature-only train/test CSVs without running preprocessing.
 
     Labels and test IDs must have the same row order as the corresponding
     cleaned exports. Return (x_train, x_test, y_train, test_ids, feature_names).
-    Paths may be strings or Path objects.
+    Paths may be strings or Path objects. Set allow_missing for feature-only
+    exports before imputation; infinities are always rejected.
     """
     cleaned_data_path, cleaned_test_path, labels_path, test_ids_path = map(
         Path, (cleaned_data_path, cleaned_test_path, labels_path, test_ids_path)
@@ -79,7 +81,7 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
         raise ValueError("Cleaned feature columns must match the CSV header")
     if y_train_raw.shape != (len(x_train),) or not np.isin(y_train_raw, (-1, 1)).all():
         raise ValueError("Labels must contain -1/1 and match cleaned training rows")
-    if not np.isfinite(x_train).all():
+    if np.isinf(x_train).any() or (not allow_missing and np.isnan(x_train).any()):
         raise ValueError("Cleaned data still contains NaN/inf; finish cleaning it first")
     with cleaned_test_path.open(newline="") as source:
         test_feature_names = next(csv.reader(source))
@@ -87,7 +89,7 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
         raise ValueError("Cleaned train/test CSVs must have identical feature headers")
     if x_test.shape != (len(test_ids), len(feature_names)):
         raise ValueError("Cleaned test rows/columns must match test IDs and training features")
-    if not np.isfinite(x_test).all():
+    if np.isinf(x_test).any() or (not allow_missing and np.isnan(x_test).any()):
         raise ValueError("Cleaned test data still contains NaN/inf; finish cleaning it first")
     return x_train, x_test, y_train_raw, test_ids, feature_names
 

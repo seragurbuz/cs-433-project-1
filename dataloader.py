@@ -69,45 +69,58 @@ def prepare_input_data(x_train, x_test, columns):
     """
     return clean_data(x_train, columns), clean_data(x_test, columns)
 
-def replace_values(data, header, replacements, reference_data=None):
-    """
-    This function replaces values in the data according to the 
-    specified replacement rules.
+def fit_replacements(reference_data, header, replacements):
+    """Resolve statistical rules using only the supplied fitting rows.
 
-    Example :
-    Dictionnary = {
-        "CELLFON3": {88: 0, 77: 1}
-        }
-    So if the column CELLFON3 has a value of 88 or 77, 
-    it will be replaced by 0 and 1 respectively.
-
-    Pass raw cleaned training rows as reference_data when replacing test data,
-    so median rules use training statistics after preceding replacements.
+    Apply fixed recodings first and exclude all statistical missing-value
+    codes from the statistic, so survey sentinel values cannot bias it.
+    Returned rules contain numbers only and can be reused on held-out rows.
     """
-    data = data.copy()
+    header = list(header)
+    fitted = {}
     for name, rules in replacements.items():
         if name not in header:
             continue
-        col = data[:, header.index(name)]
-        reference_col = (
-            col if reference_data is None
-            else reference_data[:, header.index(name)].copy()
-        )
+        col = reference_data[:, header.index(name)].astype(float).copy()
+        masks = {old: np.isnan(col) if np.isnan(old) else col == old
+                 for old in rules}
         for old, new in rules.items():
-            if np.isnan(old):
-                mask = np.isnan(col)
-                reference_mask = np.isnan(reference_col)
-            else:
-                mask = col == old
-                reference_mask = reference_col == old
-            if new in ("mean", "median"):
-                statistic = np.nanmean if new == "mean" else np.nanmedian
-                new = (np.nan if np.isnan(reference_col).all()
-                       else statistic(reference_col))
-            col[mask] = new
-            reference_col[reference_mask] = new
-    return data
+            col[masks[old]] = np.nan if isinstance(new, str) else new
+        fitted[name] = {}
+        for old, new in rules.items():
+            if isinstance(new, str):
+                if new not in ("mean", "median"):
+                    raise ValueError(f"Unknown replacement statistic: {new}")
+                valid = col[np.isfinite(col)]
+                if not valid.size:
+                    raise ValueError(f"No observed fitting values for {name}")
+                new = float(np.mean(valid) if new == "mean" else np.median(valid))
+            fitted[name][old] = new
+    return fitted
 
+
+def replace_values(data, header, replacements, reference_data=None):
+    """Apply rules, fitting statistics on reference_data when supplied.
+
+    For validation, pass rules from fit_replacements(training_rows, ...).
+    Numeric fitted rules never learn statistics from the target rows.
+    """
+    header = list(header)
+    if any(isinstance(new, str) for rules in replacements.values()
+           for new in rules.values()):
+        replacements = fit_replacements(
+            data if reference_data is None else reference_data, header, replacements
+        )
+    result = data.astype(float).copy()
+    for name, rules in replacements.items():
+        if name not in header:
+            continue
+        index = header.index(name)
+        original = data[:, index]
+        for old, new in rules.items():
+            mask = np.isnan(original) if np.isnan(old) else original == old
+            result[mask, index] = new
+    return result
 
 def count_values(data, keeplist, dictionnary):
     """
