@@ -41,6 +41,8 @@ split_seed = 42
 gamma = 0.1
 # Used only by ridge_regression and reg_logistic_regression.
 lambda_ = 0.01  
+# Scores at or above this value are classified as the positive class.
+decision_threshold = -1.456105
 
 
 def main():
@@ -103,7 +105,9 @@ def main():
             progress = f"{unit} {step}/{num_epochs}"
         if step % training_print_interval == 0 or step == training_steps:
             scores = tx_train @ w
-            train_predictions = np.where(scores >= 0, 1, -1)
+            train_predictions = np.where(
+                scores >= decision_threshold, 1, -1
+            )
             metric_value = metric_function(y_train_raw, train_predictions)
             print(
                 f"{progress} - "
@@ -119,7 +123,9 @@ def main():
                 )
             else:
                 validation_loss = 0.5 * np.mean((y_validation - validation_scores) ** 2)
-            validation_predictions = np.where(validation_scores >= 0, 1, -1)
+            validation_predictions = np.where(
+                validation_scores >= decision_threshold, 1, -1
+            )
             validation_metric = metric_function(y_validation_raw, validation_predictions)
             print(
                 f"{progress} - validation loss: {validation_loss:.4f}, "
@@ -172,14 +178,16 @@ def main():
         replacement_rules_json=json.dumps(replacement_records, allow_nan=False),
         training_samples=len(y_all),
         method=regression_function.__name__,
-        threshold=0.0,
+        threshold=decision_threshold,
         fit_intercept=True,
         classes=np.array([-1, 1]),
     )
     print(f"Saved model to {model_path}")
 
     # Zero is the boundary for -1/1 regression and a logistic probability of 0.5.
-    test_predictions = np.where(tx_test @ w >= 0, 1, -1)
+    test_predictions = np.where(
+        tx_test @ w >= decision_threshold, 1, -1
+    )
     create_csv_submission(test_ids, test_predictions, "submission.csv")
     print("Saved submission.csv")
 

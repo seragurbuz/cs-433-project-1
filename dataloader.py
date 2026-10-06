@@ -69,6 +69,16 @@ def prepare_input_data(x_train, x_test, columns):
     """
     return clean_data(x_train, columns), clean_data(x_test, columns)
 
+
+def _poorhlth_both_88(data, header):
+    """Return rows where both physical and mental health codes are 88."""
+    if not all(name in header for name in ("POORHLTH", "MENTHLTH", "PHYSHLTH")):
+        return np.zeros(len(data), dtype=bool)
+    menthlth = data[:, header.index("MENTHLTH")]
+    physhlth = data[:, header.index("PHYSHLTH")]
+    return (menthlth == 88) & (physhlth == 88)
+
+
 def fit_replacements(reference_data, header, replacements):
     """
     Learn replacement values from training rows only.
@@ -80,8 +90,12 @@ def fit_replacements(reference_data, header, replacements):
         if name not in header:
             continue
         col = reference_data[:, header.index(name)].astype(float).copy()
-        masks = {old: np.isnan(col) if np.isnan(old) else col == old
-                 for old in rules}
+        special_mask = _poorhlth_both_88(reference_data, header) if name == "POORHLTH" else np.zeros(len(col), dtype=bool)
+        masks = {
+            old: (np.isnan(col) & ~special_mask if np.isnan(old) else col == old)
+            for old in rules
+        }
+        col[special_mask] = 0
         for old, new in rules.items():
             col[masks[old]] = np.nan if isinstance(new, str) else new
         fitted[name] = {}
@@ -114,9 +128,17 @@ def replace_values(data, header, replacements, reference_data=None):
             continue
         index = header.index(name)
         original = data[:, index]
+        special_mask = (
+            _poorhlth_both_88(data, header)
+            if name == "POORHLTH"
+            else np.zeros(len(data), dtype=bool)
+        )
         for old, new in rules.items():
             mask = np.isnan(original) if np.isnan(old) else original == old
+            mask &= ~special_mask
             result[mask, index] = new
+        if name == "POORHLTH":
+            result[special_mask, index] = 0
     return result
 
 def count_values(data, keeplist, dictionnary):
