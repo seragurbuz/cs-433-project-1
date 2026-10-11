@@ -143,6 +143,30 @@ def save_csv_data(savedatapath, data, filename, keepList):
         f.write(','.join(keepList) + '\n')
         np.savetxt(f, data, delimiter=',', fmt='%s')
 
+def load_clean_data(data_path, replace=True):
+    """
+    Run the whole cleaning pipeline from the raw CSVs in data_path.
+    Keep the LIST_KEEP columns (in CSV order), then apply REPLACEMENTS with
+    statistics learned on x_train only. Use replace=False to get the selected
+    columns with NaNs kept, e.g. to split train/validation before replacing.
+    Return (x_train, x_test, y_train, test_ids, feature_names).
+    """
+    x_train, x_test, y_train, train_ids, test_ids = load_csv_data(data_path)
+
+    train_csv = os.path.join(data_path, "x_train.csv")
+    indices_to_delete = get_delete_indices(train_csv, LIST_KEEP)
+    x_train, x_test = prepare_input_data(x_train, x_test, indices_to_delete)
+    with open(train_csv) as f:
+        header = next(csv.reader(f))[1:]
+    feature_names = [name for i, name in enumerate(header) if i not in indices_to_delete]
+
+    if replace:
+        x_test = replace_values(x_test, feature_names, REPLACEMENTS, reference_data=x_train)
+        x_train = replace_values(x_train, feature_names, REPLACEMENTS)
+        if not np.isfinite(x_train).all() or not np.isfinite(x_test).all():
+            raise ValueError("Some features still contain NaN after replacement")
+    return x_train, x_test, y_train, test_ids, feature_names
+
 if __name__ == "__main__":
     # Load the data
     data_path = "dataset"
