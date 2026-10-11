@@ -6,6 +6,37 @@ import os
 from pathlib import Path
 
 
+def load_csv_columns(path, names):
+    """Read selected columns from a raw feature CSV in the requested order.
+
+    Reading only the required columns keeps the 300k-row survey manageable in
+    memory. The CSV, rather than the codebook, supplies every model value.
+    """
+    path = Path(path)
+    with path.open(newline="", encoding="utf-8-sig") as source:
+        header = next(csv.reader(source))
+    missing = [name for name in names if name not in header]
+    if missing:
+        raise ValueError(f"CSV columns absent: {missing}")
+    data = np.genfromtxt(path, delimiter=",", skip_header=1,
+                         usecols=[header.index(name) for name in names], ndmin=2)
+    return data, list(names)
+
+
+def load_csv_ids(path):
+    """Read respondent IDs from the first column of a raw feature CSV."""
+    return np.genfromtxt(path, delimiter=",", skip_header=1,
+                         usecols=0, dtype=np.int64)
+
+
+def load_labels_with_ids(path):
+    """Read respondent IDs and MICHD labels from y_train.csv."""
+    rows = np.genfromtxt(path, delimiter=",", skip_header=1, dtype=np.int64)
+    if rows.ndim != 2 or rows.shape[1] != 2:
+        raise ValueError("Expected Id and MICHD columns in the label CSV")
+    return rows[:, 0], rows[:, 1]
+
+
 def load_csv_data(data_path, sub_sample=False):
     """
     This function loads the data and returns the respectinve numpy arrays.

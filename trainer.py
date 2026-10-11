@@ -1,23 +1,19 @@
+"""Train, validate and submit using cleaned BRFSS CSV files.
+
+Run prepare_data.py first. Keep run.py unchanged.
+"""
 import json
 import numpy as np
-
 from pathlib import Path
 
 from helpers import create_csv_submission, load_cleaned_data, split_training_validation
-from dataloader import REPLACEMENTS, fit_replacements, replace_values
+from preprocessing import fit_imputation, apply_imputation
 from implementations import (
-    mean_squared_error_gd,
-    mean_squared_error_sgd,
-    least_squares,
-    ridge_regression,
-    logistic_regression,
-    reg_logistic_regression,
+    mean_squared_error_gd, mean_squared_error_sgd, least_squares,
+    ridge_regression, logistic_regression, reg_logistic_regression,
 )
 from metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
+    accuracy_score, precision_score, recall_score, f1_score,
     balanced_accuracy_score,
 )
 
@@ -25,24 +21,34 @@ data_path = Path(__file__).parent / "dataset"
 cleaned_data_path = data_path / "cleaned_data" / "x_train_clean.csv"
 cleaned_test_path = data_path / "cleaned_data" / "x_test_clean.csv"
 model_dir = Path(__file__).parent / "models"
-# Select any of the six functions imported above.
 regression_function = logistic_regression
-# Select a metric imported above; all accept true and predicted -1/1 labels.
 metric_function = f1_score
-# Iterative methods take this many updates; SGD uses one sample per update.
-# least_squares and ridge_regression solve once and ignore num_epochs/gamma.
-num_epochs = 3000
-# Print training results every this many updates and at the final step.
+num_epochs = 1000
 training_print_interval = 10
-# Fraction held out for validation; the remaining rows are used for training.
 validation_fraction = 0.2
 validation_interval = 100
 split_seed = 42
 gamma = 0.1
-# Used only by ridge_regression and reg_logistic_regression.
-lambda_ = 0.01  
-# Scores at or above this value are classified as the positive class.
-decision_threshold = -1.531053
+lambda_ = 0.01
+
+
+def find_best_f1_threshold(scores, labels):
+    """Return the score threshold that maximizes validation F1."""
+
+    order = np.argsort(scores)[::-1]
+    sorted_scores = scores[order]
+    positive = labels[order] == 1
+    true_positives = np.cumsum(positive)
+    false_positives = np.cumsum(~positive)
+    false_negatives = true_positives[-1] - true_positives
+    boundaries = np.r_[sorted_scores[1:] != sorted_scores[:-1], True]
+    f1_values = np.zeros_like(sorted_scores, dtype=float)
+    denominator = 2 * true_positives + false_positives + false_negatives
+    f1_values[boundaries] = (
+        2 * true_positives[boundaries] / denominator[boundaries]
+    )
+    best_index = np.argmax(f1_values)
+    return float(sorted_scores[best_index]), float(f1_values[best_index])
 
 
 def main():
@@ -61,13 +67,18 @@ def main():
         cleaned_data_path, cleaned_test_path,
         data_path / "y_train.csv", data_path / "x_test.csv", allow_missing=True,
     )
+
+    # BRFSS special codes were already converted to NaN in prepare_data.py.
+    # Only fill NaNs here; learn medians on the training split to avoid leakage.
+    # This deliberately does NOT reuse old raw-code REPLACEMENTS: a value such
+    # as 7 can be a legitimate value in a different cleaned feature.
     # Split before filling missing values or scaling.
     x_train, x_validation, y_train_raw, y_validation_raw = split_training_validation(
         x_all, y_all_raw, validation_fraction, split_seed
     )
-    rules = fit_replacements(x_train, feature_names, REPLACEMENTS)
-    x_train = replace_values(x_train, feature_names, rules)
-    x_validation = replace_values(x_validation, feature_names, rules)
+    medians = fit_imputation(x_train)
+    x_train = apply_imputation(x_train, medians)
+    x_validation = apply_imputation(x_validation, medians)
     if not np.isfinite(x_train).all() or not np.isfinite(x_validation).all():
         raise ValueError("Replacement rules left missing/nonfinite features")
     mean = x_train.mean(axis=0)
@@ -76,7 +87,7 @@ def main():
     x_train = (x_train - mean) / std
     x_validation = (x_validation - mean) / std
 
-    # Logistic methods need 0/1 labels; linear methods fit the original -1/1 labels.
+    # Logistic methods need 0/1 labels; linear methods fit original -1/1 labels.
     tx_train = np.column_stack((np.ones(x_train.shape[0]), x_train))
     tx_validation = np.column_stack((np.ones(x_validation.shape[0]), x_validation))
     y_train = (y_train_raw + 1) / 2 if is_logistic else y_train_raw
@@ -95,7 +106,6 @@ def main():
         elif regression_function is reg_logistic_regression:
             w, loss = regression_function(y_train, tx_train, lambda_, w, 1, gamma)
         else:
-            # One update, starting from the previous weights (one sample for SGD).
             w, loss = regression_function(y_train, tx_train, w, 1, gamma)
 
         if closed_form:
@@ -105,16 +115,13 @@ def main():
             progress = f"{unit} {step}/{num_epochs}"
         if step % training_print_interval == 0 or step == training_steps:
             scores = tx_train @ w
-            train_predictions = np.where(
-                scores >= decision_threshold, 1, -1
-            )
+            train_predictions = np.where(scores >= 0, 1, -1)
             metric_value = metric_function(y_train_raw, train_predictions)
             print(
                 f"{progress} - "
                 f"training loss: {loss:.4f}, "
                 f"training {metric_function.__name__}: {metric_value:.4f}"
             )
-        # Evaluate without updating weights, including the final/closed-form result.
         if step % validation_interval == 0 or step == training_steps:
             validation_scores = tx_validation @ w
             if is_logistic:
@@ -123,22 +130,29 @@ def main():
                 )
             else:
                 validation_loss = 0.5 * np.mean((y_validation - validation_scores) ** 2)
-            validation_predictions = np.where(
-                validation_scores >= decision_threshold, 1, -1
-            )
+            validation_predictions = np.where(validation_scores >= 0, 1, -1)
             validation_metric = metric_function(y_validation_raw, validation_predictions)
             print(
                 f"{progress} - validation loss: {validation_loss:.4f}, "
                 f"validation {metric_function.__name__}: {validation_metric:.4f}"
             )
 
+    validation_scores = tx_validation @ w
+    decision_threshold, validation_metric = find_best_f1_threshold(
+        validation_scores, y_validation_raw
+    )
+    print(
+        f"Selected decision threshold: {decision_threshold:.6f} "
+        f"(validation {metric_function.__name__}: {validation_metric:.4f})"
+    )
+
     # Retrain on all labeled rows for the final submission.
     print(f"Refitting {regression_function.__name__} on all {len(x_all)} labeled samples...")
-    rules = fit_replacements(x_all, feature_names, REPLACEMENTS)
-    x_all = replace_values(x_all, feature_names, rules)
-    x_test = replace_values(x_test, feature_names, rules)
+    medians = fit_imputation(x_all)
+    x_all = apply_imputation(x_all, medians)
+    x_test = apply_imputation(x_test, medians)
     if not np.isfinite(x_all).all() or not np.isfinite(x_test).all():
-        raise ValueError("Replacement rules left missing/nonfinite features")
+        raise ValueError("Imputation left missing/nonfinite features")
     mean = x_all.mean(axis=0)
     std = x_all.std(axis=0)
     std[std == 0] = 1
@@ -159,13 +173,6 @@ def main():
         )
     print(f"Full-data refit complete - training loss: {loss:.4f}")
 
-    # Save replacement values; null marks a NaN rule.
-    replacement_records = [
-        [name, None if np.isnan(old) else float(old), float(new)]
-        for name, feature_rules in rules.items() for old, new in feature_rules.items()
-    ]
-    # Model input: selected features before replacements.
-    # A new run of the same method replaces its previous model file.
     model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / f"{regression_function.__name__}.npz"
     np.savez_compressed(
@@ -175,7 +182,7 @@ def main():
         std=std,
         feature_names=feature_names,
         input_stage="selected_before_replacement",
-        replacement_rules_json=json.dumps(replacement_records, allow_nan=False),
+        imputation_medians=medians,
         training_samples=len(y_all),
         method=regression_function.__name__,
         threshold=decision_threshold,
@@ -184,10 +191,7 @@ def main():
     )
     print(f"Saved model to {model_path}")
 
-    # Zero is the boundary for -1/1 regression and a logistic probability of 0.5.
-    test_predictions = np.where(
-        tx_test @ w >= decision_threshold, 1, -1
-    )
+    test_predictions = np.where(tx_test @ w >= decision_threshold, 1, -1)
     create_csv_submission(test_ids, test_predictions, "submission.csv")
     print("Saved submission.csv")
 
