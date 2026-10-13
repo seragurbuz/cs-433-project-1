@@ -9,7 +9,6 @@ from pathlib import Path
 from helpers import create_csv_submission, load_cleaned_data, split_training_validation
 from preprocessing import fit_imputation, apply_imputation
 from evaluation import save_precision_recall_curve
-from experiments import select_cv_threshold
 from implementations import (
     mean_squared_error_gd, mean_squared_error_sgd, least_squares,
     ridge_regression, logistic_regression, reg_logistic_regression,
@@ -23,7 +22,7 @@ data_path = Path(__file__).parent / "dataset"
 cleaned_data_path = data_path / "cleaned_data" / "x_train_clean.csv"
 cleaned_test_path = data_path / "cleaned_data" / "x_test_clean.csv"
 model_dir = Path(__file__).parent / "models"
-# Select any of the six functions imported above.
+# The fixed threshold below was selected for this model.
 regression_function = logistic_regression
 # Select a metric imported above; all accept true and predicted -1/1 labels.
 metric_function = f1_score
@@ -39,6 +38,9 @@ split_seed = 42
 gamma = 0.1
 # Used only by ridge_regression and reg_logistic_regression.
 lambda_ = 0.01  
+# Raw logistic score threshold selected by 5-fold CV run in experiments.py
+# Recompute it if features, preprocessing, model or training settings change
+decision_threshold = -1.3833353376136115
 
 
 def main():
@@ -52,6 +54,13 @@ def main():
         raise ValueError("validation_interval must be a positive integer")
     if regression_function in (ridge_regression, reg_logistic_regression) and lambda_ < 0:
         raise ValueError("lambda_ must be non-negative")
+    if not np.isfinite(decision_threshold):
+        raise ValueError("decision_threshold must be finite")
+    if regression_function is not logistic_regression:
+        raise ValueError(
+            "The fixed threshold was selected for logistic_regression; "
+            "recalculate it before switching models"
+        )
 
     x_all, x_test, y_all_raw, test_ids, feature_names = load_cleaned_data(
         cleaned_data_path, cleaned_test_path,
@@ -61,12 +70,7 @@ def main():
     x_train, x_validation, y_train_raw, y_validation_raw = split_training_validation(
         x_all, y_all_raw, validation_fraction, split_seed
     )
-    print("Selecting threshold by 5-fold CV on the training split...", flush=True)
-    decision_threshold, cv_f1 = select_cv_threshold(
-        x_train, y_train_raw, num_epochs, gamma, n_folds=5, seed=split_seed,
-        model=regression_function, lambda_=lambda_,
-    )
-    print(f"CV threshold: {decision_threshold:.6f} (OOF F1: {cv_f1:.4f})")
+    print(f"Using fixed decision threshold: {decision_threshold:.6f}")
     medians = fit_imputation(x_train)
     x_train = apply_imputation(x_train, medians)
     x_validation = apply_imputation(x_validation, medians)
@@ -134,7 +138,7 @@ def main():
     validation_predictions = np.where(validation_scores >= decision_threshold, 1, -1)
     validation_metric = metric_function(y_validation_raw, validation_predictions)
     print(
-        f"Holdout {metric_function.__name__} at CV threshold "
+        f"Holdout {metric_function.__name__} at fixed threshold "
         f"{decision_threshold:.6f}: {validation_metric:.4f}"
     )
     model_dir.mkdir(parents=True, exist_ok=True)
@@ -189,7 +193,7 @@ def main():
         training_samples=len(y_all),
         method=regression_function.__name__,
         threshold=decision_threshold,
-        threshold_selection="5-fold CV on training split",
+        threshold_selection="fixed from prior 5-fold CV on training split",
         fit_intercept=True,
         classes=np.array([-1, 1]),
     )
