@@ -8,6 +8,8 @@ from pathlib import Path
 
 from helpers import create_csv_submission, load_cleaned_data, split_training_validation
 from preprocessing import fit_imputation, apply_imputation
+from evaluation import save_precision_recall_curve
+from experiments import select_cv_threshold
 from implementations import (
     mean_squared_error_gd, mean_squared_error_sgd, least_squares,
     ridge_regression, logistic_regression, reg_logistic_regression,
@@ -21,34 +23,22 @@ data_path = Path(__file__).parent / "dataset"
 cleaned_data_path = data_path / "cleaned_data" / "x_train_clean.csv"
 cleaned_test_path = data_path / "cleaned_data" / "x_test_clean.csv"
 model_dir = Path(__file__).parent / "models"
+# Select any of the six functions imported above.
 regression_function = logistic_regression
+# Select a metric imported above; all accept true and predicted -1/1 labels.
 metric_function = f1_score
+# Iterative methods take this many updates; SGD uses one sample per update.
+# least_squares and ridge_regression solve once and ignore num_epochs/gamma.
 num_epochs = 1000
+# Print training results every this many updates and at the final step.
 training_print_interval = 10
+# Fraction held out for validation; the remaining rows are used for training.
 validation_fraction = 0.2
 validation_interval = 100
 split_seed = 42
 gamma = 0.1
-lambda_ = 0.01
-
-
-def find_best_f1_threshold(scores, labels):
-    """Return the score threshold that maximizes validation F1."""
-
-    order = np.argsort(scores)[::-1]
-    sorted_scores = scores[order]
-    positive = labels[order] == 1
-    true_positives = np.cumsum(positive)
-    false_positives = np.cumsum(~positive)
-    false_negatives = true_positives[-1] - true_positives
-    boundaries = np.r_[sorted_scores[1:] != sorted_scores[:-1], True]
-    f1_values = np.zeros_like(sorted_scores, dtype=float)
-    denominator = 2 * true_positives + false_positives + false_negatives
-    f1_values[boundaries] = (
-        2 * true_positives[boundaries] / denominator[boundaries]
-    )
-    best_index = np.argmax(f1_values)
-    return float(sorted_scores[best_index]), float(f1_values[best_index])
+# Used only by ridge_regression and reg_logistic_regression.
+lambda_ = 0.01  
 
 
 def main():
@@ -68,14 +58,15 @@ def main():
         data_path / "y_train.csv", data_path / "x_test.csv", allow_missing=True,
     )
 
-    # BRFSS special codes were already converted to NaN in prepare_data.py.
-    # Only fill NaNs here; learn medians on the training split to avoid leakage.
-    # This deliberately does NOT reuse old raw-code REPLACEMENTS: a value such
-    # as 7 can be a legitimate value in a different cleaned feature.
-    # Split before filling missing values or scaling.
     x_train, x_validation, y_train_raw, y_validation_raw = split_training_validation(
         x_all, y_all_raw, validation_fraction, split_seed
     )
+    print("Selecting threshold by 5-fold CV on the training split...", flush=True)
+    decision_threshold, cv_f1 = select_cv_threshold(
+        x_train, y_train_raw, num_epochs, gamma, n_folds=5, seed=split_seed,
+        model=regression_function, lambda_=lambda_,
+    )
+    print(f"CV threshold: {decision_threshold:.6f} (OOF F1: {cv_f1:.4f})")
     medians = fit_imputation(x_train)
     x_train = apply_imputation(x_train, medians)
     x_validation = apply_imputation(x_validation, medians)
@@ -115,7 +106,7 @@ def main():
             progress = f"{unit} {step}/{num_epochs}"
         if step % training_print_interval == 0 or step == training_steps:
             scores = tx_train @ w
-            train_predictions = np.where(scores >= 0, 1, -1)
+            train_predictions = np.where(scores >= decision_threshold, 1, -1)
             metric_value = metric_function(y_train_raw, train_predictions)
             print(
                 f"{progress} - "
@@ -130,7 +121,9 @@ def main():
                 )
             else:
                 validation_loss = 0.5 * np.mean((y_validation - validation_scores) ** 2)
-            validation_predictions = np.where(validation_scores >= 0, 1, -1)
+            validation_predictions = np.where(
+                validation_scores >= decision_threshold, 1, -1
+            )
             validation_metric = metric_function(y_validation_raw, validation_predictions)
             print(
                 f"{progress} - validation loss: {validation_loss:.4f}, "
@@ -138,13 +131,23 @@ def main():
             )
 
     validation_scores = tx_validation @ w
-    decision_threshold, validation_metric = find_best_f1_threshold(
-        validation_scores, y_validation_raw
+    validation_predictions = np.where(validation_scores >= decision_threshold, 1, -1)
+    validation_metric = metric_function(y_validation_raw, validation_predictions)
+    print(
+        f"Holdout {metric_function.__name__} at CV threshold "
+        f"{decision_threshold:.6f}: {validation_metric:.4f}"
+    )
+    model_dir.mkdir(parents=True, exist_ok=True)
+    curve_path = model_dir / "precision_recall_curve.png"
+    average_precision, selected_precision, selected_recall = save_precision_recall_curve(
+        validation_scores, y_validation_raw, decision_threshold, curve_path
     )
     print(
-        f"Selected decision threshold: {decision_threshold:.6f} "
-        f"(validation {metric_function.__name__}: {validation_metric:.4f})"
+        f"Validation PR: average precision {average_precision:.4f}, "
+        f"selected precision {selected_precision:.4f}, "
+        f"recall {selected_recall:.4f}"
     )
+    print(f"Saved precision-recall curve to {curve_path}")
 
     # Retrain on all labeled rows for the final submission.
     print(f"Refitting {regression_function.__name__} on all {len(x_all)} labeled samples...")
@@ -186,6 +189,7 @@ def main():
         training_samples=len(y_all),
         method=regression_function.__name__,
         threshold=decision_threshold,
+        threshold_selection="5-fold CV on training split",
         fit_intercept=True,
         classes=np.array([-1, 1]),
     )
