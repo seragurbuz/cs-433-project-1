@@ -3,7 +3,7 @@
 
 This module only applies fixed cleaning rules:
 - Convert missing/refused codes to NaN.
-- Convert special frequency, height and weight codes.
+- Convert encoded frequencies, durations, heights, weights and decimal scales.
 - Remove invalid values.
 
 Missing values are NOT filled here.
@@ -16,6 +16,9 @@ from feature_rules import (
     FOOD_FREQUENCY,
     EXERCISE_FREQUENCY,
     DAILY_FREQUENCY,
+    ALCOHOL_FREQUENCY,
+    ENCODED_DURATION,
+    EXERCISE_DURATION,
     DECIMAL_SCALES,
 )
 
@@ -110,6 +113,41 @@ def frequency_to_number(x, name):
     return out
 
 
+def alcohol_days_per_week(x):
+    """Decode ALCDAY5 responses to days per week."""
+    out = np.full(len(x), np.nan)
+    weekly = (x >= 101) & (x <= 107)
+    monthly = (x >= 201) & (x <= 230)
+    out[weekly] = x[weekly] - 100
+    out[monthly] = (x[monthly] - 200) * 7 / 30
+    return out
+
+
+def duration_years(x):
+    """Decode LONGWTCH day/week/month/year responses to years."""
+    out = np.full(len(x), np.nan)
+    for lo, hi, base, divisor in (
+        (101, 199, 100, 365),
+        (201, 299, 200, 52),
+        (301, 399, 300, 12),
+        (401, 499, 400, 1),
+    ):
+        mask = (x >= lo) & (x <= hi)
+        out[mask] = (x[mask] - base) / divisor
+    # 555 means "all my life"; its duration cannot be known from this column.
+    return out
+
+
+def exercise_minutes(x):
+    """Decode EXERHMM1/2 HHMM responses to minutes."""
+    out = np.full(len(x), np.nan)
+    hours = x // 100
+    minutes = x % 100
+    valid = (x >= 1) & (x <= 959) & (minutes < 60)
+    out[valid] = hours[valid] * 60 + minutes[valid]
+    return out
+
+
 def clean_column(raw, name, info):
     """Clean one feature using its BRFSS codebook definition.
 
@@ -127,7 +165,18 @@ def clean_column(raw, name, info):
     x[invalid] = np.nan
 
     # Step 2: Convert features requiring special interpretation
-    if name in (
+    if name in ALCOHOL_FREQUENCY:
+        original = x.copy()
+        x = alcohol_days_per_week(original)
+        x[np.isin(original, zeros)] = 0
+
+    elif name in ENCODED_DURATION:
+        x = duration_years(x)
+
+    elif name in EXERCISE_DURATION:
+        x = exercise_minutes(x)
+
+    elif name in (
         FOOD_FREQUENCY
         | EXERCISE_FREQUENCY
         | DAILY_FREQUENCY
@@ -215,15 +264,21 @@ def clean_column(raw, name, info):
 
             # Convert raw values only when their scale is clear.
             if factor != 1 and name in {
-                "_BMI5", "HTM4", "WTKG3"
+                "_BMI5", "HTM4", "WTKG3", "_DRNKWEK", "DROCDY3_"
             }:
                 thresholds = {
                     "_BMI5": 100,
                     "HTM4": 10,
                     "WTKG3": 300,
+                    "_DRNKWEK": 0,
+                    "DROCDY3_": 0,
                 }
 
                 x[x > thresholds[name]] /= factor
+
+        if name == "ASTHMAGE":
+            # 97 is the special response "age 10 or younger".
+            x[x == 97] = 10
 
     return x
 

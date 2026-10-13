@@ -36,16 +36,22 @@ DAILY_FREQUENCY = set(
     "BLDSUGAR FEETCHK2".split()
 )
 
+# 1xx means days per week; 2xx means days in the past 30 days.
+ALCOHOL_FREQUENCY = {"ALCDAY5"}
 
-# These features contain encoded values (e.g. dates or hours/minutes).
+# 1xx/2xx/3xx/4xx mean days/weeks/months/years.
+ENCODED_DURATION = {"LONGWTCH"}
+
+# Hours and minutes are stored together as HHMM.
+EXERCISE_DURATION = {"EXERHMM1", "EXERHMM2"}
+
+
+# These features contain encoded dates.
 # Their raw values should not be treated as continuous numerical values.
 # For now, we treat them as categorical features.
 FORCE_CATEGORICAL = {
     "FLSHTMY2",
     "HIVTSTD3",
-    "LONGWTCH",
-    "EXERHMM1",
-    "EXERHMM2",
 }
 
 
