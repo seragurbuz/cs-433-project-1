@@ -68,6 +68,12 @@ DECIMAL_SCALES = {
     "DROCDY3_": 100,
 }
 
+# These columns arrive already divided by their codebook's implied scale.
+# Their missing-response codes need the same division before comparison.
+SCALED_MISSING_FIELDS = {
+    "WTKG3", "MAXVO2_", "FC60_", "PAFREQ1_", "PAFREQ2_", "STRFREQ_"
+}
+
 
 def selected_features(codebook):
     """Select the 250 predictors that are not excluded."""

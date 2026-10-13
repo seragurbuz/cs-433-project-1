@@ -20,6 +20,7 @@ from feature_rules import (
     ENCODED_DURATION,
     EXERCISE_DURATION,
     DECIMAL_SCALES,
+    SCALED_MISSING_FIELDS,
 )
 
 
@@ -45,9 +46,10 @@ def codebook_codes(info):
         hi = int(match[2] or match[1])
         label = meaning.lower()
 
-        # Unknown/refused responses are treated as missing
+        # Unknown, refused and inapplicable responses are not measurements.
         if any(word in label for word in (
-            "don't know", "not sure", "refused", "missing"
+            "don't know", "not sure", "refused", "missing",
+            "not applicable", "never heard", "no feet",
         )):
             if lo == hi:
                 missing.append(lo)
@@ -245,6 +247,10 @@ def clean_column(raw, name, info):
                     if f"{digits} implied decimal" in units:
                         factor = 10 ** digits
                         break
+
+            if name in SCALED_MISSING_FIELDS and factor != 1 and missing:
+                # These CSV values are already scaled, including sentinels.
+                x[np.isin(x, np.asarray(missing) / factor)] = np.nan
 
             # Accept valid codebook values.
             # For scaled variables, also accept already-scaled values.
