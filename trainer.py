@@ -26,12 +26,12 @@ cleaned_data_path = data_path / "cleaned_data" / "x_train_clean.csv"
 cleaned_test_path = data_path / "cleaned_data" / "x_test_clean.csv"
 model_dir = Path(__file__).parent / "models"
 # Select any of the six functions imported above.
-regression_function = logistic_regression
+regression_function = reg_logistic_regression
 # Select a metric imported above; all accept true and predicted -1/1 labels.
 metric_function = f1_score
 # Iterative methods take this many updates; SGD uses one sample per update.
 # least_squares and ridge_regression solve once and ignore num_epochs/gamma.
-num_epochs = 1000
+num_epochs = 2000
 # Print training results every this many updates and at the final step.
 training_print_interval = 10
 # Fraction held out for validation; the remaining rows are used for training.
@@ -39,13 +39,15 @@ validation_fraction = 0.2
 validation_interval = 100
 split_seed = 42
 gamma = 0.1
+probability_threshold = 0.20
 # Used only by ridge_regression and reg_logistic_regression.
-lambda_ = 0.01  
+lambda_ = 0.001
 
 
 def main():
     closed_form = regression_function in (least_squares, ridge_regression)
     is_logistic = regression_function in (logistic_regression, reg_logistic_regression)
+    decision_boundary = np.log(probability_threshold / (1 - probability_threshold)) if is_logistic else 0.0
     if not closed_form and num_epochs < 1:
         raise ValueError("num_epochs must be at least 1")
     if not isinstance(training_print_interval, (int, np.integer)) or training_print_interval < 1:
@@ -103,7 +105,7 @@ def main():
             progress = f"{unit} {step}/{num_epochs}"
         if step % training_print_interval == 0 or step == training_steps:
             scores = tx_train @ w
-            train_predictions = np.where(scores >= 0, 1, -1)
+            train_predictions = np.where(scores >= decision_boundary, 1, -1)
             metric_value = metric_function(y_train_raw, train_predictions)
             print(
                 f"{progress} - "
@@ -119,7 +121,7 @@ def main():
                 )
             else:
                 validation_loss = 0.5 * np.mean((y_validation - validation_scores) ** 2)
-            validation_predictions = np.where(validation_scores >= 0, 1, -1)
+            validation_predictions = np.where(validation_scores >= decision_boundary, 1, -1)
             validation_metric = metric_function(y_validation_raw, validation_predictions)
             print(
                 f"{progress} - validation loss: {validation_loss:.4f}, "
@@ -172,14 +174,14 @@ def main():
         replacement_rules_json=json.dumps(replacement_records, allow_nan=False),
         training_samples=len(y_all),
         method=regression_function.__name__,
-        threshold=0.0,
+        threshold=decision_boundary,
         fit_intercept=True,
         classes=np.array([-1, 1]),
     )
     print(f"Saved model to {model_path}")
 
-    # Zero is the boundary for -1/1 regression and a logistic probability of 0.5.
-    test_predictions = np.where(tx_test @ w >= 0, 1, -1)
+    # Compare raw scores against the boundary for the selected method.
+    test_predictions = np.where(tx_test @ w >= decision_boundary, 1, -1)
     create_csv_submission(test_ids, test_predictions, "submission.csv")
     print("Saved submission.csv")
 

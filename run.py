@@ -22,14 +22,14 @@ from implementations import (
 
 data_path = Path(__file__).parent / "dataset"
 submission_path = Path(__file__).parent / "submission.csv"
-# TODO: replace with the best method and settings found by cross-validation.
+# Selected by the regularization sweep at probability threshold 0.20.
 # Select any of the six functions imported above.
-regression_function = logistic_regression
+regression_function = reg_logistic_regression
 # Used by the iterative methods (GD, SGD, logistic); ignored by the closed-form ones.
-num_epochs = 1000
+num_epochs = 2000
 gamma = 0.1
 # Used only by ridge_regression and reg_logistic_regression.
-lambda_ = 0.01
+lambda_ = 0.001
 threshold = 0.2   # predict "sick" as soon as the probability is ≥ 20 %
 
 def train(method, y, tx):
