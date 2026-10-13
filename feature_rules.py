@@ -21,22 +21,30 @@ _VEGETEX PAMISS1_
 
 
 # Some BRFSS questions store both frequency and time unit in one number.
-# For example, FRUIT1 = 101 means once per day,
-# while FRUIT1 = 201 means once per week.
-# These features need conversion to a common time unit.
+# 101-199 means times per day
+# 201-299 means times per week
+# 301-399 means times per month
+# 300 means less than once per month
 FOOD_FREQUENCY = set(
     "FRUITJU1 FRUIT1 FVBEANS FVGREEN FVORANG VEGETAB1".split()
 )
 
+# 101-199 means times per week
+# 201-299 means times per month
 EXERCISE_FREQUENCY = set(
     "EXEROFT1 EXEROFT2 STRENGTH".split()
 )
 
+# 101-199 means times per day
+# 201-299 means times per week
+# 301-399 means times per month
+# 401-499 means times per year
 DAILY_FREQUENCY = set(
     "BLDSUGAR FEETCHK2".split()
 )
 
-# 1xx means days per week; 2xx means days in the past 30 days.
+# 1xx means days per week
+# 2xx means days in the past 30 days.
 ALCOHOL_FREQUENCY = {"ALCDAY5"}
 
 # 1xx/2xx/3xx/4xx mean days/weeks/months/years.
@@ -44,15 +52,6 @@ ENCODED_DURATION = {"LONGWTCH"}
 
 # Hours and minutes are stored together as HHMM.
 EXERCISE_DURATION = {"EXERHMM1", "EXERHMM2"}
-
-
-# These features contain encoded dates.
-# Their raw values should not be treated as continuous numerical values.
-# For now, we treat them as categorical features.
-FORCE_CATEGORICAL = {
-    "FLSHTMY2",
-    "HIVTSTD3",
-}
 
 
 # Some BRFSS numerical variables use implied decimal places.

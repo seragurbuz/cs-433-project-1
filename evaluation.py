@@ -1,4 +1,6 @@
-"""Validation diagnostics for the positive (MICHD = 1) class."""
+"""Validation diagnostics for the positive (MICHD = 1) class.
+Only used for visualization, not for training or testing.
+"""
 
 import numpy as np
 import matplotlib

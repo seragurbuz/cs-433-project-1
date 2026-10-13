@@ -2,7 +2,6 @@
 
 Run prepare_data.py first. Keep run.py unchanged.
 """
-import json
 import numpy as np
 from pathlib import Path
 
@@ -134,9 +133,6 @@ def main():
                 f"validation {metric_function.__name__}: {validation_metric:.4f}"
             )
 
-    validation_scores = tx_validation @ w
-    validation_predictions = np.where(validation_scores >= decision_threshold, 1, -1)
-    validation_metric = metric_function(y_validation_raw, validation_predictions)
     print(
         f"Holdout {metric_function.__name__} at fixed threshold "
         f"{decision_threshold:.6f}: {validation_metric:.4f}"
@@ -180,7 +176,6 @@ def main():
         )
     print(f"Full-data refit complete - training loss: {loss:.4f}")
 
-    model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / f"{regression_function.__name__}.npz"
     np.savez_compressed(
         model_path,
