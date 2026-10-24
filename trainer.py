@@ -5,9 +5,11 @@ Run prepare_data.py first. Keep run.py unchanged.
 import numpy as np
 from pathlib import Path
 
-from helpers import create_csv_submission, load_cleaned_data, split_training_validation
+from helpers import (
+    add_bias, apply_standardization, create_csv_submission,
+    fit_standardization, load_cleaned_data, split_training_validation,
+)
 from preprocessing import fit_imputation, apply_imputation
-from evaluation import save_precision_recall_curve
 from implementations import (
     mean_squared_error_gd, mean_squared_error_sgd, least_squares,
     ridge_regression, logistic_regression, reg_logistic_regression,
@@ -75,15 +77,13 @@ def main():
     x_validation = apply_imputation(x_validation, medians)
     if not np.isfinite(x_train).all() or not np.isfinite(x_validation).all():
         raise ValueError("Replacement rules left missing/nonfinite features")
-    mean = x_train.mean(axis=0)
-    std = x_train.std(axis=0)
-    std[std == 0] = 1
-    x_train = (x_train - mean) / std
-    x_validation = (x_validation - mean) / std
+    mean, std = fit_standardization(x_train)
+    x_train = apply_standardization(x_train, mean, std)
+    x_validation = apply_standardization(x_validation, mean, std)
 
     # Logistic methods need 0/1 labels; linear methods fit original -1/1 labels.
-    tx_train = np.column_stack((np.ones(x_train.shape[0]), x_train))
-    tx_validation = np.column_stack((np.ones(x_validation.shape[0]), x_validation))
+    tx_train = add_bias(x_train)
+    tx_validation = add_bias(x_validation)
     y_train = (y_train_raw + 1) / 2 if is_logistic else y_train_raw
     y_validation = (y_validation_raw + 1) / 2 if is_logistic else y_validation_raw
     w = np.zeros(tx_train.shape[1])
@@ -137,18 +137,6 @@ def main():
         f"Holdout {metric_function.__name__} at fixed threshold "
         f"{decision_threshold:.6f}: {validation_metric:.4f}"
     )
-    model_dir.mkdir(parents=True, exist_ok=True)
-    curve_path = model_dir / "precision_recall_curve.png"
-    average_precision, selected_precision, selected_recall = save_precision_recall_curve(
-        validation_scores, y_validation_raw, decision_threshold, curve_path
-    )
-    print(
-        f"Validation PR: average precision {average_precision:.4f}, "
-        f"selected precision {selected_precision:.4f}, "
-        f"recall {selected_recall:.4f}"
-    )
-    print(f"Saved precision-recall curve to {curve_path}")
-
     # Retrain on all labeled rows for the final submission.
     print(f"Refitting {regression_function.__name__} on all {len(x_all)} labeled samples...")
     medians = fit_imputation(x_all)
@@ -156,11 +144,9 @@ def main():
     x_test = apply_imputation(x_test, medians)
     if not np.isfinite(x_all).all() or not np.isfinite(x_test).all():
         raise ValueError("Imputation left missing/nonfinite features")
-    mean = x_all.mean(axis=0)
-    std = x_all.std(axis=0)
-    std[std == 0] = 1
-    tx_all = np.column_stack((np.ones(len(x_all)), (x_all - mean) / std))
-    tx_test = np.column_stack((np.ones(len(x_test)), (x_test - mean) / std))
+    mean, std = fit_standardization(x_all)
+    tx_all = add_bias(apply_standardization(x_all, mean, std))
+    tx_test = add_bias(apply_standardization(x_test, mean, std))
     y_all = (y_all_raw + 1) / 2 if is_logistic else y_all_raw
     if regression_function is least_squares:
         w, loss = regression_function(y_all, tx_all)
@@ -176,6 +162,7 @@ def main():
         )
     print(f"Full-data refit complete - training loss: {loss:.4f}")
 
+    model_dir.mkdir(parents=True, exist_ok=True)
     model_path = model_dir / f"{regression_function.__name__}.npz"
     np.savez_compressed(
         model_path,

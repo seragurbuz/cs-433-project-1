@@ -1,5 +1,8 @@
 
-"""Feature selection and special preprocessing rules for BRFSS data."""
+"""Feature selection and special preprocessing rules for BRFSS data.
+
+The constants identify columns, preprocessing.py applies their conversions.
+"""
 
 # Features that we do not want to use for prediction.
 # These include survey identifiers, dates, sampling weights,
@@ -75,7 +78,14 @@ SCALED_MISSING_FIELDS = {
 
 
 def selected_features(codebook):
-    """Select the 250 predictors that are not excluded."""
+    """Select the 250 predictors, preserving their order in the codebook.
+
+    Args:
+        codebook: Mapping from feature names to their codebook definitions.
+
+    Returns:
+        Feature names that are not in EXCLUDED_FIELDS, in codebook order.
+    """
 
     names = [
         name for name in codebook
