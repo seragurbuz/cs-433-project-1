@@ -50,12 +50,26 @@ def save_threshold_diagnostics(scores, labels, threshold, path):
     fig, (pr_ax, threshold_ax) = plt.subplots(1, 2, figsize=(14, 5))
     # left side shows the PR curve, positive-class prevalence and selected threshold
     pr_ax.step(np.r_[0, recall], np.r_[1, precision], where="pre", label="OOF PR")
-    pr_ax.axhline(total_positive / len(labels), color="gray", linestyle="--",
-                  label="Positive class prevalence")
-    pr_ax.scatter([selected_recall], [selected_precision], color="red", zorder=3,
-                  label=f"Selected threshold ({threshold:.3f})")
-    pr_ax.set(xlabel="Recall", ylabel="Precision", title="Cross-validation PR curve",
-              xlim=(0, 1), ylim=(0, 1))
+    pr_ax.axhline(
+        total_positive / len(labels),
+        color="gray",
+        linestyle="--",
+        label="Positive class prevalence",
+    )
+    pr_ax.scatter(
+        [selected_recall],
+        [selected_precision],
+        color="red",
+        zorder=3,
+        label=f"Selected threshold ({threshold:.3f})",
+    )
+    pr_ax.set(
+        xlabel="Recall",
+        ylabel="Precision",
+        title="Cross-validation PR curve",
+        xlim=(0, 1),
+        ylim=(0, 1),
+    )
     pr_ax.grid(alpha=0.25)
     pr_ax.legend()
 
@@ -66,10 +80,18 @@ def save_threshold_diagnostics(scores, labels, threshold, path):
     threshold_ax.plot(thresholds, precision[::-1], label="Precision")
     threshold_ax.plot(thresholds, recall[::-1], label="Recall")
     threshold_ax.plot(thresholds, f1[::-1], label="F1")
-    threshold_ax.axvline(threshold, color="red", linestyle="--",
-                         label=f"Selected threshold ({threshold:.3f})")
-    threshold_ax.set(xlabel="Raw score threshold", ylabel="Metric",
-                     title="Metrics across thresholds", ylim=(0, 1))
+    threshold_ax.axvline(
+        threshold,
+        color="red",
+        linestyle="--",
+        label=f"Selected threshold ({threshold:.3f})",
+    )
+    threshold_ax.set(
+        xlabel="Raw score threshold",
+        ylabel="Metric",
+        title="Metrics across thresholds",
+        ylim=(0, 1),
+    )
     threshold_ax.grid(alpha=0.25)
     threshold_ax.legend()
     # save the figure and close

@@ -1,4 +1,3 @@
-
 """Clean BRFSS feature values using the codebook.
 
 This module only applies fixed cleaning rules:
@@ -34,10 +33,7 @@ def codebook_codes(info):
     for code, meaning in info["codes"]:
         # Codebook entries can be single values ("7")
         # or ranges ("101-199").
-        match = re.fullmatch(
-            r"\s*(\d+)\s*(?:-\s*(\d+))?\s*",
-            code
-        )
+        match = re.fullmatch(r"\s*(\d+)\s*(?:-\s*(\d+))?\s*", code)
 
         if not match:
             continue
@@ -47,10 +43,18 @@ def codebook_codes(info):
         label = meaning.lower()
 
         # Unknown, refused and inapplicable responses are not measurements.
-        if any(word in label for word in (
-            "don't know", "not sure", "refused", "missing",
-            "not applicable", "never heard", "no feet",
-        )):
+        if any(
+            word in label
+            for word in (
+                "don't know",
+                "not sure",
+                "refused",
+                "missing",
+                "not applicable",
+                "never heard",
+                "no feet",
+            )
+        ):
             if lo == hi:
                 missing.append(lo)
 
@@ -58,10 +62,9 @@ def codebook_codes(info):
         elif (
             lo == hi
             and info["type"].startswith("numerical")
-            and label.startswith((
-                "none", "never", "zero",
-                "no drinks", "did not drink"
-            ))
+            and label.startswith(
+                ("none", "never", "zero", "no drinks", "did not drink")
+            )
         ):
             zeros.append(lo)
 
@@ -178,11 +181,7 @@ def clean_column(raw, name, info):
     elif name in EXERCISE_DURATION:
         x = exercise_minutes(x)
 
-    elif name in (
-        FOOD_FREQUENCY
-        | EXERCISE_FREQUENCY
-        | DAILY_FREQUENCY
-    ):
+    elif name in (FOOD_FREQUENCY | EXERCISE_FREQUENCY | DAILY_FREQUENCY):
         original = x.copy()
         x = frequency_to_number(original, name)
         x[np.isin(original, zeros)] = 0
@@ -208,19 +207,14 @@ def clean_column(raw, name, info):
         feet = x // 100
         inches = x % 100
 
-        imperial = (
-            (x >= 200) & (x <= 711)
-            & (inches < 12)
-        )
+        imperial = (x >= 200) & (x <= 711) & (inches < 12)
         metric = (x >= 9000) & (x <= 9998)
 
         # Initialize the output array
         out = np.full(len(x), np.nan)
 
         # Feet/inches -> meters
-        out[imperial] = (
-            feet[imperial] * 12 + inches[imperial]
-        ) * 0.0254
+        out[imperial] = (feet[imperial] * 12 + inches[imperial]) * 0.0254
 
         # Centimeters -> meters
         out[metric] = (x[metric] - 9000) / 100
@@ -245,7 +239,7 @@ def clean_column(raw, name, info):
 
                 for digits in (1, 2, 3):
                     if f"{digits} implied decimal" in units:
-                        factor = 10 ** digits
+                        factor = 10**digits
                         break
 
             if name in SCALED_MISSING_FIELDS and factor != 1 and missing:
@@ -258,10 +252,7 @@ def clean_column(raw, name, info):
                 valid |= (x >= lo) & (x <= hi)
 
                 if factor != 1:
-                    valid |= (
-                        (x * factor >= lo)
-                        & (x * factor <= hi)
-                    )
+                    valid |= (x * factor >= lo) & (x * factor <= hi)
 
             if zeros:
                 valid |= x == 0
@@ -270,7 +261,11 @@ def clean_column(raw, name, info):
 
             # Convert raw values only when their scale is clear.
             if factor != 1 and name in {
-                "_BMI5", "HTM4", "WTKG3", "_DRNKWEK", "DROCDY3_"
+                "_BMI5",
+                "HTM4",
+                "WTKG3",
+                "_DRNKWEK",
+                "DROCDY3_",
             }:
                 thresholds = {
                     "_BMI5": 100,
@@ -299,15 +294,11 @@ def clean_data(data, feature_names, codebook):
     cleaned = np.empty(data.shape, dtype=float)
 
     for j, name in enumerate(feature_names):
-        cleaned[:, j] = clean_column(
-            data[:, j],
-            name,
-            codebook[name]
-        )
+        cleaned[:, j] = clean_column(data[:, j], name, codebook[name])
 
     return cleaned
 
-    
+
 def fit_imputation(x):
     """Learn column medians from training data only."""
     medians = np.nanmedian(x, axis=0)
@@ -321,4 +312,3 @@ def fit_imputation(x):
 def apply_imputation(x, medians):
     """Replace missing values using previously learned medians."""
     return np.where(np.isfinite(x), x, medians)
-

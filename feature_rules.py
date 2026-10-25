@@ -1,4 +1,3 @@
-
 """Feature selection and special preprocessing rules for BRFSS data.
 
 The constants identify columns, preprocessing.py applies their conversions.
@@ -9,7 +8,8 @@ The constants identify columns, preprocessing.py applies their conversions.
 # redundant variables, and fields that may cause target leakage.
 #
 # All features not in this set will be kept.
-EXCLUDED_FIELDS = set("""
+EXCLUDED_FIELDS = set(
+    """
 _STATE FMONTH IDATE IMONTH IDAY IYEAR DISPCODE SEQNO _PSU QSTVER QSTLANG
 MSCODE _STSTR _STRWT _RAWRAKE _WT2RAKE _LLCPWT _DUALUSE _DUALCOR
 _CLLCPWT HAREHAB1 CTELENUM PVTRESD1 COLGHOUS STATERES CELLFON3
@@ -20,7 +20,8 @@ _LTASTH1 _CASTHM1 _ASTHMS1 _DRDXAR1 _CHLDCNT _EDUCAG _INCOMG
 _RFSMOK3 DRNKANY5 _RFBMI5 _TOTINDA _RFSEAT2 _RFSEAT3 _AIDTST3
 _MISFRTN _MISVEGN _FRTRESP _VEGRESP _FRT16 _VEG23 _FRUITEX
 _VEGETEX PAMISS1_
-""".split())
+""".split()
+)
 
 
 # Some BRFSS questions store both frequency and time unit in one number.
@@ -28,23 +29,17 @@ _VEGETEX PAMISS1_
 # 201-299 means times per week
 # 301-399 means times per month
 # 300 means less than once per month
-FOOD_FREQUENCY = set(
-    "FRUITJU1 FRUIT1 FVBEANS FVGREEN FVORANG VEGETAB1".split()
-)
+FOOD_FREQUENCY = set("FRUITJU1 FRUIT1 FVBEANS FVGREEN FVORANG VEGETAB1".split())
 
 # 101-199 means times per week
 # 201-299 means times per month
-EXERCISE_FREQUENCY = set(
-    "EXEROFT1 EXEROFT2 STRENGTH".split()
-)
+EXERCISE_FREQUENCY = set("EXEROFT1 EXEROFT2 STRENGTH".split())
 
 # 101-199 means times per day
 # 201-299 means times per week
 # 301-399 means times per month
 # 401-499 means times per year
-DAILY_FREQUENCY = set(
-    "BLDSUGAR FEETCHK2".split()
-)
+DAILY_FREQUENCY = set("BLDSUGAR FEETCHK2".split())
 
 # 1xx means days per week
 # 2xx means days in the past 30 days.
@@ -73,7 +68,12 @@ DECIMAL_SCALES = {
 # These columns arrive already divided by their codebook's implied scale.
 # Their missing-response codes need the same division before comparison.
 SCALED_MISSING_FIELDS = {
-    "WTKG3", "MAXVO2_", "FC60_", "PAFREQ1_", "PAFREQ2_", "STRFREQ_"
+    "WTKG3",
+    "MAXVO2_",
+    "FC60_",
+    "PAFREQ1_",
+    "PAFREQ2_",
+    "STRFREQ_",
 }
 
 
@@ -87,15 +87,10 @@ def selected_features(codebook):
         Feature names that are not in EXCLUDED_FIELDS, in codebook order.
     """
 
-    names = [
-        name for name in codebook
-        if name not in EXCLUDED_FIELDS
-    ]
+    names = [name for name in codebook if name not in EXCLUDED_FIELDS]
 
     # Make sure the feature selection has not changed unexpectedly.
     if len(names) != 250:
-        raise ValueError(
-            f"Expected 250 predictors, found {len(names)}"
-        )
+        raise ValueError(f"Expected 250 predictors, found {len(names)}")
 
     return names

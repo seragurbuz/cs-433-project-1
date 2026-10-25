@@ -4,18 +4,112 @@ Run ``python experiments.py`` to prepare data if needed and select a threshold.
 """
 
 from pathlib import Path
+import hashlib
+import json
 
 import numpy as np
 
-from evaluation import save_threshold_diagnostics
 from helpers import (
-    add_bias, apply_standardization, fit_standardization, load_labels_with_ids,
+    add_bias,
+    apply_standardization,
+    fit_standardization,
+    load_labels_with_ids,
 )
 from implementations import (
-    least_squares, logistic_regression, mean_squared_error_sgd,
-    reg_logistic_regression, ridge_regression,
+    least_squares,
+    logistic_regression,
+    mean_squared_error_sgd,
+    reg_logistic_regression,
+    ridge_regression,
 )
 from preprocessing import fit_imputation, apply_imputation
+from prepare_data import file_digest
+
+
+def fit_model(model, x, labels, num_epochs, gamma, lambda_, seed):
+    """Fit a course method to -1/1 labels with reproducible SGD sampling."""
+    y = (
+        (labels + 1) / 2
+        if model in (logistic_regression, reg_logistic_regression)
+        else labels
+    )
+    if model is least_squares:
+        return model(y, x)
+    if model is ridge_regression:
+        return model(y, x, lambda_)
+    if model is reg_logistic_regression:
+        return model(y, x, lambda_, np.zeros(x.shape[1]), num_epochs, gamma)
+    if model is mean_squared_error_sgd:
+        np.random.seed(seed)
+    return model(y, x, np.zeros(x.shape[1]), num_epochs, gamma)
+
+
+def tune_training_threshold(x_train, y_train, config, model, model_dir, manifest):
+    """Cache a threshold tied to the exact training split and model settings.
+
+    The caller must reserve the outer holdout before passing training rows here.
+    Neither holdout features nor labels are accepted by this function.
+    """
+    root = Path(__file__).resolve().parent
+    digest = hashlib.sha256()
+    for values in (x_train, y_train):
+        digest.update(str(values.shape).encode())
+        digest.update(str(values.dtype).encode())
+        for block in np.array_split(values, 64):
+            digest.update(np.ascontiguousarray(block).tobytes())
+    provenance = {
+        "settings": config,
+        "training_split_sha256": digest.hexdigest(),
+        "preparation": manifest,
+        "code": {
+            name: file_digest(root / name)
+            for name in (
+                "experiments.py",
+                "implementations.py",
+                "helpers.py",
+                "preprocessing.py",
+            )
+        },
+    }
+    model_dir = Path(model_dir)
+    model_dir.mkdir(parents=True, exist_ok=True)
+    path = model_dir / "threshold_selection.json"
+    try:
+        record = json.loads(path.read_text(encoding="utf-8"))
+        if (
+            record["provenance"] == provenance
+            and np.isfinite(record["threshold"])
+            and np.isfinite(record["oof_f1"])
+        ):
+            print(
+                "Reusing threshold for the same training split and settings.",
+                flush=True,
+            )
+            return record
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    threshold, score = select_cv_threshold(
+        x_train,
+        y_train,
+        config["num_epochs"],
+        config["gamma"],
+        n_folds=config["n_folds"],
+        seed=config["split_seed"],
+        model=model,
+        lambda_=config["lambda_"],
+        plot_path=model_dir / "cv_threshold_diagnostics.png",
+    )
+    record = {
+        "threshold": threshold,
+        "oof_f1": score,
+        "selection_scope": "training split only; outer holdout excluded",
+        "training_rows": len(y_train),
+        "provenance": provenance,
+    }
+    path.write_text(
+        json.dumps(record, indent=2, allow_nan=False) + "\n", encoding="utf-8"
+    )
+    return record
 
 
 def best_f1_threshold(scores, labels):
@@ -47,8 +141,15 @@ def best_f1_threshold(scores, labels):
 
 
 def select_cv_threshold(
-    x, labels, num_epochs, gamma, n_folds=5, seed=42,
-    model=logistic_regression, lambda_=0.01, plot_path=None,
+    x,
+    labels,
+    num_epochs,
+    gamma,
+    n_folds=5,
+    seed=42,
+    model=logistic_regression,
+    lambda_=0.01,
+    plot_path=None,
 ):
     """Fit on K-1 folds, then choose an F1 threshold from out-of-fold scores.
 
@@ -105,28 +206,15 @@ def select_cv_threshold(
         tx_train = add_bias(apply_standardization(x_train, mean, std))
         tx_validation = add_bias(apply_standardization(x_validation, mean, std))
 
-        # get the training labels for this fold
-        y_train = labels[train_mask]
-        # for logistic methods, convert -1/1 labels to 0/1 for training
-        if model in (logistic_regression, reg_logistic_regression):
-            y_train = (y_train + 1) / 2
-
-        # fit the model on training rows, then score the held-out rows
-        if model is least_squares:
-            weights, _ = model(y_train, tx_train)
-        elif model is ridge_regression:
-            weights, _ = model(y_train, tx_train, lambda_)
-        elif model is reg_logistic_regression:
-            weights, _ = model(
-                y_train, tx_train, lambda_, np.zeros(tx_train.shape[1]),
-                num_epochs, gamma,
-            )
-        else:
-            if model is mean_squared_error_sgd:
-                np.random.seed(seed + fold_number)
-            weights, _ = model(
-                y_train, tx_train, np.zeros(tx_train.shape[1]), num_epochs, gamma
-            )
+        weights, _ = fit_model(
+            model,
+            tx_train,
+            labels[train_mask],
+            num_epochs,
+            gamma,
+            lambda_,
+            seed + fold_number,
+        )
         # store each held-out score at its original row index
         out_of_fold_scores[validation_indices] = tx_validation @ weights
         print(f"CV fold {fold_number}/{n_folds} complete", flush=True)
@@ -141,6 +229,13 @@ def select_cv_threshold(
         )
     plot_path = Path(plot_path)
     plot_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        from evaluation import save_threshold_diagnostics
+    except ModuleNotFoundError as error:
+        if error.name != "matplotlib":
+            raise
+        print("Matplotlib is unavailable; skipping the optional diagnostic plot.")
+        return threshold, best_f1
     average_precision, selected_precision, selected_recall = save_threshold_diagnostics(
         out_of_fold_scores, labels, threshold, plot_path
     )
@@ -157,25 +252,23 @@ def main():
     """Select a threshold for the model and training settings in trainer.py."""
     import trainer
 
-    data_folder = Path(__file__).resolve().parent / "dataset"
-    cleaned_train_path = data_folder / "cleaned_data" / "x_train_clean.csv"
-    if not cleaned_train_path.is_file():
-        from prepare_data import main as prepare_data
+    from helpers import split_training_validation
 
-        print("Preparing cleaned data...")
-        prepare_data(data_folder)
-
-    x = np.genfromtxt(cleaned_train_path, delimiter=",", skip_header=1, ndmin=2)
-    _, labels = load_labels_with_ids(data_folder / "y_train.csv")
-    if len(x) != len(labels):
-        raise ValueError("Cleaned training rows and labels do not match")
-
-    threshold, best_f1 = select_cv_threshold(
-        x, labels, trainer.num_epochs, trainer.gamma,
-        seed=trainer.split_seed, model=trainer.regression_function,
-        lambda_=trainer.lambda_,
+    x, _, labels, _, _, manifest = trainer.load_prepared_data()
+    x_train, _, y_train, _ = split_training_validation(
+        x, labels, trainer.validation_fraction, trainer.split_seed
     )
-    print(f"Selected threshold: {threshold:.6f}; out-of-fold F1: {best_f1:.4f}")
+    record = tune_training_threshold(
+        x_train,
+        y_train,
+        trainer.settings(),
+        trainer.regression_function,
+        trainer.model_dir,
+        manifest,
+    )
+    print(
+        f"Selected threshold: {record['threshold']:.6f}; tuning OOF F1: {record['oof_f1']:.4f}"
+    )
 
 
 if __name__ == "__main__":

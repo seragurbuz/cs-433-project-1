@@ -22,15 +22,19 @@ def load_csv_columns(path, names):
     missing = [name for name in names if name not in header]
     if missing:
         raise ValueError(f"CSV columns absent: {missing}")
-    data = np.genfromtxt(path, delimiter=",", skip_header=1,
-                         usecols=[header.index(name) for name in names], ndmin=2)
+    data = np.genfromtxt(
+        path,
+        delimiter=",",
+        skip_header=1,
+        usecols=[header.index(name) for name in names],
+        ndmin=2,
+    )
     return data
 
 
 def load_csv_ids(path):
     """Read respondent IDs from the first column of a raw feature CSV."""
-    return np.genfromtxt(path, delimiter=",", skip_header=1,
-                         usecols=0, dtype=np.int64)
+    return np.genfromtxt(path, delimiter=",", skip_header=1, usecols=0, dtype=np.int64)
 
 
 def load_labels_with_ids(path):
@@ -85,8 +89,13 @@ def load_csv_data(data_path, sub_sample=False):
     return x_train, x_test, y_train, train_ids, test_ids
 
 
-def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_ids_path,
-                      allow_missing=False):
+def load_cleaned_data(
+    cleaned_data_path,
+    cleaned_test_path,
+    labels_path,
+    test_ids_path,
+    allow_missing=False,
+):
     """Load cleaned feature CSVs, training labels, and test IDs.
 
     Cleaned CSVs contain features only. Labels and test IDs must retain the
@@ -108,7 +117,9 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
     # Cleaned exports contain features only; labels and IDs retain their original row order.
     for path in (cleaned_data_path, cleaned_test_path):
         if not path.is_file():
-            raise FileNotFoundError(f"Cleaned data not found: {path}. Run prepare_data.py first.")
+            raise FileNotFoundError(
+                f"Cleaned data not found: {path}. Run prepare_data.py first."
+            )
     x_train = np.genfromtxt(cleaned_data_path, delimiter=",", skip_header=1, ndmin=2)
     x_test = np.genfromtxt(cleaned_test_path, delimiter=",", skip_header=1, ndmin=2)
     y_train_raw = np.genfromtxt(
@@ -124,15 +135,21 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
     if y_train_raw.shape != (len(x_train),) or not np.isin(y_train_raw, (-1, 1)).all():
         raise ValueError("Labels must contain -1/1 and match cleaned training rows")
     if np.isinf(x_train).any() or (not allow_missing and np.isnan(x_train).any()):
-        raise ValueError("Cleaned data still contains NaN/inf; finish cleaning it first")
+        raise ValueError(
+            "Cleaned data still contains NaN/inf; finish cleaning it first"
+        )
     with cleaned_test_path.open(newline="") as source:
         test_feature_names = next(csv.reader(source))
     if test_feature_names != feature_names.tolist():
         raise ValueError("Cleaned train/test CSVs must have identical feature headers")
     if x_test.shape != (len(test_ids), len(feature_names)):
-        raise ValueError("Cleaned test rows/columns must match test IDs and training features")
+        raise ValueError(
+            "Cleaned test rows/columns must match test IDs and training features"
+        )
     if np.isinf(x_test).any() or (not allow_missing and np.isnan(x_test).any()):
-        raise ValueError("Cleaned test data still contains NaN/inf; finish cleaning it first")
+        raise ValueError(
+            "Cleaned test data still contains NaN/inf; finish cleaning it first"
+        )
     return x_train, x_test, y_train_raw, test_ids, feature_names
 
 
@@ -155,13 +172,20 @@ def split_training_validation(x, y, fraction, seed):
     for label in np.unique(y):
         indices = rng.permutation(np.flatnonzero(y == label))
         if len(indices) < 2:
-            raise ValueError("Each class needs at least two rows for a stratified split")
+            raise ValueError(
+                "Each class needs at least two rows for a stratified split"
+            )
         count = min(len(indices) - 1, max(1, round(len(indices) * fraction)))
         validation_indices.extend(indices[:count])
         training_indices.extend(indices[count:])
     training_indices = rng.permutation(training_indices)
     validation_indices = rng.permutation(validation_indices)
-    return x[training_indices], x[validation_indices], y[training_indices], y[validation_indices]
+    return (
+        x[training_indices],
+        x[validation_indices],
+        y[training_indices],
+        y[validation_indices],
+    )
 
 
 def fit_standardization(x):
