@@ -10,5 +10,6 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
-# models
+# Generated model and cleaned data files
 models/
+dataset/cleaned_data/

@@ -6,6 +6,41 @@ import os
 from pathlib import Path
 
 
+def load_csv_columns(path, names):
+    """Read selected columns from a raw feature CSV in the requested order.
+
+    Args:
+        path: Path to the raw feature CSV
+        names: Column names to read, in the desired output order
+
+    Returns:
+        A NumPy array with one row per CSV record and columns ordered as names
+    """
+    path = Path(path)
+    with path.open(newline="", encoding="utf-8-sig") as source:
+        header = next(csv.reader(source))
+    missing = [name for name in names if name not in header]
+    if missing:
+        raise ValueError(f"CSV columns absent: {missing}")
+    data = np.genfromtxt(path, delimiter=",", skip_header=1,
+                         usecols=[header.index(name) for name in names], ndmin=2)
+    return data
+
+
+def load_csv_ids(path):
+    """Read respondent IDs from the first column of a raw feature CSV."""
+    return np.genfromtxt(path, delimiter=",", skip_header=1,
+                         usecols=0, dtype=np.int64)
+
+
+def load_labels_with_ids(path):
+    """Read respondent IDs and MICHD labels from y_train.csv."""
+    rows = np.genfromtxt(path, delimiter=",", skip_header=1, dtype=np.int64)
+    if rows.ndim != 2 or rows.shape[1] != 2:
+        raise ValueError("Expected Id and MICHD columns in the label CSV")
+    return rows[:, 0], rows[:, 1]
+
+
 def load_csv_data(data_path, sub_sample=False):
     """
     This function loads the data and returns the respectinve numpy arrays.
@@ -52,13 +87,20 @@ def load_csv_data(data_path, sub_sample=False):
 
 def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_ids_path,
                       allow_missing=False):
-    """
-    Load feature-only train/test CSVs without running preprocessing.
+    """Load cleaned feature CSVs, training labels, and test IDs.
 
-    Labels and test IDs must have the same row order as the corresponding
-    cleaned exports. Return (x_train, x_test, y_train, test_ids, feature_names).
-    Paths can be strings or Path objects.
-    allow_missing permits NaN values, but not infinity.
+    Cleaned CSVs contain features only. Labels and test IDs must retain the
+    same row order as their corresponding cleaned data.
+
+    Args:
+        cleaned_data_path: Path to the cleaned training features
+        cleaned_test_path: Path to the cleaned test features
+        labels_path: Path to the original training labels CSV
+        test_ids_path: Path to the original test features CSV containing IDs
+        allow_missing: Whether to permit NaN feature values, infinity is invalid
+
+    Returns:
+        x_train, x_test, y_train, test_ids, and feature_names, in that order.
     """
     cleaned_data_path, cleaned_test_path, labels_path, test_ids_path = map(
         Path, (cleaned_data_path, cleaned_test_path, labels_path, test_ids_path)
@@ -66,7 +108,7 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
     # Cleaned exports contain features only; labels and IDs retain their original row order.
     for path in (cleaned_data_path, cleaned_test_path):
         if not path.is_file():
-            raise FileNotFoundError(f"Cleaned data not found: {path}. Run dataloader.py first.")
+            raise FileNotFoundError(f"Cleaned data not found: {path}. Run prepare_data.py first.")
     x_train = np.genfromtxt(cleaned_data_path, delimiter=",", skip_header=1, ndmin=2)
     x_test = np.genfromtxt(cleaned_test_path, delimiter=",", skip_header=1, ndmin=2)
     y_train_raw = np.genfromtxt(
@@ -95,7 +137,17 @@ def load_cleaned_data(cleaned_data_path, cleaned_test_path, labels_path, test_id
 
 
 def split_training_validation(x, y, fraction, seed):
-    """Split reproducibly, retaining each class in both sets (rounded per class)."""
+    """Split reproducibly, retaining each class in both sets.
+
+    Args:
+        x: Feature rows to split
+        y: Labels aligned with the rows of x
+        fraction: Approximate validation fraction, rounded within each class
+        seed: Random seed for reproducible row selection.
+
+    Returns:
+        x_train, x_validation, y_train and y_validation
+    """
     if not 0 < fraction < 1:
         raise ValueError("validation_fraction must be between 0 and 1")
     rng = np.random.default_rng(seed)
@@ -133,11 +185,6 @@ def apply_standardization(x, mean, std):
 def add_bias(x):
     """Prepend a column of ones for the intercept."""
     return np.column_stack((np.ones(len(x)), x))
-
-# mean, std = fit_standardization(x_train)
-# tx_train = add_bias(apply_standardization(x_train, mean, std))
-# tx_val   = add_bias(apply_standardization(x_val,   mean, std))
-
 
 
 def create_csv_submission(ids, y_pred, name):

@@ -1,0 +1,9525 @@
+{
+  "_STATE": {
+    "description": "State FIPS Code",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Alabama"
+      ],
+      [
+        "2",
+        "Alaska"
+      ],
+      [
+        "4",
+        "Arizona"
+      ],
+      [
+        "5",
+        "Arkansas"
+      ],
+      [
+        "6",
+        "California"
+      ],
+      [
+        "8",
+        "Colorado"
+      ],
+      [
+        "9",
+        "Connecticut"
+      ],
+      [
+        "10",
+        "Delaware"
+      ],
+      [
+        "11",
+        "District of Columbia"
+      ],
+      [
+        "12",
+        "Florida"
+      ],
+      [
+        "13",
+        "Georgia"
+      ],
+      [
+        "15",
+        "Hawaii"
+      ],
+      [
+        "16",
+        "Idaho"
+      ],
+      [
+        "17",
+        "Illinois"
+      ],
+      [
+        "18",
+        "Indiana"
+      ],
+      [
+        "19",
+        "Iowa"
+      ],
+      [
+        "20",
+        "Kansas"
+      ],
+      [
+        "21",
+        "Kentucky"
+      ],
+      [
+        "22",
+        "Louisiana"
+      ],
+      [
+        "23",
+        "Maine"
+      ],
+      [
+        "24",
+        "Maryland"
+      ],
+      [
+        "25",
+        "Massachusetts"
+      ],
+      [
+        "26",
+        "Michigan"
+      ],
+      [
+        "27",
+        "Minnesota"
+      ],
+      [
+        "28",
+        "Mississippi"
+      ],
+      [
+        "29",
+        "Missouri"
+      ],
+      [
+        "30",
+        "Montana"
+      ],
+      [
+        "31",
+        "Nebraska"
+      ],
+      [
+        "32",
+        "Nevada"
+      ],
+      [
+        "33",
+        "New Hampshire"
+      ],
+      [
+        "34",
+        "New Jersey"
+      ],
+      [
+        "35",
+        "New Mexico"
+      ],
+      [
+        "36",
+        "New York"
+      ],
+      [
+        "37",
+        "North Carolina"
+      ],
+      [
+        "38",
+        "North Dakota"
+      ],
+      [
+        "39",
+        "Ohio"
+      ],
+      [
+        "40",
+        "Oklahoma"
+      ],
+      [
+        "41",
+        "Oregon"
+      ],
+      [
+        "42",
+        "Pennsylvania"
+      ],
+      [
+        "44",
+        "Rhode Island"
+      ],
+      [
+        "45",
+        "South Carolina"
+      ],
+      [
+        "46",
+        "South Dakota"
+      ],
+      [
+        "47",
+        "Tennessee"
+      ],
+      [
+        "48",
+        "Texas"
+      ],
+      [
+        "49",
+        "Utah"
+      ],
+      [
+        "50",
+        "Vermont"
+      ],
+      [
+        "51",
+        "Virginia"
+      ],
+      [
+        "53",
+        "Washington"
+      ],
+      [
+        "54",
+        "West Virginia"
+      ],
+      [
+        "55",
+        "Wisconsin"
+      ],
+      [
+        "56",
+        "Wyoming"
+      ],
+      [
+        "66",
+        "Guam"
+      ],
+      [
+        "72",
+        "Puerto Rico"
+      ]
+    ]
+  },
+  "FMONTH": {
+    "description": "File Month",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "January"
+      ],
+      [
+        "2",
+        "February"
+      ],
+      [
+        "3",
+        "March"
+      ],
+      [
+        "4",
+        "April"
+      ],
+      [
+        "5",
+        "May"
+      ],
+      [
+        "6",
+        "June"
+      ],
+      [
+        "7",
+        "July"
+      ],
+      [
+        "8",
+        "August"
+      ],
+      [
+        "9",
+        "September"
+      ],
+      [
+        "10",
+        "October"
+      ],
+      [
+        "11",
+        "November"
+      ],
+      [
+        "12",
+        "December"
+      ]
+    ]
+  },
+  "IDATE": {
+    "description": "Interview Date",
+    "type": "date (format not specified in codebook)",
+    "units": "date",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "IMONTH": {
+    "description": "Interview Month",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "January"
+      ],
+      [
+        "2",
+        "February"
+      ],
+      [
+        "3",
+        "March"
+      ],
+      [
+        "4",
+        "April"
+      ],
+      [
+        "5",
+        "May"
+      ],
+      [
+        "6",
+        "June"
+      ],
+      [
+        "7",
+        "July"
+      ],
+      [
+        "8",
+        "August"
+      ],
+      [
+        "9",
+        "September"
+      ],
+      [
+        "10",
+        "October"
+      ],
+      [
+        "11",
+        "November"
+      ],
+      [
+        "12",
+        "December"
+      ]
+    ]
+  },
+  "IDAY": {
+    "description": "Interview Day",
+    "type": "numerical",
+    "units": "day of month",
+    "codes": [
+      [
+        "1-31",
+        "Interview day"
+      ]
+    ]
+  },
+  "IYEAR": {
+    "description": "Interview Year",
+    "type": "numerical",
+    "units": "years",
+    "codes": [
+      [
+        "2015-2016",
+        "Interview year"
+      ]
+    ]
+  },
+  "DISPCODE": {
+    "description": "Final Disposition",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1100",
+        "Completed Interview"
+      ],
+      [
+        "1200",
+        "Partial Complete Interview"
+      ]
+    ]
+  },
+  "SEQNO": {
+    "description": "Annual Sequence Number",
+    "type": "identifier",
+    "units": "identifier (no physical unit)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_PSU": {
+    "description": "Primary Sampling Unit (Equal to Annual Sequence Number)",
+    "type": "identifier",
+    "units": "identifier (no physical unit)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "CTELENUM": {
+    "description": "Correct Telephone Number?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to PVTRESD1"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "PVTRESD1": {
+    "description": "Is this a private residence? [READ ONLY IF NECESSARY: “By private residence, we mean someplace like a house or apartment.”]",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to STATERES"
+      ],
+      [
+        "2",
+        "No--- -Go to COLGHOUS"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "COLGHOUS": {
+    "description": "Do you live in college housing?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to STATERES"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "STATERES": {
+    "description": "Do you reside in ____(state)____?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to CELLFON3"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CELLFON3": {
+    "description": "Is this a cellular telephone? (Telephone service over the internet counts as landline service (includes Vonage, Magic Jack and other home-based phone services).)[Read only if necessary: “By cellular (or cell) telephone we mean a telephone that is mobile and usable outside of your neighborhood.”]",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Not a cellular phone"
+      ],
+      [
+        "2",
+        "Yes--- -Terminate Phone Call"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "LADULT": {
+    "description": "Are you 18 years of age or older?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes, Male Respondent--- -Go to Survey Introduction"
+      ],
+      [
+        "2",
+        "Yes, Female Respondent--- -Go to Survey Introduction"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "NUMADULT": {
+    "description": "Number of Adults in Household",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "1-5",
+        "Number of adults in household"
+      ],
+      [
+        "6-99",
+        "6 or more"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "NUMMEN": {
+    "description": "Number of Adult Men in Household",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "0-5",
+        "Number of adult men in household"
+      ],
+      [
+        "6-99",
+        "6 or more"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "NUMWOMEN": {
+    "description": "Number of Adult Women in Household",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "0-5",
+        "Number of adult women in household"
+      ],
+      [
+        "6-99",
+        "6 or more"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "CTELNUM1": {
+    "description": "Is this (phone number) ?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to CELLFON2"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CELLFON2": {
+    "description": "Is this a cellular telephone?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to CADULT"
+      ],
+      [
+        "2",
+        "No--- -Terminate Phone Call"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CADULT": {
+    "description": "Are you 18 years of age or older?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes, Male Respondent--- -Go to PVTRESD2"
+      ],
+      [
+        "2",
+        "Yes, Female Respondent--- -Go to PVTRESD2"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PVTRESD2": {
+    "description": "Do you live in a private residence, that is, not in a dormitory or other type of group living situation?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to CSTATE"
+      ],
+      [
+        "2",
+        "No--- -Go to CCLGHOUS"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CCLGHOUS": {
+    "description": "Do you live in college housing?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to CSTATE"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "CSTATE": {
+    "description": "Are you a resident of [STATE]?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to LANDLINE"
+      ],
+      [
+        "2",
+        "No--- -Go to RSPSTATE"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LANDLINE": {
+    "description": "Do you also have a landline telephone in your home that is used to make and receive calls?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HHADULT": {
+    "description": "How many members of your household, including yourself, are 18 years of age or older?",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of adults"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "GENHLTH": {
+    "description": "Would you say that in general your health is:",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Excellent"
+      ],
+      [
+        "2",
+        "Very good"
+      ],
+      [
+        "3",
+        "Good"
+      ],
+      [
+        "4",
+        "Fair"
+      ],
+      [
+        "5",
+        "Poor"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PHYSHLTH": {
+    "description": "Now thinking about your physical health, which includes physical illness and injury, for how many days during the past 30 days was your physical health not good?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 30",
+        "Number of days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "MENTHLTH": {
+    "description": "Now thinking about your mental health, which includes stress, depression, and problems with emotions, for how many days during the past 30 days was your mental health not good?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 30",
+        "Number of days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ]
+    ]
+  },
+  "POORHLTH": {
+    "description": "During the past 30 days, for about how many days did poor physical or mental health keep you from doing your usual activities, such as self-care, work, or recreation?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 30",
+        "Number of days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HLTHPLN1": {
+    "description": "Do you have any kind of health care coverage, including health insurance, prepaid plans such as HMOs, or government plans such as Medicare, or Indian Health Service?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "PERSDOC2": {
+    "description": "Do you have one person you think of as your personal doctor or health care provider? (If \"No\" ask \"Is there more than one or is there no person who you think of as your personal doctor or health care provider?\".)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes, only one"
+      ],
+      [
+        "2",
+        "More than one"
+      ],
+      [
+        "3",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "MEDCOST": {
+    "description": "Was there a time in the past 12 months when you needed to see a doctor but could not because of cost?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CHECKUP1": {
+    "description": "About how long has it been since you last visited a doctor for a routine checkup? [A routine checkup is a general physical exam, not an exam for a specific injury, illness, or condition.]",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within past 5 years (2 years but less than 5 years ago)"
+      ],
+      [
+        "4",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Never"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "BPHIGH4": {
+    "description": "Have you EVER been told by a doctor, nurse or other health professional that you have high blood pressure? (If \"Yes\" and respondent is female, ask \"Was this only when you were pregnant?\".)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "Yes, but female told only during pregnancy--- -Go to Section 05.01 BLOODCHO"
+      ],
+      [
+        "3",
+        "No--- -Go to Section 05.01 BLOODCHO"
+      ],
+      [
+        "4",
+        "Told borderline high or pre-hypertensive--- -Go to Section 05.01 BLOODCHO"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 05.01 BLOODCHO"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 05.01 BLOODCHO"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "BPMEDS": {
+    "description": "Are you currently taking medicine for your high blood pressure?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "BLOODCHO": {
+    "description": "Blood cholesterol is a fatty substance found in the blood. Have you EVER had your blood cholesterol checked?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Section 06.01 CVDINFR4"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 06.01 CVDINFR4"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 06.01 CVDINFR4"
+      ]
+    ]
+  },
+  "CHOLCHK": {
+    "description": "About how long has it been since you last had your blood cholesterol checked?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 5 years (2 years but less than 5 years ago)"
+      ],
+      [
+        "4",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "TOLDHI2": {
+    "description": "Have you EVER been told by a doctor, nurse or other health professional that your blood cholesterol is high?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CVDSTRK3": {
+    "description": "(Ever told) you had a stroke.",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "ASTHMA3": {
+    "description": "(Ever told) you had asthma?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Section 06.06 CHCSCNCR"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 06.06 CHCSCNCR"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 06.06 CHCSCNCR"
+      ]
+    ]
+  },
+  "ASTHNOW": {
+    "description": "Do you still have asthma?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CHCSCNCR": {
+    "description": "(Ever told) you had skin cancer?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know / Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CHCOCNCR": {
+    "description": "(Ever told) you had any other types of cancer?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know / Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "CHCCOPD1": {
+    "description": "(Ever told) you have Chronic Obstructive Pulmonary Disease or COPD, emphysema or chronic bronchitis?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know / Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "HAVARTH3": {
+    "description": "(Ever told) you have some form of arthritis, rheumatoid arthritis, gout, lupus, or fibromyalgia? (Arthritis diagnoses include: rheumatism, polymyalgia rheumatica; osteoarthritis (not osteporosis); tendonitis, bursitis, bunion, tennis elbow; carpal tunnel syndrome, tarsal tunnel syndrome; joint infection, etc.)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADDEPEV2": {
+    "description": "(Ever told) you that you have a depressive disorder, including depression, major depression, dysthymia, or minor depression?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "CHCKIDNY": {
+    "description": "(Ever told) you have kidney disease? Do NOT include kidney stones, bladder infection or incontinence.(Incontinence is not being able to control urine flow.)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know / Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "DIABETE3": {
+    "description": "(Ever told) you have diabetes (If \"Yes\" and respondent is female, ask \"Was this only when you were pregnant?\". If Respondent says pre-diabetes or borderline diabetes, use response code 4.)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "Yes, but female told only during pregnancy--- -Go to Section 07.7.1 SEX"
+      ],
+      [
+        "3",
+        "No--- -Go to Section 07.7.1 SEX"
+      ],
+      [
+        "4",
+        "No, pre-diabetes or borderline diabetes--- -Go to Section 07.7.1 SEX"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 07.7.1 SEX"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 07.7.1 SEX"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DIABAGE2": {
+    "description": "How old were you when you were told you have diabetes?",
+    "type": "numerical (encoded)",
+    "units": "years",
+    "codes": [
+      [
+        "1 - 97",
+        "Age in years [97 = 97 and older]"
+      ],
+      [
+        "98",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SEX": {
+    "description": "Indicate sex of respondent.",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Male"
+      ],
+      [
+        "2",
+        "Female"
+      ]
+    ]
+  },
+  "MARITAL": {
+    "description": "Are you: (marital status)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Married"
+      ],
+      [
+        "2",
+        "Divorced"
+      ],
+      [
+        "3",
+        "Widowed"
+      ],
+      [
+        "4",
+        "Separated"
+      ],
+      [
+        "5",
+        "Never married"
+      ],
+      [
+        "6",
+        "A member of an unmarried couple"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "EDUCA": {
+    "description": "What is the highest grade or year of school you completed?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Never attended school or only kindergarten"
+      ],
+      [
+        "2",
+        "Grades 1 through 8 (Elementary)"
+      ],
+      [
+        "3",
+        "Grades 9 through 11 (Some high school)"
+      ],
+      [
+        "4",
+        "Grade 12 or GED (High school graduate)"
+      ],
+      [
+        "5",
+        "College 1 year to 3 years (Some college or technical school)"
+      ],
+      [
+        "6",
+        "College 4 years or more (College graduate)"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "RENTHOM1": {
+    "description": "Do you own or rent your home? (Home is defined as the place where you live most of the time/the majority of the year.)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Own"
+      ],
+      [
+        "2",
+        "Rent"
+      ],
+      [
+        "3",
+        "Other arrangement"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "NUMHHOL2": {
+    "description": "Do you have more than one telephone number in your household? Do not include cell phones or numbers that are only used by a computer or fax machine.",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Section 07.13 CPDEMO1"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to Section 07.13 CPDEMO1"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 07.13 CPDEMO1"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "NUMPHON2": {
+    "description": "How many of these telephone numbers are residential numbers?",
+    "type": "numerical",
+    "units": "residential phone numbers",
+    "codes": [
+      [
+        "1",
+        "Residential telephone number"
+      ],
+      [
+        "2",
+        "Residential telephone numbers"
+      ],
+      [
+        "3",
+        "Residential telephone numbers"
+      ],
+      [
+        "4",
+        "Residential telephone numbers"
+      ],
+      [
+        "5",
+        "Residential telephone numbers"
+      ],
+      [
+        "6",
+        "Residential telephone numbers"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CPDEMO1": {
+    "description": "Do you have a cell phone for personal use? Please include cell phones used for both business and personal use",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VETERAN3": {
+    "description": "Have you ever served on active duty in the United States Armed Forces, either in the regular military or in a National Guard or military reserve unit? (Active duty does not include training for the Reserves or National Guard, but DOES include activation, for example, for the Persian Gulf War.)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EMPLOY1": {
+    "description": "Are you currently…?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Employed for wages"
+      ],
+      [
+        "2",
+        "Self-employed"
+      ],
+      [
+        "3",
+        "Out of work for 1 year or more"
+      ],
+      [
+        "4",
+        "Out of work for less than 1 year"
+      ],
+      [
+        "5",
+        "A homemaker"
+      ],
+      [
+        "6",
+        "A student"
+      ],
+      [
+        "7",
+        "Retired"
+      ],
+      [
+        "8",
+        "Unable to work"
+      ],
+      [
+        "9",
+        "Refused"
+      ]
+    ]
+  },
+  "CHILDREN": {
+    "description": "How many children less than 18 years of age live in your household?",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "1 - 87",
+        "Number of children"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "INCOME2": {
+    "description": "Is your annual household income from all sources: (If respondent refuses at any income level, code \"Refused.\")",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Less than $10,000"
+      ],
+      [
+        "2",
+        "Less than $15,000 ($10,000 to less than $15,000)"
+      ],
+      [
+        "3",
+        "Less than $20,000 ($15,000 to less than $20,000)"
+      ],
+      [
+        "4",
+        "Less than $25,000 ($20,000 to less than $25,000)"
+      ],
+      [
+        "5",
+        "Less than $35,000 ($25,000 to less than $35,000)"
+      ],
+      [
+        "6",
+        "Less than $50,000 ($35,000 to less than $50,000)"
+      ],
+      [
+        "7",
+        "Less than $75,000 ($50,000 to less than $75,000)"
+      ],
+      [
+        "8",
+        "$75,000 or more"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "INTERNET": {
+    "description": "Have you used the internet in the past 30 days?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "WEIGHT2": {
+    "description": "About how much do you weigh without shoes? (If respondent answers in metrics, put a 9 in the first column)[Round fractions up.]",
+    "type": "numerical (encoded)",
+    "units": "pounds or kilograms, as encoded",
+    "codes": [
+      [
+        "50 - 0999",
+        "Weight (pounds)"
+      ],
+      [
+        "7777",
+        "Don't know/Not sure"
+      ],
+      [
+        "9000 - 9998",
+        "Weight (kilograms)"
+      ],
+      [
+        "9999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HEIGHT3": {
+    "description": "About how tall are you without shoes? (If respondent answers in metrics, put a 9 in the first column)[Round fractions down.]",
+    "type": "numerical (encoded)",
+    "units": "feet/inches or meters/centimeters, as encoded",
+    "codes": [
+      [
+        "200 - 711",
+        "Height (ft/inches)"
+      ],
+      [
+        "7777",
+        "Don't know/Not sure"
+      ],
+      [
+        "9000 - 9998",
+        "Height (meters/centimeters)"
+      ],
+      [
+        "9999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PREGNANT": {
+    "description": "To your knowledge, are you now pregnant?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "QLACTLM2": {
+    "description": "Are you limited in any way in any activities because of physical, mental, or emotional problems?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "USEEQUIP": {
+    "description": "Do you now have any health problem that requires you to use special equipment, such as a cane, a wheelchair, a special bed, or a special telephone? (Include occasional use or use in certain circumstances.)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "BLIND": {
+    "description": "Are you blind or do you have serious difficulty seeing, even when wearing glasses?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DECIDE": {
+    "description": "Because of a physical, mental, or emotional condition, do you have serious difficulty concentrating, remembering, or making decisions?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DIFFWALK": {
+    "description": "Do you have serious difficulty walking or climbing stairs?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DIFFDRES": {
+    "description": "Do you have difficulty dressing or bathing?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DIFFALON": {
+    "description": "Because of a physical, mental, or emotional condition, do you have difficulty doing errands alone such as visiting a doctor's office or shopping?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SMOKE100": {
+    "description": "Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100 cigarettes]",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SMOKDAY2": {
+    "description": "Do you now smoke cigarettes every day, some days, or not at all?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Every day"
+      ],
+      [
+        "2",
+        "Some days"
+      ],
+      [
+        "3",
+        "Not at all--- -Go to Section 08.04 LASTSMK2"
+      ],
+      [
+        "7",
+        "Don't Know/Not Sure--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "STOPSMK2": {
+    "description": "During the past 12 months, have you stopped smoking for one day or longer because you were trying to quit smoking?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "2",
+        "No--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 08.05 USENOW3"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LASTSMK2": {
+    "description": "How long has it been since you last smoked a cigarette, even one or two puffs?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past month (less than 1 month ago)"
+      ],
+      [
+        "2",
+        "Within the past 3 months (1 month but less than 3 months ago)"
+      ],
+      [
+        "3",
+        "Within the past 6 months (3 months but less than 6 months ago)"
+      ],
+      [
+        "4",
+        "Within the past year (6 months but less than 1 year ago)"
+      ],
+      [
+        "5",
+        "Within the past 5 years (1 year but less than 5 years ago)"
+      ],
+      [
+        "6",
+        "Within the past 10 years (5 years but less than 10 years ago)"
+      ],
+      [
+        "7",
+        "10 years or more"
+      ],
+      [
+        "8",
+        "Never smoked regularly"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "USENOW3": {
+    "description": "Do you currently use chewing tobacco, snuff, or snus every day, some days, or not at all? (Snus (Swedish for snuff) is a moist smokeless tobacco, usually sold in small pouches that are placed under the lip against the gum.)[Snus (rhymes with 'goose')]",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Every day"
+      ],
+      [
+        "2",
+        "Some days"
+      ],
+      [
+        "3",
+        "Not at all"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ALCDAY5": {
+    "description": "During the past 30 days, how many days per week or per month did you have at least one drink of any alcoholic beverage such as beer, wine, a malt beverage or liquor?",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Days per week"
+      ],
+      [
+        "201 - 299",
+        "Days in past 30 days"
+      ],
+      [
+        "777",
+        "Don't know/Not sure--- -Go to Section 10.01 FRUITJU1"
+      ],
+      [
+        "888",
+        "No drinks in past 30 days--- -Go to Section 10.01 FRUITJU1"
+      ],
+      [
+        "999",
+        "Refused--- -Go to Section 10.01 FRUITJU1"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "AVEDRNK2": {
+    "description": "One drink is equivalent to a 12-ounce beer, a 5-ounce glass of wine, or a drink with one shot of liquor. During the past 30 days, on the days when you drank, about how many drinks did you drink on the average? (A 40 ounce beer would count as 3 drinks, or a cocktail drink with 2 shots would count as 2 drinks.)",
+    "type": "numerical (encoded)",
+    "units": "drinks",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of drinks"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DRNK3GE5": {
+    "description": "Considering all types of alcoholic beverages, how many times during the past 30 days did you have 5 or more drinks for men or 4 or more drinks for women on an occasion?",
+    "type": "numerical (encoded)",
+    "units": "times / count",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of Times"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "MAXDRNKS": {
+    "description": "During the past 30 days, what is the largest number of drinks you had on any occasion?",
+    "type": "numerical (encoded)",
+    "units": "drinks",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of drinks"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FRUITJU1": {
+    "description": "During the past month, how many times per day, week or month did you drink 100 percent PURE fruit juices? Do not include fruit-flavored drinks with added sugar or fruit juice you made at home and added sugar to. Only include 100 percent juice.",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "300",
+        "Less than one time per month"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "555",
+        "Never"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FRUIT1": {
+    "description": "During the past month, not counting juice, how many times per day, week, or month did you eat fruit? Count fresh, frozen, or canned fruit.(Read only if necessary: “Your best guess is fine. Include apples, bananas, applesauce, oranges, grape fruit, fruit salad, watermelon, cantaloupe or musk melon, papaya, lychees, star fruit,)",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "300",
+        "Less than one time per month"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "555",
+        "Never"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FVBEANS": {
+    "description": "During the past month, how many times per day, week, or month did you eat cooked or canned beans, such as refried, baked, black, garbanzo beans, beans in soup, soybeans, edamame, tofu or lentils. Do NOT include long green beans.(Read only if necessary: “Include round or oval beans or peas such as navy, pinto, split peas, cow peas, garbanzo beans, lentils, soy beans and tofu. Do NOT include long green beans such as string beans, broad or winged beans, or pole beans.”)",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "300",
+        "Less than one time per month"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "555",
+        "Never"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FVGREEN": {
+    "description": "During the past month, how many times per day, week, or month did you eat dark green vegetables for example broccoli or dark leafy greens including romaine, chard, collard greens or spinach?",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "300",
+        "Less than one time per month"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "555",
+        "Never"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FVORANG": {
+    "description": "During the past month, how many times per day, week, or month did you eat orange-colored vegetables such as sweet potatoes, pumpkin, winter squash, or carrots? (Read only if needed: “Winter squash have hard, thick skins and deep yellow to orange flesh. They include acorn, buttercup, and spaghetti squash.”)",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "300",
+        "Less than one time per month"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "555",
+        "Never"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VEGETAB1": {
+    "description": "Not counting what you just told me about, during the past month, about how many times per day, week, or month did you eat OTHER vegetables? Examples of other vegetables include tomatoes, tomato juice or V-8 juice, corn, eggplant, peas, lettuce, cabbage, and white potatoes that are not fried such as baked or mashed potatoes.(Read only if needed: “Do not count vegetables you have already counted and do not include fried potatoes.”)",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "300",
+        "Less than one time per month"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "555",
+        "Never"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXERANY2": {
+    "description": "During the past month, other than your regular job, did you participate in any physical activities or exercises such as running, calisthenics, golf, gardening, or walking for exercise?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXRACT11": {
+    "description": "What type of physical activity or exercise did you spend the most time doing during the past month?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Active Gaming Devices (Wii Fit, Dance, Dance revolution)"
+      ],
+      [
+        "2",
+        "Aerobics video or class"
+      ],
+      [
+        "3",
+        "Backpacking"
+      ],
+      [
+        "4",
+        "Badminton"
+      ],
+      [
+        "5",
+        "Basketball"
+      ],
+      [
+        "6",
+        "Bicycling machine exercise"
+      ],
+      [
+        "7",
+        "Bicycling"
+      ],
+      [
+        "8",
+        "Boating (Canoeing, rowing, kayaking, sailing for pleasure or camping)"
+      ],
+      [
+        "9",
+        "Bowling"
+      ],
+      [
+        "10",
+        "Boxing"
+      ],
+      [
+        "11",
+        "Calisthenics"
+      ],
+      [
+        "12",
+        "Canoeing/rowing in competition"
+      ],
+      [
+        "13",
+        "Carpentry"
+      ],
+      [
+        "14",
+        "Dancing-ballet, ballroom, Latin, hip hop, etc"
+      ],
+      [
+        "15",
+        "Elliptical/EFX machine exercise"
+      ],
+      [
+        "16",
+        "Fishing from river bank or boat"
+      ],
+      [
+        "17",
+        "Frisbee"
+      ],
+      [
+        "18",
+        "Gardening (spading, weeding, digging, filling)"
+      ],
+      [
+        "19",
+        "Golf (with motorized cart)"
+      ],
+      [
+        "20",
+        "Golf (without motorized cart)"
+      ],
+      [
+        "21",
+        "Handball"
+      ],
+      [
+        "22",
+        "Hiking -- cross-country"
+      ],
+      [
+        "23",
+        "Hockey"
+      ],
+      [
+        "24",
+        "Horseback riding"
+      ],
+      [
+        "25",
+        "Hunting large game -- deer, elk"
+      ],
+      [
+        "26",
+        "Hunting small game -- quail"
+      ],
+      [
+        "27",
+        "Inline Skating"
+      ],
+      [
+        "28",
+        "Jogging"
+      ],
+      [
+        "29",
+        "Lacrosse"
+      ],
+      [
+        "30",
+        "Mountain climbing"
+      ],
+      [
+        "31",
+        "Mowing lawn"
+      ],
+      [
+        "32",
+        "Paddleball"
+      ],
+      [
+        "33",
+        "Painting/papering house"
+      ],
+      [
+        "34",
+        "Pilates"
+      ],
+      [
+        "35",
+        "Racquetball"
+      ],
+      [
+        "36",
+        "Raking lawn"
+      ],
+      [
+        "37",
+        "Running"
+      ],
+      [
+        "38",
+        "Rock Climbing"
+      ],
+      [
+        "39",
+        "Rope skipping"
+      ],
+      [
+        "40",
+        "Rowing machine exercise"
+      ],
+      [
+        "41",
+        "Rugby"
+      ],
+      [
+        "42",
+        "Scuba diving"
+      ],
+      [
+        "43",
+        "Skateboarding"
+      ],
+      [
+        "44",
+        "Skating -- ice or roller"
+      ],
+      [
+        "45",
+        "Sledding, tobogganing"
+      ],
+      [
+        "46",
+        "Snorkeling"
+      ],
+      [
+        "47",
+        "Snow blowing"
+      ],
+      [
+        "48",
+        "Snow shoveling by hand"
+      ],
+      [
+        "49",
+        "Snow skiing"
+      ],
+      [
+        "50",
+        "Snowshoeing"
+      ],
+      [
+        "51",
+        "Soccer"
+      ],
+      [
+        "52",
+        "Softball/Baseball"
+      ],
+      [
+        "53",
+        "Squash"
+      ],
+      [
+        "54",
+        "Stair climbing/Stair master"
+      ],
+      [
+        "55",
+        "Stream fishing in waders"
+      ],
+      [
+        "56",
+        "Surfing"
+      ],
+      [
+        "57",
+        "Swimming"
+      ],
+      [
+        "58",
+        "Swimming in laps"
+      ],
+      [
+        "59",
+        "Table tennis"
+      ],
+      [
+        "60",
+        "Tai Chi"
+      ],
+      [
+        "61",
+        "Tennis"
+      ],
+      [
+        "62",
+        "Touch football"
+      ],
+      [
+        "63",
+        "Volleyball"
+      ],
+      [
+        "64",
+        "Walking"
+      ],
+      [
+        "66",
+        "Waterskiing"
+      ],
+      [
+        "67",
+        "Weight lifting"
+      ],
+      [
+        "68",
+        "Wrestling"
+      ],
+      [
+        "69",
+        "Yoga"
+      ],
+      [
+        "71",
+        "Childcare"
+      ],
+      [
+        "72",
+        "Farm/Ranch Work (caring for livestock, stacking hay, etc.)"
+      ],
+      [
+        "73",
+        "Household Activities (vacuuming, dusting, home repair, etc.)"
+      ],
+      [
+        "74",
+        "Karate/Martial Arts"
+      ],
+      [
+        "75",
+        "Upper Body Cycle (wheelchair sports, ergometer, etc.)"
+      ],
+      [
+        "76",
+        "Yard work (cutting/gathering wood, trimming hedges, etc.)"
+      ],
+      [
+        "98",
+        "Other______"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure--- -Go to Section 11.08 STRENGTH"
+      ],
+      [
+        "99",
+        "Refused--- -Go to Section 11.08 STRENGTH"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXEROFT1": {
+    "description": "How many times per week or per month did you take part in this activity during the past month?",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per week"
+      ],
+      [
+        "201 - 299",
+        "Times per month"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXERHMM1": {
+    "description": "And when you took part in this activity, for how many minutes or hours did you usually keep at it?",
+    "type": "numerical (encoded)",
+    "units": "hours and minutes",
+    "codes": [
+      [
+        "1 - 759",
+        "Hours and Minutes"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "800 - 959",
+        "Hours and Minutes"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXRACT21": {
+    "description": "What other type of physical activity gave you the next most exercise during the past month?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Active Gaming Devices (Wii Fit, Dance, Dance revolution)"
+      ],
+      [
+        "2",
+        "Aerobics video or class"
+      ],
+      [
+        "3",
+        "Backpacking"
+      ],
+      [
+        "4",
+        "Badminton"
+      ],
+      [
+        "5",
+        "Basketball"
+      ],
+      [
+        "6",
+        "Bicycling machine exercise"
+      ],
+      [
+        "7",
+        "Bicycling"
+      ],
+      [
+        "8",
+        "Boating (Canoeing, rowing, kayaking, sailing for pleasure or camping)"
+      ],
+      [
+        "9",
+        "Bowling"
+      ],
+      [
+        "10",
+        "Boxing"
+      ],
+      [
+        "11",
+        "Calisthenics"
+      ],
+      [
+        "12",
+        "Canoeing/rowing in competition"
+      ],
+      [
+        "13",
+        "Carpentry"
+      ],
+      [
+        "14",
+        "Dancing-ballet, ballroom, Latin, hip hop, etc"
+      ],
+      [
+        "15",
+        "Elliptical/EFX machine exercise"
+      ],
+      [
+        "16",
+        "Fishing from river bank or boat"
+      ],
+      [
+        "17",
+        "Frisbee"
+      ],
+      [
+        "18",
+        "Gardening (spading, weeding, digging, filling)"
+      ],
+      [
+        "19",
+        "Golf (with motorized cart)"
+      ],
+      [
+        "20",
+        "Golf (without motorized cart)"
+      ],
+      [
+        "21",
+        "Handball"
+      ],
+      [
+        "22",
+        "Hiking -- cross-country"
+      ],
+      [
+        "23",
+        "Hockey"
+      ],
+      [
+        "24",
+        "Horseback riding"
+      ],
+      [
+        "25",
+        "Hunting large game -- deer, elk"
+      ],
+      [
+        "26",
+        "Hunting small game -- quail"
+      ],
+      [
+        "27",
+        "Inline Skating"
+      ],
+      [
+        "28",
+        "Jogging"
+      ],
+      [
+        "29",
+        "Lacrosse"
+      ],
+      [
+        "30",
+        "Mountain climbing"
+      ],
+      [
+        "31",
+        "Mowing lawn"
+      ],
+      [
+        "32",
+        "Paddleball"
+      ],
+      [
+        "33",
+        "Painting/papering house"
+      ],
+      [
+        "34",
+        "Pilates"
+      ],
+      [
+        "35",
+        "Racquetball"
+      ],
+      [
+        "36",
+        "Raking lawn"
+      ],
+      [
+        "37",
+        "Running"
+      ],
+      [
+        "38",
+        "Rock Climbing"
+      ],
+      [
+        "39",
+        "Rope skipping"
+      ],
+      [
+        "40",
+        "Rowing machine exercise"
+      ],
+      [
+        "41",
+        "Rugby"
+      ],
+      [
+        "42",
+        "Scuba diving"
+      ],
+      [
+        "43",
+        "Skateboarding"
+      ],
+      [
+        "44",
+        "Skating -- ice or roller"
+      ],
+      [
+        "45",
+        "Sledding, tobogganing"
+      ],
+      [
+        "46",
+        "Snorkeling"
+      ],
+      [
+        "47",
+        "Snow blowing"
+      ],
+      [
+        "48",
+        "Snow shoveling by hand"
+      ],
+      [
+        "49",
+        "Snow skiing"
+      ],
+      [
+        "50",
+        "Snowshoeing"
+      ],
+      [
+        "51",
+        "Soccer"
+      ],
+      [
+        "52",
+        "Softball/Baseball"
+      ],
+      [
+        "53",
+        "Squash"
+      ],
+      [
+        "54",
+        "Stair climbing/Stair master"
+      ],
+      [
+        "55",
+        "Stream fishing in waders"
+      ],
+      [
+        "56",
+        "Surfing"
+      ],
+      [
+        "57",
+        "Swimming"
+      ],
+      [
+        "58",
+        "Swimming in laps"
+      ],
+      [
+        "59",
+        "Table tennis"
+      ],
+      [
+        "60",
+        "Tai Chi"
+      ],
+      [
+        "61",
+        "Tennis"
+      ],
+      [
+        "62",
+        "Touch football"
+      ],
+      [
+        "63",
+        "Volleyball"
+      ],
+      [
+        "64",
+        "Walking"
+      ],
+      [
+        "66",
+        "Waterskiing"
+      ],
+      [
+        "67",
+        "Weight lifting"
+      ],
+      [
+        "68",
+        "Wrestling"
+      ],
+      [
+        "69",
+        "Yoga"
+      ],
+      [
+        "71",
+        "Childcare"
+      ],
+      [
+        "72",
+        "Farm/Ranch Work (caring for livestock, stacking hay, etc.)"
+      ],
+      [
+        "73",
+        "Household Activities (vacuuming, dusting, home repair, etc.)"
+      ],
+      [
+        "74",
+        "Karate/Martial Arts"
+      ],
+      [
+        "75",
+        "Upper Body Cycle (wheelchair sports, ergometer, etc.)"
+      ],
+      [
+        "76",
+        "Yard work (cutting/gathering wood, trimming hedges, etc.)"
+      ],
+      [
+        "88",
+        "No other activity--- -Go to Section 11.08 STRENGTH"
+      ],
+      [
+        "98",
+        "Other______"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure--- -Go to Section 11.08 STRENGTH"
+      ],
+      [
+        "99",
+        "Refused--- -Go to Section 11.08 STRENGTH"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXEROFT2": {
+    "description": "How many times per week or per month did you take part in this activity during the past month?",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per week"
+      ],
+      [
+        "201 - 299",
+        "Times per month"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EXERHMM2": {
+    "description": "And when you took part in this activity, for how many minutes or hours did you usually keep at it?",
+    "type": "numerical (encoded)",
+    "units": "hours and minutes",
+    "codes": [
+      [
+        "1 - 759",
+        "Hours and Minutes"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "800 - 959",
+        "Hours and Minutes"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "STRENGTH": {
+    "description": "During the past month, how many times per week or per month did you do physical activities or exercises to STRENGTHEN your muscles? [Do NOT count aerobic activities like walking, running, or bicycling. Count activities using your own body weight like yoga, sit-ups or push-ups and those using weight machines, free weights, or elastic bands.]",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per week"
+      ],
+      [
+        "201 - 299",
+        "Times per month"
+      ],
+      [
+        "777",
+        "Don't know / Not sure"
+      ],
+      [
+        "888",
+        "Never"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LMTJOIN3": {
+    "description": "Are you now limited in any way in any of your usual activities because of arthritis or joint symptoms?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ARTHDIS2": {
+    "description": "Do arthritis or joint symptoms now affect whether you work, the type of work you do or the amount of work you do?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "ARTHSOCL": {
+    "description": "During the past 30 days, to what extent has your arthritis or joint symptoms interfered with your normal social activities, such as going shopping, to the movies, or to religious or social gatherings?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "A lot"
+      ],
+      [
+        "2",
+        "A little"
+      ],
+      [
+        "3",
+        "Not at all"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "JOINPAIN": {
+    "description": "Please think about the past 30 days, keeping in mind all of your joint pain or aching and whether or not you have taken medication. DURING THE PAST 30 DAYS, how bad was your joint pain ON AVERAGE? [Please answer on a scale of 0 to 10 where 0 is no pain or aching and 10 is pain or aching as bad as it can be.]",
+    "type": "numerical (encoded)",
+    "units": "0-10 rating",
+    "codes": [
+      [
+        "0 - 10",
+        "Enter number [0-10]"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "SEATBELT": {
+    "description": "How often do you use seat belts when you drive or ride in a car? Would you say—",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Nearly always"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Seldom"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Never drive or ride in a car"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FLUSHOT6": {
+    "description": "During the past 12 months, have you had either a flu shot or a flu vaccine that was sprayed in your nose? (A new flu shot came out in 2011 that injects vaccine into the skin with a very small needle. It is called Fluzone Intradermal vaccine. This is also considered a flu shot.)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Section 14.04 PNEUVAC3"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Section 14.04 PNEUVAC3"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Section 14.04 PNEUVAC3"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FLSHTMY2": {
+    "description": "During what month and year did you receive your most recent flu shot injected into your arm or flu vaccine that was sprayed in your nose?",
+    "type": "date (encoded numeric)",
+    "units": "month/year",
+    "codes": [
+      [
+        "12014 - 122015",
+        "Month / Year"
+      ],
+      [
+        "777777",
+        "Don't know/Not Sure"
+      ],
+      [
+        "999999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "IMFVPLAC": {
+    "description": "At what kind of place did you get your last flu shot/vaccine?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "A doctor's office or health maintenance organization (HMO)"
+      ],
+      [
+        "2",
+        "A health department"
+      ],
+      [
+        "3",
+        "Another type of clinic or health center (Example: a community health center)"
+      ],
+      [
+        "4",
+        "A senior, recreation, or community center"
+      ],
+      [
+        "5",
+        "A store (Examples: supermarket, drug store)"
+      ],
+      [
+        "6",
+        "A hospital (Example: inpatient)"
+      ],
+      [
+        "7",
+        "An emergency room"
+      ],
+      [
+        "8",
+        "Workplace"
+      ],
+      [
+        "9",
+        "Some other kind of place"
+      ],
+      [
+        "10",
+        "Received vaccination in Canada/Mexico (Volunteered -- Do not read)"
+      ],
+      [
+        "11",
+        "A school"
+      ],
+      [
+        "77",
+        "Don't know / Not sure--- -Probe:"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PNEUVAC3": {
+    "description": "A pneumonia shot or pneumococcal vaccine is usually given only once or twice in a person's lifetime and is different from the flu shot. Have you ever had a pneumonia shot?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HIVTST6": {
+    "description": "Have you ever been tested for HIV? Do not count tests you may have had as part of a blood donation. Include testing fluid from your mouth.",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to optional modules or closing statement"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to optional modules or closing statement"
+      ],
+      [
+        "9",
+        "Refused--- -Go to optional modules or closing statement"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HIVTSTD3": {
+    "description": "Not including blood donations, in what month and year was your last HIV test? (If response is before January 1985, code \"777777\".)",
+    "type": "date (encoded numeric)",
+    "units": "month/year",
+    "codes": [
+      [
+        "11985 - 122016",
+        "Code month and year"
+      ],
+      [
+        "777777",
+        "Don't know/Not sure"
+      ],
+      [
+        "999999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "WHRTST10": {
+    "description": "Where did you have your last HIV test — at a private doctor or HMO office, at a counseling and testing site, in the emergency room, as an inpatient in a hospital, at a clinic, in a jail or prison, at a drug treatment facility, at home, or somewhere else?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Private doctor or HMO"
+      ],
+      [
+        "2",
+        "Counseling and testing site"
+      ],
+      [
+        "3",
+        "Hospital inpatient"
+      ],
+      [
+        "4",
+        "Clinic"
+      ],
+      [
+        "5",
+        "Jail or prison (or other correctional facility)"
+      ],
+      [
+        "6",
+        "Drug treatment facility"
+      ],
+      [
+        "7",
+        "At home"
+      ],
+      [
+        "8",
+        "Somewhere else"
+      ],
+      [
+        "9",
+        "Emergency room"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PDIABTST": {
+    "description": "Have you had a test for high blood sugar or diabetes within the past three years?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PREDIAB1": {
+    "description": "Have you ever been told by a doctor or other health professional that you have pre-diabetes or borderline diabetes? (If “Yes” and respondent is female, ask: “Was this only when you were pregnant?”)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "Yes, during pregnancy"
+      ],
+      [
+        "3",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "INSULIN": {
+    "description": "Are you now taking insulin?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "BLDSUGAR": {
+    "description": "About how often do you check your blood for glucose or sugar? Include times when checked by a family member or friend, but do NOT include times when checked by a health professional.",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "401 - 499",
+        "Times per year"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "888",
+        "Never"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FEETCHK2": {
+    "description": "About how often do you check your feet for any sores or irritations? Include times when checked by a family member or friend, but do NOT include times when checked by a health professional.",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Times per day"
+      ],
+      [
+        "201 - 299",
+        "Times per week"
+      ],
+      [
+        "301 - 399",
+        "Times per month"
+      ],
+      [
+        "401 - 499",
+        "Times per year"
+      ],
+      [
+        "555",
+        "No feet"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "888",
+        "Never"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DOCTDIAB": {
+    "description": "About how many times in the past 12 months have you seen a doctor, nurse, or other health professional for your diabetes?",
+    "type": "numerical (encoded)",
+    "units": "times / count",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of times [76=76 or more]"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CHKHEMO3": {
+    "description": "A test for “A one C” measures the average level of blood sugar over the past three months. About how many times in the past 12 months has a doctor, nurse, or other health professional checked you for “A one C”?",
+    "type": "numerical (encoded)",
+    "units": "times / count",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of times [76=76 or more]"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "98",
+        "Never heard of ‘‘A one C'' test"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "FEETCHK": {
+    "description": "About how many times in the past 12 months has a health professional checked your feet for any sores or irritations?",
+    "type": "numerical (encoded)",
+    "units": "times / count",
+    "codes": [
+      [
+        "1 - 76",
+        "Number of times [76=76 or more]"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EYEEXAM": {
+    "description": "When was the last time you had an eye exam in which the pupils were dilated? This would have made you temporarily sensitive to bright light.",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past month (anytime less than 1 month ago)"
+      ],
+      [
+        "2",
+        "Within the past year (1 month but less than 12 months ago)"
+      ],
+      [
+        "3",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "4",
+        "2 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Never"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DIABEYE": {
+    "description": "Has a doctor ever told you that diabetes has affected your eyes or that you had retinopathy?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DIABEDU": {
+    "description": "Have you ever taken a course or class in how to manage your diabetes yourself?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CAREGIV1": {
+    "description": "During the past 30 days, did you provide regular care or assistance to a friend or family member who has a health problem or disability?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 4.09 CRGVEXPT"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Module 4.09 CRGVEXPT"
+      ],
+      [
+        "8",
+        "Caregiving recipient died in past 30 days--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 4.09 CRGVEXPT"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVREL1": {
+    "description": "What is his/her relationship to you? For example is he/she your (mother/daughter or father/son)?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Mother"
+      ],
+      [
+        "2",
+        "Father"
+      ],
+      [
+        "3",
+        "Mother-in-law"
+      ],
+      [
+        "4",
+        "Father-in-law"
+      ],
+      [
+        "5",
+        "Child"
+      ],
+      [
+        "6",
+        "Husband"
+      ],
+      [
+        "7",
+        "Wife"
+      ],
+      [
+        "8",
+        "Same-sex partner"
+      ],
+      [
+        "9",
+        "Brother or brother-in-law"
+      ],
+      [
+        "10",
+        "Sister or sister-in-law"
+      ],
+      [
+        "11",
+        "Grandmother"
+      ],
+      [
+        "12",
+        "Grandfather"
+      ],
+      [
+        "13",
+        "Grandchild"
+      ],
+      [
+        "14",
+        "Other relative"
+      ],
+      [
+        "15",
+        "Non-relative/Family friend"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVLNG1": {
+    "description": "For how long have you provided care for that person? Would you say…",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Less than 30 days"
+      ],
+      [
+        "2",
+        "1 month to less than 6 months"
+      ],
+      [
+        "3",
+        "6 months to less than 2 years"
+      ],
+      [
+        "4",
+        "2 years to less than 5 years"
+      ],
+      [
+        "5",
+        "More than 5 years"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVHRS1": {
+    "description": "In an average week, how many hours do you provide care or assistance? Would you say…",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Up to 8 hours per week"
+      ],
+      [
+        "2",
+        "9 to 19 hours per week"
+      ],
+      [
+        "3",
+        "20 to 39 hours per week"
+      ],
+      [
+        "4",
+        "40 hours or more"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVPRB1": {
+    "description": "What is the main health problem, long-term illness, or disability that the person you care for has?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Arthritis/Rheumatism"
+      ],
+      [
+        "2",
+        "Asthma"
+      ],
+      [
+        "3",
+        "Cancer"
+      ],
+      [
+        "4",
+        "Chronic respiratory conditions such as Emphysema or COPD"
+      ],
+      [
+        "5",
+        "Dementia and other Cognitive Impairment Disorders"
+      ],
+      [
+        "6",
+        "Developmental Disabilities such as Autism, Down's Syndrome, and Spina Bifida"
+      ],
+      [
+        "7",
+        "Diabetes"
+      ],
+      [
+        "8",
+        "Heart Disease, Hypertension"
+      ],
+      [
+        "9",
+        "Human Immunodeficiency Virus Infection (HIV)"
+      ],
+      [
+        "10",
+        "Mental Illnesses, such as Anxiety, Depression, or Schizophrenia"
+      ],
+      [
+        "11",
+        "Other organ failure or diseases such as kidney or liver problems"
+      ],
+      [
+        "12",
+        "Substance Abuse or Addiction Disorders"
+      ],
+      [
+        "13",
+        "Other"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVPERS": {
+    "description": "…Managing personal care such as giving medications, feeding, dressing, or bathing?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVHOUS": {
+    "description": "…Managing household tasks such as cleaning, managing money, or preparing meals?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVMST2": {
+    "description": "Of the following support services, which one do you MOST need, that you are not currently getting?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Classes about giving care, such as giving medications"
+      ],
+      [
+        "2",
+        "Help in getting access to services"
+      ],
+      [
+        "3",
+        "Support groups"
+      ],
+      [
+        "4",
+        "Individual counseling to help cope with giving care"
+      ],
+      [
+        "5",
+        "Respite care"
+      ],
+      [
+        "6",
+        "You don't need any of these support services"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CRGVEXPT": {
+    "description": "In the next 2 years, do you expect to provide care or assistance to a friend or family member who has a health problem or disability?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIDFCLT2": {
+    "description": "How much difficulty, if any, do you have in recognizing a friend across the street? Would you say —",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No difficulty"
+      ],
+      [
+        "2",
+        "A little difficulty"
+      ],
+      [
+        "3",
+        "Moderate difficulty"
+      ],
+      [
+        "4",
+        "Extreme difficulty"
+      ],
+      [
+        "5",
+        "Unable to do because of eyesight"
+      ],
+      [
+        "6",
+        "Unable to do for other reasons"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Not applicable (Blind)--- -Go to Next Module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIREDIF3": {
+    "description": "How much difficulty, if any, do you have reading print in newspapers, magazines, recipes, menus, or numbers on the telephone? Would you say —",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No difficulty"
+      ],
+      [
+        "2",
+        "A little difficulty"
+      ],
+      [
+        "3",
+        "Moderate difficulty"
+      ],
+      [
+        "4",
+        "Extreme difficulty"
+      ],
+      [
+        "5",
+        "Unable to do because of eyesight"
+      ],
+      [
+        "6",
+        "Unable to do for other reasons"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIPRFVS2": {
+    "description": "When was the last time you had your eyes examined by any doctor or eye care provider?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past month (anytime less than 1 month ago)--- -Go to Module 05.05 VIEYEXM2"
+      ],
+      [
+        "2",
+        "Within the past year (1month but less than 12 months ago)--- -Go to Module 05.05 VIEYEXM2"
+      ],
+      [
+        "3",
+        "Within the past 2 years (1years but less than 2 years ago)"
+      ],
+      [
+        "4",
+        "2 or more years ago"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VINOCRE2": {
+    "description": "What is the main reason you have not visited an eye care professional in the past 12 months?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Cost/insurance"
+      ],
+      [
+        "2",
+        "Do not have/know an eye doctor"
+      ],
+      [
+        "3",
+        "Cannot get to the office/clinic (too far away,no transportation)"
+      ],
+      [
+        "4",
+        "Could not get an appointment"
+      ],
+      [
+        "5",
+        "No reason to go (no problem)"
+      ],
+      [
+        "6",
+        "Have not thought of it"
+      ],
+      [
+        "7",
+        "Other"
+      ],
+      [
+        "8",
+        "Not Applicable (Blind)--- -Go to Next Module"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIEYEXM2": {
+    "description": "When was the last time you had an eye exam in which the pupils were dilated? This would have made you temporarily sensitive to bright light.",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past month (anytime less than 1 month ago)"
+      ],
+      [
+        "2",
+        "Within the past year (1 month but less than 12 months ago)"
+      ],
+      [
+        "3",
+        "Within the past 2 years (1 year but less than 2 years)"
+      ],
+      [
+        "4",
+        "2 or more years ago"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "8",
+        "Not applicable (Blind)--- -Go to Next Module"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIINSUR2": {
+    "description": "Do you have any kind of health insurance coverage for eye care?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "8",
+        "Not applicable (Blind)--- -Go to Next Module"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VICTRCT4": {
+    "description": "Have you been told by an eye doctor or other health care professional that you NOW have cataracts?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No, I had them removed"
+      ],
+      [
+        "3",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIGLUMA2": {
+    "description": "Have you EVER been told by an eye doctor or other health care professional that you had glaucoma?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "VIMACDG2": {
+    "description": "Have you EVER been told by an eye doctor or other health care professional that you had age-related macular degeneration?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CIMEMLOS": {
+    "description": "During the past 12 months, have you experienced confusion or memory loss that is happening more often or is getting worse?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to next module"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CDHOUSE": {
+    "description": "During the past 12 months, as a result of confusion or memory loss, how often have you given up day-to-day household activities or chores you used to do, such as cooking, cleaning, taking medications, driving, or paying bills?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CDASSIST": {
+    "description": "As a result of confusion or memory loss, how often do you need assistance with these day-to-day activities?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely--- -Go to Module 6.05 CDDISCUS"
+      ],
+      [
+        "5",
+        "Never--- -Go to Module 6.05 CDDISCUS"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to Module 6.05 CDDISCUS"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 6.05 CDDISCUS"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CDHELP": {
+    "description": "When you need help with these day-to-day activities, how often are you able to get the help that you need?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CDSOCIAL": {
+    "description": "During the past 12 months, how often has confusion or memory loss interfered with your ability to work, volunteer, or engage in social activities outside the home?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CDDISCUS": {
+    "description": "Have you or anyone else discussed your confusion or memory loss with a health care professional?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "WTCHSALT": {
+    "description": "Are you currently watching or reducing your sodium or salt intake?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 07.03 DRADVISE"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Module 07.03 DRADVISE"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 07.03 DRADVISE"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LONGWTCH": {
+    "description": "How many days, weeks, months, or years have you been watching or reducing your sodium or salt intake?",
+    "type": "numerical (encoded)",
+    "units": "frequency; time unit encoded in value",
+    "codes": [
+      [
+        "101 - 199",
+        "Day(s)"
+      ],
+      [
+        "201 - 299",
+        "Week(s)"
+      ],
+      [
+        "301 - 399",
+        "Month(s)"
+      ],
+      [
+        "401 - 499",
+        "Year(s)"
+      ],
+      [
+        "555",
+        "All my life"
+      ],
+      [
+        "777",
+        "Don't know/Not Sure"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "DRADVISE": {
+    "description": "Has a doctor or other health professional ever advised you to reduce sodium or salt intake?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASTHMAGE": {
+    "description": "How old were you when you were first told by a doctor, nurse or other health professional that you had asthma?",
+    "type": "numerical (encoded)",
+    "units": "years",
+    "codes": [
+      [
+        "11 - 96",
+        "Age 11 or older [96 = 96 and older]"
+      ],
+      [
+        "97",
+        "Age 10 or younger"
+      ],
+      [
+        "98",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASATTACK": {
+    "description": "During the past 12 months, have you had an episode of asthma or an asthma attack?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 08.05 ASRCHKUP"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to Module 08.05 ASRCHKUP"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASERVIST": {
+    "description": "During the past 12 months, how many times did you visit an emergency room or urgent care center because of your asthma?",
+    "type": "numerical (encoded)",
+    "units": "visits",
+    "codes": [
+      [
+        "1 - 87",
+        "Number of visits [87 = 87 or more]"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "98",
+        "Don't know/Not sure"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASDRVIST": {
+    "description": "During the past 12 months, how many times did you see a doctor, nurse or other health professional for urgent treatment of worsening asthma symptoms?",
+    "type": "numerical (encoded)",
+    "units": "visits",
+    "codes": [
+      [
+        "1 - 87",
+        "Number of visits [87 = 87 or more]"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "98",
+        "Don't know/Not sure"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASRCHKUP": {
+    "description": "During the past 12 months, how many times did you see a doctor, nurse, or other health professional for a routine checkup for your asthma?",
+    "type": "numerical (encoded)",
+    "units": "visits",
+    "codes": [
+      [
+        "1 - 87",
+        "Number of visits [87 = 87 or more]"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "98",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASACTLIM": {
+    "description": "During the past 12 months, how many days were you unable to work or carry out your usual activities because of your asthma?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 365",
+        "Number of days"
+      ],
+      [
+        "777",
+        "Don't know/Not sure"
+      ],
+      [
+        "888",
+        "None"
+      ],
+      [
+        "999",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASYMPTOM": {
+    "description": "Symptoms of asthma include cough, wheezing, shortness of breath, chest tightness and phlegm production when you don't have a cold or respiratory infection. During the past 30 days, how often did you have any symptoms of asthma?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Less than once a week"
+      ],
+      [
+        "2",
+        "Once or twice a week"
+      ],
+      [
+        "3",
+        "More that 2 times a week, but not every day"
+      ],
+      [
+        "4",
+        "Every day, but not all the time"
+      ],
+      [
+        "5",
+        "Every day, all the time"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Not at any time--- -Go to Module 08.09 ASTHMED3"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASNOSLEP": {
+    "description": "During the past 30 days, how many days did symptoms of asthma make it difficult for you to stay asleep? Would you say—",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "One or two"
+      ],
+      [
+        "2",
+        "Three to four"
+      ],
+      [
+        "3",
+        "Five"
+      ],
+      [
+        "4",
+        "Six to ten"
+      ],
+      [
+        "5",
+        "More than ten"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "None"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASTHMED3": {
+    "description": "During the past 30 days, how many days did you take a prescription asthma medication to PREVENT an asthma attack from occurring?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "1 to 14 days"
+      ],
+      [
+        "2",
+        "15 to 24 days"
+      ],
+      [
+        "3",
+        "25 to 30 days"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Never"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASINHALR": {
+    "description": "During the past 30 days, how often did you use a prescription asthma inhaler DURING AN ASTHMA ATTACK to stop it?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "1 to 4 times (in the past 30 days)"
+      ],
+      [
+        "2",
+        "5 to 14 times (in the past 30 days)"
+      ],
+      [
+        "3",
+        "15 to 29 times (in the past 30 days)"
+      ],
+      [
+        "4",
+        "30 to 59 times (in the past 30 days)"
+      ],
+      [
+        "5",
+        "60 to 99 times (in the past 30 days)"
+      ],
+      [
+        "6",
+        "100 or more times (in the past 30 days)"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "8",
+        "Never (include no attack in past 30 days)"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HAREHAB1": {
+    "description": "Following your heart attack, did you go to any kind of outpatient rehabilitation? This is sometimes called “rehab.”",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "STREHAB1": {
+    "description": "Following your stroke did you go to any kind of outpatient rehabilitation? This is sometimes called “rehab.”",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CVDASPRN": {
+    "description": "Do you take aspirin daily or every other day?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes--- -Go to Module 09.05 RLIVPAIN"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ASPUNSAF": {
+    "description": "Do you have a health problem or condition that makes taking aspirin unsafe for you? (If \"Yes,\" ask \"Is this a stomach condition?\")",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes, not stomach related--- -Go to next module"
+      ],
+      [
+        "2",
+        "Yes, stomach problems--- -Go to next module"
+      ],
+      [
+        "3",
+        "No--- -Go to next module"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "RLIVPAIN": {
+    "description": "Do you take aspirin to relieve pain?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "RDUCHART": {
+    "description": "Do you take aspirin to reduce the chance of a heart attack?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "RDUCSTRK": {
+    "description": "Do you take aspirin to reduce the chance of a stroke?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ARTTODAY": {
+    "description": "Thinking about your arthritis or joint symptoms, which of the following best describes you TODAY?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "I can do everything I would like to do"
+      ],
+      [
+        "2",
+        "I can do most things I would like to do"
+      ],
+      [
+        "3",
+        "I can do some things I would like to do"
+      ],
+      [
+        "4",
+        "I can hardly do anything I would like to do"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ARTHWGT": {
+    "description": "Has a doctor or other health professional EVER suggested losing weight to help your arthritis or joint symptoms?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ARTHEXER": {
+    "description": "Has a doctor or other health professional EVER suggested physical activity or exercise to help your arthritis or joint symptoms? (If the respondent is unclear about whether this means an increase or decrease in physical activity, this means increase.)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ARTHEDU": {
+    "description": "Have you EVER taken an educational course or class to teach you how to manage problems related to your arthritis or joint symptoms?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "TETANUS": {
+    "description": "Since 2005, have you had a tetanus shot? (If yes, ask: “Was this Tdap, the tetanus shot that also has pertus sis or whooping cough vaccine?”)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes, received Tdap"
+      ],
+      [
+        "2",
+        "Yes, received tetanus shot, but not Tdap"
+      ],
+      [
+        "3",
+        "Yes, received tetanus shot but not sure what type"
+      ],
+      [
+        "4",
+        "No, did not receive any tetanus since 2005"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HPVADVC2": {
+    "description": "Have you ever had the HPV vaccination? (Human Papilloma Virus (Human Pap•uh•loh•muh Virus), Gardasil (Gar•duh• seel), Cervarix (Serv a rix))",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Next Module"
+      ],
+      [
+        "3",
+        "Doctor refused when asked--- -Go to Next Module"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Next Module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Next Module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HPVADSHT": {
+    "description": "How many HPV shots did you receive?",
+    "type": "numerical (encoded)",
+    "units": "times / count",
+    "codes": [
+      [
+        "1 - 2",
+        "Number of shots"
+      ],
+      [
+        "3",
+        "All shots"
+      ],
+      [
+        "77",
+        "Don't know/Not Sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SHINGLE2": {
+    "description": "Have you ever had the shingles or zoster vaccine?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HADMAM": {
+    "description": "A mammogram is an x-ray of each breast to look for breast cancer. Have you ever had a mammogram?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 14.03 HADPAP2"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to Module 14.03 HADPAP2"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 14.03 HADPAP2"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HOWLONG": {
+    "description": "How long has it been since you had your last mammogram?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HADPAP2": {
+    "description": "A Pap test is a test for cancer of the cervix. Have you ever had a Pap test?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 14.05 HPVTEST"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to Module 14.05 HPVTEST"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 14.05 HPVTEST"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LASTPAP2": {
+    "description": "How long has it been since you had your last Pap test?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HPVTEST": {
+    "description": "An HPV test is sometimes given with the Pap test for cervical cancer screening. Have you ever had an HPV test?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 14.07 HADHYST2"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Module 14.07 HADHYST2"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 14.07 HADHYST2"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HPLSTTST": {
+    "description": "How long has it been since you had your last HPV test?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HADHYST2": {
+    "description": "Have you had a hysterectomy? (A hysterectomy is an operation to remove the uterus (womb).)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PROFEXAM": {
+    "description": "A clinical breast exam is when a doctor, nurse, or other health professional feels the breast for lumps. Have you ever had a clinical breast exam?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to next module"
+      ],
+      [
+        "7",
+        "Don't know/Not sure--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LENGEXAM": {
+    "description": "How long has it been since your last breast exam?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "BLDSTOOL": {
+    "description": "A blood stool test is a test that may use a special kit at home to determine whether the stool contains blood. Have you ever had this test using a home kit?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to Module 16.03 HADSIGM3"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to Module 16.03 HADSIGM3"
+      ],
+      [
+        "9",
+        "Refused--- -Go to Module 16.03 HADSIGM3"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LSTBLDS3": {
+    "description": "How long has it been since you had your last blood stool test using a home kit?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HADSIGM3": {
+    "description": "Sigmoidoscopy and colonoscopy are exams in which a tube is inserted in the rectum to view the colon for signs of cancer or other health problems. Have you ever had either of these exams?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to next module"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "HADSGCO1": {
+    "description": "For a SIGMOIDOSCOPY, a flexible tube is inserted into the rectum to look for problems. A COLONOSCOPY is similar, but uses a longer tube, and you are usually given medication through a needle in your arm to make you sleepy and told to have someone else drive you home after the test. Was your MOST RECENT exam a sigmoidoscopy or a colonoscopy?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Sigmoidoscopy"
+      ],
+      [
+        "2",
+        "Colonoscopy"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LASTSIG3": {
+    "description": "How long has it been since you had your last sigmoidoscopy or colonoscopy?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "Within the past 10 years (5 years but less than 10 years ago)"
+      ],
+      [
+        "6",
+        "10 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PCPSAAD2": {
+    "description": "Has a doctor, nurse, or other health professional EVER talked with you about the advantages of the PSA test?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PCPSADI1": {
+    "description": "Has a doctor, nurse, or other health professional EVER talked with you about the disadvantages of the PSA test?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PCPSARE1": {
+    "description": "Has a doctor, nurse, or other health professional EVER recommended that you have a PSA test?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PSATEST1": {
+    "description": "Have you EVER HAD a PSA test?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to next module"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PSATIME": {
+    "description": "How long has it been since you had your last PSA test?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Within the past year (anytime less than 12 months ago)"
+      ],
+      [
+        "2",
+        "Within the past 2 years (1 year but less than 2 years ago)"
+      ],
+      [
+        "3",
+        "Within the past 3 years (2 years but less than 3 years ago)"
+      ],
+      [
+        "4",
+        "Within the past 5 years (3 years but less than 5 years ago)"
+      ],
+      [
+        "5",
+        "5 or more years ago"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PCPSARS1": {
+    "description": "What was the MAIN reason you had this PSA test – was it …?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Part of a routine exam"
+      ],
+      [
+        "2",
+        "Because of a prostate problem"
+      ],
+      [
+        "3",
+        "Because of a family history of prostate cancer"
+      ],
+      [
+        "4",
+        "Because you were told you had prostate cancer"
+      ],
+      [
+        "5",
+        "Some other reason"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PCPSADE1": {
+    "description": "Which of the following best describes the decision to have the PSA test done?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "You made the decision alone--- -Go to next module"
+      ],
+      [
+        "2",
+        "Your doctor, nurse, or health care provider made the decision alone--- -Go to next module"
+      ],
+      [
+        "3",
+        "You and one or more other persons made the decision together"
+      ],
+      [
+        "4",
+        "You don't remember how the decision was made--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PCDMDECN": {
+    "description": "Who made the decision with you? (Mark all that apply)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Doctor/nurse/health care provider"
+      ],
+      [
+        "2",
+        "Spouse/significant other"
+      ],
+      [
+        "3",
+        "Other family member"
+      ],
+      [
+        "4",
+        "Friend/non-relative"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "12 - 4328",
+        "Multiple responses"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SCNTMNY1": {
+    "description": "How often in the past 12 months would you say you were worried or stressed about having enough money to pay your rent/mortgage? Would you say",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "8",
+        "Not applicable"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SCNTMEL1": {
+    "description": "How often in the past 12 months would you say you were worried or stressed about having enough money to buy nutritious meals? Would you say",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "8",
+        "Not applicable"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SCNTPAID": {
+    "description": "At your main job or business, how are you generally paid for the work you do. Are you:",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Paid by salary"
+      ],
+      [
+        "2",
+        "Paid by the hour"
+      ],
+      [
+        "3",
+        "Paid by the job/task (e.g. commission, piecework)"
+      ],
+      [
+        "4",
+        "Paid some other way"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SCNTWRK1": {
+    "description": "About how many hours do you work per week on all of your jobs and businesses combined?",
+    "type": "numerical (encoded)",
+    "units": "hours per week",
+    "codes": [
+      [
+        "1 - 96",
+        "Hours (1-96 or more)--- -Go to next module"
+      ],
+      [
+        "97",
+        "Don't know/Not Sure--- -Go to next module"
+      ],
+      [
+        "98",
+        "Zero (none)--- -Go to next module"
+      ],
+      [
+        "99",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SCNTLPAD": {
+    "description": "Thinking about the last time you worked, at your main job or business, how were you generally paid for the work you do? Were you:",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Paid by salary"
+      ],
+      [
+        "2",
+        "Paid by the hour"
+      ],
+      [
+        "3",
+        "Paid by the job/task (e.g. commission, piecework)"
+      ],
+      [
+        "4",
+        "Paid some other way"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SCNTLWK1": {
+    "description": "Thinking about the last time you worked, about how many hours did you work per week at all of your jobs and businesses combined?",
+    "type": "numerical (encoded)",
+    "units": "hours per week",
+    "codes": [
+      [
+        "1 - 96",
+        "Hours (1-96 or more)"
+      ],
+      [
+        "97",
+        "Don't know/Not Sure"
+      ],
+      [
+        "98",
+        "Zero (none)"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "SXORIENT": {
+    "description": "Do you consider yourself to be: (We ask this question in order to better understand the health and health care needs of people with different sexual orientations.)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Straight"
+      ],
+      [
+        "2",
+        "Lesbian or gay"
+      ],
+      [
+        "3",
+        "Bisexual"
+      ],
+      [
+        "4",
+        "Other"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "TRNSGNDR": {
+    "description": "Do you consider yourself to be transgender? (If yes, ask “Do you consider yourself to be male- to-female, female-to-male, or gender non-conforming?)",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes, Transgender, male-to-female"
+      ],
+      [
+        "2",
+        "Yes, Transgender, female to male"
+      ],
+      [
+        "3",
+        "Yes, Transgender, gender nonconforming"
+      ],
+      [
+        "4",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "RCSGENDR": {
+    "description": "Is the child a boy or a girl?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Boy"
+      ],
+      [
+        "2",
+        "Girl"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "RCSRLTN2": {
+    "description": "How are you related to the child?",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Parent (include biologic, step, or adoptive parent)"
+      ],
+      [
+        "2",
+        "Grandparent"
+      ],
+      [
+        "3",
+        "Foster parent or guardian"
+      ],
+      [
+        "4",
+        "Sibling (include biologic, step, and adoptive sibling)"
+      ],
+      [
+        "5",
+        "Other relative"
+      ],
+      [
+        "6",
+        "Not related in any way"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CASTHDX2": {
+    "description": "Has a doctor, nurse or other health professional EVER said that the child has asthma?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No--- -Go to next module"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure--- -Go to next module"
+      ],
+      [
+        "9",
+        "Refused--- -Go to next module"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "CASTHNO2": {
+    "description": "Does the child still have asthma?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "EMTSUPRT": {
+    "description": "How often do you get the social and emotional support you need?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always"
+      ],
+      [
+        "2",
+        "Usually"
+      ],
+      [
+        "3",
+        "Sometimes"
+      ],
+      [
+        "4",
+        "Rarely"
+      ],
+      [
+        "5",
+        "Never"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "LSATISFY": {
+    "description": "In general, how satisfied are you with your life?",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Very satisfied"
+      ],
+      [
+        "2",
+        "Satisfied"
+      ],
+      [
+        "3",
+        "Dissatisfied"
+      ],
+      [
+        "4",
+        "Very dissatisfied"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADPLEASR": {
+    "description": "Over the last 2 weeks, how many days have you had little interest or pleasure in doing things?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADDOWN": {
+    "description": "Over the last 2 weeks, how many days have you felt down, depressed or hopeless?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADSLEEP": {
+    "description": "Over the last 2 weeks, how many days have you had trouble falling asleep or staying asleep or sleeping too much?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADENERGY": {
+    "description": "Over the last 2 weeks, how many days have you felt tired or had little energy?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADEAT1": {
+    "description": "Over the last 2 weeks, how many days have you had a poor appetite or eaten too much?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADFAIL": {
+    "description": "Over the last 2 weeks, how many days have you felt bad about yourself or that you were a failure or had let yourself or your family down?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADTHINK": {
+    "description": "Over the last 2 weeks, how many days have you had trouble concentrating on things, such as reading the newspaper or watching the TV?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADMOVE": {
+    "description": "Over the last 2 weeks, how many days have you moved or spoken so slowly that other people could have noticed? Or the opposite – being so fidgety or restless that you were moving around a lot more than usual?",
+    "type": "numerical (encoded)",
+    "units": "days",
+    "codes": [
+      [
+        "1 - 14",
+        "01-14 days"
+      ],
+      [
+        "88",
+        "None"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "MISTMNT": {
+    "description": "Are you now taking medicine or receiving treatment from a doctor or other health professional for any type of mental health condition or emotional problem?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ADANXEV": {
+    "description": "Has a doctor or other healthcare provider EVER told you that you had an anxiety disorder (including acute stress disorder, anxiety, generalized anxiety disorder, obsessive-compulsive disorder, panic disorder, phobia, posttraumatic stress disorder, or social anxiety disorder)?",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not sure"
+      ],
+      [
+        "9",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "QSTVER": {
+    "description": "Questionnaire Version Identifier",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "10",
+        "Landline single questionnaire"
+      ],
+      [
+        "11",
+        "Landline multiple questionnaire version 1"
+      ],
+      [
+        "12",
+        "Landline multiple questionnaire version 2"
+      ],
+      [
+        "13",
+        "Landline multiple questionnaire version 3"
+      ],
+      [
+        "20",
+        "Cell Phone single questionnaire"
+      ],
+      [
+        "21",
+        "Cell Phone multiple questionnaire version 1"
+      ],
+      [
+        "22",
+        "Cell Phone multiple questionnaire version 2"
+      ],
+      [
+        "23",
+        "Cell Phone multiple questionnaire version 3"
+      ]
+    ]
+  },
+  "QSTLANG": {
+    "description": "Language identifier",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "English"
+      ],
+      [
+        "2",
+        "Spanish"
+      ],
+      [
+        "3 - 99",
+        "Other"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "MSCODE": {
+    "description": "Metropolitan Status Code",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "In the center city of an MSA"
+      ],
+      [
+        "2",
+        "Outside the center city of an MSA but inside the county containing the center city"
+      ],
+      [
+        "3",
+        "Inside a suburban county of the MSA"
+      ],
+      [
+        "5",
+        "Not in an MSA"
+      ],
+      [
+        "BLANK",
+        "GU, PR, VI"
+      ]
+    ]
+  },
+  "_STSTR": {
+    "description": "Sample Design Stratification Variable (A five digit number that combines the values for _STATE (first two characters), _GEOSTR (third and fourth character), and _DENSTR2 (final character).)",
+    "type": "identifier",
+    "units": "stratum identifier (no physical unit)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_STRWT": {
+    "description": "Stratum weight (Number of records in a stratum (NRECSTR) divided by the number of records selected (NRECSEL).)",
+    "type": "numerical",
+    "units": "weight / factor (unitless)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_RAWRAKE": {
+    "description": "Raw weighting factor used in raking (Number of adults in the household (NUMADULT, maximum of 5) divided by the imputed number of phones (_IMPNPH, maximum of 3).)",
+    "type": "numerical",
+    "units": "weight / factor (unitless)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_WT2RAKE": {
+    "description": "Design weight used in raking (Stratum weight (_STRWT) multiplied by the raw weighting factor (_RAWRAKE).)",
+    "type": "numerical",
+    "units": "weight / factor (unitless)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_CHISPNC": {
+    "description": "Child Hispanic, Latino/a, or Spanish origin calculated variable",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Child of Hispanic, Latino/a, or Spanish origin"
+      ],
+      [
+        "2",
+        "Child not of Hispanic, Latino/a, or Spanish origin"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "_CRACE1": {
+    "description": "Child multiracial race categorization",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White only"
+      ],
+      [
+        "2",
+        "Black or African American only"
+      ],
+      [
+        "3",
+        "American Indian or Alaskan Native only"
+      ],
+      [
+        "4",
+        "Asian Only"
+      ],
+      [
+        "5",
+        "Native Hawaiian or other Pacific Islander only"
+      ],
+      [
+        "6",
+        "Other race only"
+      ],
+      [
+        "7",
+        "Multiracial"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "_CPRACE": {
+    "description": "Preferred Child Race Categories",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White"
+      ],
+      [
+        "2",
+        "Black or African American"
+      ],
+      [
+        "3",
+        "American Indian or Alaskan Native"
+      ],
+      [
+        "4",
+        "Asian"
+      ],
+      [
+        "5",
+        "Native Hawaiian or other Pacific Islander"
+      ],
+      [
+        "6",
+        "Other race"
+      ],
+      [
+        "7",
+        "No preferred race"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "_CLLCPWT": {
+    "description": "Final child weight: Land-line and Cell-Phone data (Raking derived weight)",
+    "type": "numerical",
+    "units": "weight / factor (unitless)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_DUALUSE": {
+    "description": "Dual Phone Use Categories",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Landline frame with a cell phone"
+      ],
+      [
+        "2",
+        "Cell phone frame with a landline"
+      ],
+      [
+        "9",
+        "No Dual Phone Use"
+      ]
+    ]
+  },
+  "_DUALCOR": {
+    "description": "Dual phone use correction factor",
+    "type": "numerical",
+    "units": "weight / factor (unitless)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_LLCPWT": {
+    "description": "Final weight assigned to each respondent: Land- line and cell-phone data (Raking derived weight)",
+    "type": "numerical",
+    "units": "weight / factor (unitless)",
+    "codes": [
+      [
+        "Not enumerated",
+        "Values not enumerated (codebook marks data HIDDEN)"
+      ]
+    ]
+  },
+  "_RFHLTH": {
+    "description": "Adults with good or better health",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Good or Better Health"
+      ],
+      [
+        "2",
+        "Fair or Poor Health"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_HCVU651": {
+    "description": "Respondents aged 18-64 who have any form of health care coverage",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Have health care coverage"
+      ],
+      [
+        "2",
+        "Do not have health care coverage"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure, Refused or Missing"
+      ]
+    ]
+  },
+  "_RFHYPE5": {
+    "description": "Adults who have been told they have high blood pressure by a doctor, nurse, or other health professional",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_CHOLCHK": {
+    "description": "Cholesterol check within past five years",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Had cholesterol checked in past 5 years"
+      ],
+      [
+        "2",
+        "Did not have cholesterol checked in past 5 years"
+      ],
+      [
+        "3",
+        "Have never had cholesterol checked"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_RFCHOL": {
+    "description": "Adults who have had their cholesterol checked and have been told by a doctor, nurse, or other health professional that it was high",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ],
+      [
+        "BLANK",
+        "Missing"
+      ]
+    ]
+  },
+  "_LTASTH1": {
+    "description": "Adults who have ever been told they have asthma",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_CASTHM1": {
+    "description": "Adults who have been told they currently have asthma",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_ASTHMS1": {
+    "description": "Computed asthma status",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Current"
+      ],
+      [
+        "2",
+        "Former"
+      ],
+      [
+        "3",
+        "Never"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_DRDXAR1": {
+    "description": "Respondents who have had a doctor diagnose them as having some form of arthritis",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Diagnosed with arthritis"
+      ],
+      [
+        "2",
+        "Not diagnosed with arthritis"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PRACE1": {
+    "description": "Preferred race category",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White"
+      ],
+      [
+        "2",
+        "Black or African American"
+      ],
+      [
+        "3",
+        "American Indian or Alaskan Native"
+      ],
+      [
+        "4",
+        "Asian"
+      ],
+      [
+        "5",
+        "Native Hawaiian or other Pacific Islander"
+      ],
+      [
+        "6",
+        "Other race"
+      ],
+      [
+        "7",
+        "No preferred race"
+      ],
+      [
+        "8",
+        "Multiracial but preferred race not answered"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ]
+    ]
+  },
+  "_MRACE1": {
+    "description": "Calculated multiracial race categorization",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White only"
+      ],
+      [
+        "2",
+        "Black or African American only"
+      ],
+      [
+        "3",
+        "American Indian or Alaskan Native only"
+      ],
+      [
+        "4",
+        "Asian Only"
+      ],
+      [
+        "5",
+        "Native Hawaiian or other Pacific Islander only"
+      ],
+      [
+        "6",
+        "Other race only"
+      ],
+      [
+        "7",
+        "Multiracial"
+      ],
+      [
+        "77",
+        "Don't know/Not sure"
+      ],
+      [
+        "99",
+        "Refused"
+      ]
+    ]
+  },
+  "_HISPANC": {
+    "description": "Hispanic, Latino/a, or Spanish origin calculated variable",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Hispanic, Latino/a, or Spanish origin"
+      ],
+      [
+        "2",
+        "Not of Hispanic, Latino/a, or Spanish origin"
+      ],
+      [
+        "9",
+        "Don't Know, Refused or Missing"
+      ]
+    ]
+  },
+  "_RACE": {
+    "description": "Race/ethnicity categories",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White only, non-Hispanic"
+      ],
+      [
+        "2",
+        "Black only, non-Hispanic"
+      ],
+      [
+        "3",
+        "American Indian or Alaskan Native only, Non-Hispanic"
+      ],
+      [
+        "4",
+        "Asian only, non-Hispanic"
+      ],
+      [
+        "5",
+        "Native Hawaiian or other Pacific Islander only, Non-Hispanic"
+      ],
+      [
+        "6",
+        "Other race only, non-Hispanic"
+      ],
+      [
+        "7",
+        "Multiracial, non-Hispanic"
+      ],
+      [
+        "8",
+        "Hispanic"
+      ],
+      [
+        "9",
+        "Don't know/Not sure/Refused"
+      ]
+    ]
+  },
+  "_RACEG21": {
+    "description": "White non-Hispanic race group",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Non-Hispanic White"
+      ],
+      [
+        "2",
+        "Non-White or Hispanic"
+      ],
+      [
+        "9",
+        "Don't know/Not sure/Refused"
+      ]
+    ]
+  },
+  "_RACEGR3": {
+    "description": "Five-level race/ethnicity category",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White only, Non-Hispanic"
+      ],
+      [
+        "2",
+        "Black only, Non-Hispanic"
+      ],
+      [
+        "3",
+        "Other race only, Non-Hispanic"
+      ],
+      [
+        "4",
+        "Multiracial, Non-Hispanic"
+      ],
+      [
+        "5",
+        "Hispanic"
+      ],
+      [
+        "9",
+        "Don't know/Not sure/Refused"
+      ]
+    ]
+  },
+  "_RACE_G1": {
+    "description": "Race groups used for internet prevalence tables",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "White - Non-Hispanic"
+      ],
+      [
+        "2",
+        "Black - Non-Hispanic"
+      ],
+      [
+        "3",
+        "Hispanic"
+      ],
+      [
+        "4",
+        "Other race only, Non-Hispanic"
+      ],
+      [
+        "5",
+        "Multiracial, Non-Hispanic"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not sure/Refused component question"
+      ]
+    ]
+  },
+  "_AGEG5YR": {
+    "description": "Fourteen-level age category",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Age 18 to 24"
+      ],
+      [
+        "2",
+        "Age 25 to 29"
+      ],
+      [
+        "3",
+        "Age 30 to 34"
+      ],
+      [
+        "4",
+        "Age 35 to 39"
+      ],
+      [
+        "5",
+        "Age 40 to 44"
+      ],
+      [
+        "6",
+        "Age 45 to 49"
+      ],
+      [
+        "7",
+        "Age 50 to 54"
+      ],
+      [
+        "8",
+        "Age 55 to 59"
+      ],
+      [
+        "9",
+        "Age 60 to 64"
+      ],
+      [
+        "10",
+        "Age 65 to 69"
+      ],
+      [
+        "11",
+        "Age 70 to 74"
+      ],
+      [
+        "12",
+        "Age 75 to 79"
+      ],
+      [
+        "13",
+        "Age 80 or older"
+      ],
+      [
+        "14",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_AGE65YR": {
+    "description": "Two-level age category",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Age 18 to 64"
+      ],
+      [
+        "2",
+        "Age 65 or older"
+      ],
+      [
+        "3",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_AGE80": {
+    "description": "Imputed Age value collapsed above 80",
+    "type": "numerical (encoded)",
+    "units": "years",
+    "codes": [
+      [
+        "18 - 24",
+        "Imputed Age 18 to 24"
+      ],
+      [
+        "25 - 29",
+        "Imputed Age 25 to 29"
+      ],
+      [
+        "30 - 34",
+        "Imputed Age 30 to 34"
+      ],
+      [
+        "35 - 39",
+        "Imputed Age 35 to 39"
+      ],
+      [
+        "40 - 44",
+        "Imputed Age 40 to 44"
+      ],
+      [
+        "45 - 49",
+        "Imputed Age 45 to 49"
+      ],
+      [
+        "50 - 54",
+        "Imputed Age 50 to 54"
+      ],
+      [
+        "55 - 59",
+        "Imputed Age 55 to 59"
+      ],
+      [
+        "60 - 64",
+        "Imputed Age 60 to 64"
+      ],
+      [
+        "65 - 69",
+        "Imputed Age 65 to 69"
+      ],
+      [
+        "70 - 74",
+        "Imputed Age 70 to 74"
+      ],
+      [
+        "75 - 79",
+        "Imputed Age 75 to 79"
+      ],
+      [
+        "80 - 99",
+        "Imputed Age 80 or older"
+      ]
+    ]
+  },
+  "_AGE_G": {
+    "description": "Six-level imputed age category",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Age 18 to 24"
+      ],
+      [
+        "2",
+        "Age 25 to 34"
+      ],
+      [
+        "3",
+        "Age 35 to 44"
+      ],
+      [
+        "4",
+        "Age 45 to 54"
+      ],
+      [
+        "5",
+        "Age 55 to 64"
+      ],
+      [
+        "6",
+        "Age 65 or older"
+      ]
+    ]
+  },
+  "HTIN4": {
+    "description": "Reported height in inches",
+    "type": "numerical (encoded)",
+    "units": "inches",
+    "codes": [
+      [
+        "36 - 95",
+        "Height in inches"
+      ],
+      [
+        "BLANK",
+        "Unlabeled in codebook"
+      ]
+    ]
+  },
+  "HTM4": {
+    "description": "Reported height in meters",
+    "type": "numerical (encoded)",
+    "units": "meters; 2 implied decimal places",
+    "codes": [
+      [
+        "91 - 244",
+        "Height in meters [2 implied decimal places]"
+      ],
+      [
+        "BLANK",
+        "Unlabeled in codebook"
+      ]
+    ]
+  },
+  "WTKG3": {
+    "description": "Reported weight in kilograms",
+    "type": "numerical (encoded)",
+    "units": "kilograms; 2 implied decimal places",
+    "codes": [
+      [
+        "2300 - 29500",
+        "Weight in kilograms [2 implied decimal places]"
+      ],
+      [
+        "99999",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_BMI5": {
+    "description": "Body Mass Index (BMI)",
+    "type": "numerical (encoded)",
+    "units": "BMI (kg/m²); 2 implied decimal places",
+    "codes": [
+      [
+        "1 - 9999",
+        "1 or greater"
+      ],
+      [
+        "BLANK",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_BMI5CAT": {
+    "description": "Four-categories of Body Mass Index (BMI)",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Underweight"
+      ],
+      [
+        "2",
+        "Normal Weight"
+      ],
+      [
+        "3",
+        "Overweight"
+      ],
+      [
+        "4",
+        "Obese"
+      ],
+      [
+        "BLANK",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_RFBMI5": {
+    "description": "Adults who have a body mass index greater than 25.00 (Overweight or Obese)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_CHLDCNT": {
+    "description": "Number of children in household",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No children in household"
+      ],
+      [
+        "2",
+        "One child in household"
+      ],
+      [
+        "3",
+        "Two children in household"
+      ],
+      [
+        "4",
+        "Three children in household"
+      ],
+      [
+        "5",
+        "Four children in household"
+      ],
+      [
+        "6",
+        "Five or more children in household"
+      ],
+      [
+        "9",
+        "Don't know/Not sure/Missing"
+      ]
+    ]
+  },
+  "_EDUCAG": {
+    "description": "Level of education completed",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Did not graduate High School"
+      ],
+      [
+        "2",
+        "Graduated High School"
+      ],
+      [
+        "3",
+        "Attended College or Technical School"
+      ],
+      [
+        "4",
+        "Graduated from College or Technical School"
+      ],
+      [
+        "9",
+        "Don't know/Not sure/Missing"
+      ]
+    ]
+  },
+  "_INCOMG": {
+    "description": "Income categories",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Less than $15,000"
+      ],
+      [
+        "2",
+        "$15,000 to less than $25,000"
+      ],
+      [
+        "3",
+        "$25,000 to less than $35,000"
+      ],
+      [
+        "4",
+        "$35,000 to less than $50,000"
+      ],
+      [
+        "5",
+        "$50,000 or more"
+      ],
+      [
+        "9",
+        "Don't know/Not sure/Missing"
+      ]
+    ]
+  },
+  "_SMOKER3": {
+    "description": "Four-level smoker status: Everyday smoker, Someday smoker, Former smoker, Non- smoker",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Current smoker - now smokes every day"
+      ],
+      [
+        "2",
+        "Current smoker - now smokes some days"
+      ],
+      [
+        "3",
+        "Former smoker"
+      ],
+      [
+        "4",
+        "Never smoked"
+      ],
+      [
+        "9",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_RFSMOK3": {
+    "description": "Adults who are current smokers",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "DRNKANY5": {
+    "description": "Adults who reported having had at least one drink of alcohol in the past 30 days.",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "7",
+        "Don't know/Not Sure"
+      ],
+      [
+        "9",
+        "Refused/Missing"
+      ]
+    ]
+  },
+  "DROCDY3_": {
+    "description": "Drink-occasions-per-day",
+    "type": "numerical (encoded)",
+    "units": "drink occasions per day",
+    "codes": [
+      [
+        "0",
+        "No Drink-Occasions per day"
+      ],
+      [
+        "1 - 899",
+        "Drink-Occasions per day"
+      ],
+      [
+        "900",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_RFBING5": {
+    "description": "Binge drinkers (males having five or more drinks on one occasion, females having four or more drinks on one occasion)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "_DRNKWEK": {
+    "description": "Calculated total number of alcoholic beverages consumed per week",
+    "type": "numerical (encoded)",
+    "units": "drinks per week",
+    "codes": [
+      [
+        "0",
+        "Did not drink"
+      ],
+      [
+        "1 - 98999",
+        "Number of drinks per week"
+      ],
+      [
+        "99900",
+        "Don't know/Not sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_RFDRHV5": {
+    "description": "Heavy drinkers (adult men having more than 14 drinks per week and adult women having more than 7 drinks per week)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "No"
+      ],
+      [
+        "2",
+        "Yes"
+      ],
+      [
+        "9",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "FTJUDA1_": {
+    "description": "Fruit juice intake in times per day",
+    "type": "numerical (encoded)",
+    "units": "times per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 9999",
+        "Times per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "FRUTDA1_": {
+    "description": "Fruit intake in times per day",
+    "type": "numerical (encoded)",
+    "units": "times per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 9999",
+        "Times per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "BEANDAY_": {
+    "description": "Bean intake in times per day",
+    "type": "numerical (encoded)",
+    "units": "times per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 9999",
+        "Times per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "GRENDAY_": {
+    "description": "Dark green vegetable intake in times per day",
+    "type": "numerical (encoded)",
+    "units": "times per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 9999",
+        "Times per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "ORNGDAY_": {
+    "description": "Orange-colored vegetable intake in times per day",
+    "type": "numerical (encoded)",
+    "units": "times per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 9999",
+        "Times per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "VEGEDA1_": {
+    "description": "Other vegetable intake in times per day",
+    "type": "numerical (encoded)",
+    "units": "times per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 9999",
+        "Times per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_MISFRTN": {
+    "description": "The number of missing fruit responses",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "0",
+        "No missing fruit responses"
+      ],
+      [
+        "1 - 2",
+        "Has 1 or 2 missing fruit responses"
+      ]
+    ]
+  },
+  "_MISVEGN": {
+    "description": "The number of missing vegetable responses",
+    "type": "numerical (encoded)",
+    "units": "people / count",
+    "codes": [
+      [
+        "0",
+        "No missing vegetable responses"
+      ],
+      [
+        "1 - 4",
+        "Has 1, 2, 3, or 4 missing vegetable responses"
+      ]
+    ]
+  },
+  "_FRTRESP": {
+    "description": "Missing any fruit responses",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Included - Missing Fruit Responses"
+      ],
+      [
+        "1",
+        "Included - Not Missing Fruit Responses"
+      ]
+    ]
+  },
+  "_VEGRESP": {
+    "description": "Missing any vegetable responses",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Included - Missing Vegetable Responses"
+      ],
+      [
+        "1",
+        "Included - Not Missing Vegetable Responses"
+      ]
+    ]
+  },
+  "_FRUTSUM": {
+    "description": "Total fruits consumed per day",
+    "type": "numerical (encoded)",
+    "units": "fruits / vegetables per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 99998",
+        "Number of Fruits consumed per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "_VEGESUM": {
+    "description": "Total vegetables consumed per day",
+    "type": "numerical (encoded)",
+    "units": "fruits / vegetables per day; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 99998",
+        "Number of Vegetables consumed per day (two implied decimal places)"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "_FRTLT1": {
+    "description": "Consume Fruit 1 or more times per day",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Consumed fruit one or more times per day"
+      ],
+      [
+        "2",
+        "Consumed fruit less than one time per day"
+      ],
+      [
+        "9",
+        "Don't know, refused or missing values"
+      ]
+    ]
+  },
+  "_VEGLT1": {
+    "description": "Consume Vegetables 1 or more times per day",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Consumed vegetables one or more times per day"
+      ],
+      [
+        "2",
+        "Consumed vegetables less than one time per day"
+      ],
+      [
+        "9",
+        "Don't know, refused or missing values"
+      ]
+    ]
+  },
+  "_FRT16": {
+    "description": "Reported consuming Fruit >16 per day",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Included - Values are too high"
+      ],
+      [
+        "1",
+        "Included - Values are in accepted range"
+      ]
+    ]
+  },
+  "_VEG23": {
+    "description": "Reported consuming Vegetables >23 per day",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Included - Values are too high"
+      ],
+      [
+        "1",
+        "Included - Values are in accepted range"
+      ]
+    ]
+  },
+  "_FRUITEX": {
+    "description": "Fruit Exclusion from analyses",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "No missing values and in accepted range"
+      ],
+      [
+        "1",
+        "Missing Fruit responses"
+      ],
+      [
+        "2",
+        "Fruit values out of range"
+      ]
+    ]
+  },
+  "_VEGETEX": {
+    "description": "Vegetable Exclusion from analyses",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "No missing values and in accepted range"
+      ],
+      [
+        "1",
+        "Missing Vegetable responses"
+      ],
+      [
+        "2",
+        "Vegetable values out of range"
+      ]
+    ]
+  },
+  "_TOTINDA": {
+    "description": "Adults who reported doing physical activity or exercise during the past 30 days other than their regular job",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Had physical activity or exercise"
+      ],
+      [
+        "2",
+        "No physical activity or exercise in last 30 days"
+      ],
+      [
+        "9",
+        "Don't know/Refused/Missing"
+      ]
+    ]
+  },
+  "METVL11_": {
+    "description": "Activity MET Value for First Activity",
+    "type": "numerical (encoded)",
+    "units": "MET; 1 implied decimal place",
+    "codes": [
+      [
+        "0",
+        "Activity MET Value"
+      ],
+      [
+        "1 - 128",
+        "Activity MET Value (one implied decimal place)"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "METVL21_": {
+    "description": "Activity MET Value for Second Activity",
+    "type": "numerical (encoded)",
+    "units": "MET; 1 implied decimal place",
+    "codes": [
+      [
+        "0",
+        "Activity MET Value"
+      ],
+      [
+        "1 - 128",
+        "Activity MET Value (one implied decimal place)"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "MAXVO2_": {
+    "description": "Estimated Age-Gender Specific Maximum Oxygen Consumption",
+    "type": "numerical (encoded)",
+    "units": "not specified; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 501",
+        "Estimated Maximum Oxygen Consumption (two implied decimal places)"
+      ],
+      [
+        "99900",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "FC60_": {
+    "description": "Estimated Functional Capacity",
+    "type": "numerical (encoded)",
+    "units": "not specified; 2 implied decimal places",
+    "codes": [
+      [
+        "0 - 8590",
+        "Estimated Functional Capacity (2 implied decimal places)"
+      ],
+      [
+        "99900",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "ACTIN11_": {
+    "description": "Estimated Activity Intensity for First Activity",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Moderate or Vigorous or No Activity"
+      ],
+      [
+        "1",
+        "Moderate"
+      ],
+      [
+        "2",
+        "Vigorous"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "ACTIN21_": {
+    "description": "Estimated Activity Intensity for Second Activity",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Moderate or Vigorous or No Activity"
+      ],
+      [
+        "1",
+        "Moderate"
+      ],
+      [
+        "2",
+        "Vigorous"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PADUR1_": {
+    "description": "Minutes of First Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes",
+    "codes": [
+      [
+        "0 - 599",
+        "Minutes of Activity"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PADUR2_": {
+    "description": "Minutes of Second Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes",
+    "codes": [
+      [
+        "0 - 599",
+        "Minutes of Activity"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PAFREQ1_": {
+    "description": "Physical Activity Frequency per Week for First Activity",
+    "type": "numerical (encoded)",
+    "units": "times per week; 3 implied decimal places",
+    "codes": [
+      [
+        "0 - 98999",
+        "Activity times per week (3 implied decimal places)"
+      ],
+      [
+        "99000",
+        "Don't know/Not Sure/Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PAFREQ2_": {
+    "description": "Physical Activity Frequency per Week for Second Activity",
+    "type": "numerical (encoded)",
+    "units": "times per week; 3 implied decimal places",
+    "codes": [
+      [
+        "0 - 98999",
+        "Activity times per week (3 implied decimal places)"
+      ],
+      [
+        "99000",
+        "Don't know/Not Sure/Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "_MINAC11": {
+    "description": "Minutes of Physical Activity per week for First Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0",
+        "Minutes of Activity per week"
+      ],
+      [
+        "1 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "_MINAC21": {
+    "description": "Minutes of Physical Activity per week for Second Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0",
+        "Minutes of Activity per week"
+      ],
+      [
+        "1 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "STRFREQ_": {
+    "description": "Strength Activity Frequency per Week",
+    "type": "numerical (encoded)",
+    "units": "times per week; 3 implied decimal places",
+    "codes": [
+      [
+        "0 - 98999",
+        "Strength Activity times per week (3 implied decimal places)"
+      ],
+      [
+        "99000",
+        "Don't know/Not Sure/Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PAMISS1_": {
+    "description": "Missing Physical Activity Data",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "0",
+        "Not Missing Physical Activity Data"
+      ],
+      [
+        "1",
+        "Missing Physical Activity Data"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused"
+      ]
+    ]
+  },
+  "PAMIN11_": {
+    "description": "Minutes of Physical Activity per week for First Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PAMIN21_": {
+    "description": "Minutes of Physical Activity per week for Second Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PA1MIN_": {
+    "description": "Minutes of total Physical Activity per week",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PAVIG11_": {
+    "description": "Minutes of Vigorous Physical Activity per week for First Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PAVIG21_": {
+    "description": "Minutes of Vigorous Physical Activity per week for Second Activity",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "PA1VIGM_": {
+    "description": "Minutes of total Vigorous Physical Activity per week",
+    "type": "numerical (encoded)",
+    "units": "minutes per week",
+    "codes": [
+      [
+        "0 - 99999",
+        "Minutes of Activity per week"
+      ],
+      [
+        "BLANK",
+        "Not asked or Missing"
+      ]
+    ]
+  },
+  "_PACAT1": {
+    "description": "Physical Activity Categories",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Highly Active"
+      ],
+      [
+        "2",
+        "Active"
+      ],
+      [
+        "3",
+        "Insufficiently Active"
+      ],
+      [
+        "4",
+        "Inactive"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PAINDX1": {
+    "description": "Physical Activity Index",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Meet Aerobic Recommendations"
+      ],
+      [
+        "2",
+        "Did Not Meet Aerobic Recommendations"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PA150R2": {
+    "description": "Adults that participated in 150 minutes (or vigorous equivalent minutes) of physical activity per week.",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "150+ minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "2",
+        "1-149 minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "3",
+        "0 minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PA300R2": {
+    "description": "Adults that participated in 300 minutes (or vigorous equivalent minutes) of physical activity per week.",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "301+ minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "2",
+        "1-300 minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "3",
+        "0 minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PA30021": {
+    "description": "Adults that participated in 300 minutes (or vigorous equivalent minutes) of physical activity per week (2- levels).",
+    "type": "ordinal",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "301+ minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "2",
+        "0-300 minutes (or vigorous equivalent minutes) of physical activity"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PASTRNG": {
+    "description": "Muscle Strengthening Recommendation",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Meet muscle strengthening recommendations"
+      ],
+      [
+        "2",
+        "Did not meet muscle strengthening recommendations"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PAREC1": {
+    "description": "Aerobic and Strengthening Guideline",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Met Both Guidelines"
+      ],
+      [
+        "2",
+        "Met Aerobic Guidelines Only"
+      ],
+      [
+        "3",
+        "Met Strengthening Guidelines Only"
+      ],
+      [
+        "4",
+        "Did not meet Either Guideline"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_PASTAE1": {
+    "description": "Aerobic and Strengthening (2-level)",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Met Both Guidelines"
+      ],
+      [
+        "2",
+        "Did Not Meet Both Guidelines"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused/Missing"
+      ]
+    ]
+  },
+  "_LMTACT1": {
+    "description": "Limited usual activities",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Told have arthritis and have limited usual activities"
+      ],
+      [
+        "2",
+        "Told have arthritis and no limited usual activities"
+      ],
+      [
+        "3",
+        "Not told they have arthritis"
+      ],
+      [
+        "9",
+        "Don't know, refused or missing usual activities limited"
+      ],
+      [
+        "BLANK",
+        "Don't know, refused or missing arthritis or not asked"
+      ]
+    ]
+  },
+  "_LMTWRK1": {
+    "description": "Limited work activities",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Told have arthritis and have limited work"
+      ],
+      [
+        "2",
+        "Told have arthritis and no limited work"
+      ],
+      [
+        "3",
+        "Not told they have arthritis"
+      ],
+      [
+        "9",
+        "Don't know, refused or missing work limited"
+      ],
+      [
+        "BLANK",
+        "Don't know, refused or missing arthritis or not asked"
+      ]
+    ]
+  },
+  "_LMTSCL1": {
+    "description": "Limited social activities",
+    "type": "categorical (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Told have arthritis and social activities limited a lot"
+      ],
+      [
+        "2",
+        "Told have arthritis and social activities limited a little"
+      ],
+      [
+        "3",
+        "Told have arthritis and social activities not limited"
+      ],
+      [
+        "4",
+        "Not told they have arthritis"
+      ],
+      [
+        "9",
+        "Don't know, refused or missing social activities limited"
+      ],
+      [
+        "BLANK",
+        "Don't know, refused or missing arthritis or not asked"
+      ]
+    ]
+  },
+  "_RFSEAT2": {
+    "description": "Always or Nearly Always Wear Seat Belts Calculated Variable",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always or Almost Always Wear Seat Belt"
+      ],
+      [
+        "2",
+        "Sometimes, Seldom, or Never Wear Seat Belt"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_RFSEAT3": {
+    "description": "Always Wear Seat Belts Calculated Variable",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Always Wear Seat Belt"
+      ],
+      [
+        "2",
+        "Don't Always Wear Seat Belt"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ]
+    ]
+  },
+  "_FLSHOT6": {
+    "description": "Adults aged 65+ who have had a flu shot within the past year",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ],
+      [
+        "BLANK",
+        "Age Less Than 65"
+      ]
+    ]
+  },
+  "_PNEUMO2": {
+    "description": "Adults aged 65+ who have ever had a pneumonia vaccination",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure Or Refused/Missing"
+      ],
+      [
+        "BLANK",
+        "Age Less Than"
+      ]
+    ]
+  },
+  "_AIDTST3": {
+    "description": "Adults who have ever been tested for HIV",
+    "type": "binary (coded)",
+    "units": "not applicable",
+    "codes": [
+      [
+        "1",
+        "Yes"
+      ],
+      [
+        "2",
+        "No"
+      ],
+      [
+        "9",
+        "Don't know/Not Sure/Refused"
+      ],
+      [
+        "BLANK",
+        "Not asked or missing"
+      ]
+    ]
+  }
+}
